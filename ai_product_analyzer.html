@@ -372,7 +372,10 @@
             return;
         }
 
+        // Disable all actionable buttons during upload
         document.getElementById('uploadBtn').disabled = true;
+        document.getElementById('chatBtn').disabled = true;
+        document.getElementById('reportBtn').disabled = true;
         
         // Only show the tiny loader if we ARE NOT in the full-screen demo mode
         if (!isDemo) {
@@ -408,7 +411,10 @@
             console.error(error);
             showResult({detail: "Critical UI/Network Error: " + error.message});
         } finally {
+            // Re-enable all actionable buttons
             document.getElementById('uploadBtn').disabled = false;
+            document.getElementById('chatBtn').disabled = false;
+            document.getElementById('reportBtn').disabled = false;
             document.getElementById('uploadStatus').style.display = 'none';
             
             // Clean up the full-screen demo loader when finished
