@@ -1,0 +1,58 @@
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+    background: #262626;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #404040;
+}
+
+/* Skill Tags */
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: #e5e5e5;
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 9999px;
+    transition: all 0.2s ease-in-out;
+    cursor: default;
+}
+.skill-tag:hover {
+    border-color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Case Study Cards */
+.case-card {
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+}
+.case-card:hover {
+    border-color: #404040;
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+    transform: translateY(-2px);
+}
+
+/* Scroll Reveal Animation Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

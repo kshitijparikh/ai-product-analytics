@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber: Master of Acquisition | Product Analyst Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        uberBlack: '#000000',
+                        uberWhite: '#FFFFFF',
+                        uberGray: '#F6F6F6',
+                        uberDarkGray: '#333333',
+                        uberText: '#1A1A1A',
+                        uberAccent: '#276EF1' /* Uber's subtle blue accent */
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['SFMono-Regular', 'Menlo', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .flywheel-arrow {
+            position: relative;
+        }
+        .flywheel-arrow::after {
+            content: '↓';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            color: #000;
+            font-weight: bold;
+        }
+        .flywheel-arrow:last-child::after {
+            content: '↺';
+            bottom: 50%;
+            right: -40px;
+            left: auto;
+            transform: translateY(50%);
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-uberBlack selection:text-white">
+
+    <nav class="sticky top-0 z-50 bg-uberBlack text-white border-b border-uberDarkGray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2 font-bold text-lg tracking-tight">
+                    <i class="ph-fill ph-briefcase"></i>
+                    <span>Kshitij <span class="font-normal text-gray-400">| Product Analyst</span></span>
+                </div>
+                <a href="pirate.html" class="text-sm font-medium hover:text-gray-300 transition-colors">
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+        <div class="bg-uberDarkGray w-full overflow-x-auto hide-scrollbar">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-8 py-3 text-sm font-bold uppercase tracking-wider text-gray-400">
+                <span class="text-xs text-gray-500 mr-4">Growth Funnel:</span>
+                <a href="#" class="text-white border-b-2 border-white pb-1 flex items-center gap-2">
+                    <i class="ph-fill ph-magnet"></i> Acquisition
+                </a>
+                <a href="blinkit-activation.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-lightning"></i> Activation
+                </a>
+                <a href="netflix-retention.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-lock-key"></i> Retention
+                </a>
+                
+                <a href="amazon-revenue.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-currency-dollar"></i> Revenue
+                </a>
+                <a href="spotify-referral.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-users"></i> Referral
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+        
+        <header class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-uberGray text-uberBlack px-3 py-1 text-xs font-bold uppercase tracking-widest mb-6 border border-gray-200">
+                    <i class="ph-fill ph-strategy text-uberAccent"></i> Product Insights 01
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-uberBlack mb-6 leading-tight">
+                    Uber <span class="block text-gray-400 font-light">— Master of Acquisition</span>
+                </h1>
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    How Uber transformed transportation by solving an existing problem while simultaneously building a self-reinforcing, psychologically addictive growth engine.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#psychology" class="bg-uberBlack text-white px-6 py-3 font-bold hover:bg-uberDarkGray transition-colors flex items-center gap-2">
+                        View Psychological Drivers <i class="ph-bold ph-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="relative h-[400px] bg-uberGray rounded-lg overflow-hidden border border-gray-200 shadow-xl">
+                <img src="assets/acquisition_3.jpg" alt="Uber Keynote" class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                    <p class="text-white font-medium text-sm">Executive Strategy & Growth Expansion</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="border-t border-gray-200 pt-16">
+            <h2 class="text-3xl font-black uppercase tracking-tight mb-12">The Core Problem: Before Uber</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-red-50 p-8 border border-red-100 rounded-sm">
+                    <h3 class="text-xl font-bold text-red-900 mb-6 flex items-center gap-2">
+                        <i class="ph-fill ph-warning-circle text-red-500"></i> The Traditional Taxi Market
+                    </h3>
+                    <ul class="space-y-4 text-red-800">
+                        <li class="flex gap-3"><i class="ph-bold ph-x mt-1 opacity-50"></i> <span><strong>Availability:</strong> Uncertain and heavily dependent on location/weather.</span></li>
+                        <li class="flex gap-3"><i class="ph-bold ph-x mt-1 opacity-50"></i> <span><strong>Waiting Times:</strong> Unpredictable, creating massive user anxiety.</span></li>
+                        <li class="flex gap-3"><i class="ph-bold ph-x mt-1 opacity-50"></i> <span><strong>Pricing:</strong> Lacked transparency; vulnerable to route manipulation.</span></li>
+                        <li class="flex gap-3"><i class="ph-bold ph-x mt-1 opacity-50"></i> <span><strong>Payment:</strong> Inconvenient, requiring exact cash or dealing with broken card machines.</span></li>
+                    </ul>
+                </div>
+                
+                <div class="bg-uberBlack text-white p-8 rounded-sm shadow-2xl relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 text-white/5 pointer-events-none">
+                        <i class="ph-fill ph-car-profile text-[15rem]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2 relative z-10">
+                        <i class="ph-fill ph-check-circle text-uberAccent"></i> The Uber Solution
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed mb-6 relative z-10">
+                        Uber solved all four problems in a single, seamless digital experience. Unlike traditional advertising-driven companies, Uber's acquisition strategy relied purely on:
+                    </p>
+                    <ul class="grid grid-cols-2 gap-4 text-sm font-bold relative z-10">
+                        <li class="bg-[#111] p-3 border border-[#333]">Marketplace Dynamics</li>
+                        <li class="bg-[#111] p-3 border border-[#333]">Frictionless Referrals</li>
+                        <li class="bg-[#111] p-3 border border-[#333]">Behavioral Incentives</li>
+                        <li class="bg-[#111] p-3 border border-[#333]">Aggressive Geo-Expansion</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="psychology" class="border-t border-gray-200 pt-16">
+            <h2 class="text-3xl font-black uppercase tracking-tight mb-4">The Psychological Principles</h2>
+            <p class="text-gray-600 mb-12 max-w-3xl">How Uber turned cognitive biases and human psychology into their most powerful user acquisition channels.</p>
+            
+            <div class="space-y-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <div class="bg-uberGray p-8 border-l-4 border-uberBlack">
+                            <h3 class="text-2xl font-black mb-3">1. Instant Gratification</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                People want transportation immediately. Uber fundamentally shortened the time between <strong>Need → Action → Reward</strong>. The visual of a car moving toward the user on a map releases dopamine, significantly increasing the conversion rate from app-open to ride-booked.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-uberGray p-8 border-l-4 border-uberAccent">
+                            <h3 class="text-2xl font-black mb-3">2. Risk Reduction</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                The traditional taxi model was full of unknowns. Uber engineered their UI to aggressively reduce decision anxiety. Before committing to a ride, users see:
+                            </p>
+                            <div class="grid grid-cols-2 gap-3 text-sm font-bold">
+                                <span class="flex items-center gap-2"><i class="ph-fill ph-user-circle text-gray-400"></i> Driver Name</span>
+                                <span class="flex items-center gap-2"><i class="ph-fill ph-star text-yellow-500"></i> Driver Rating</span>
+                                <span class="flex items-center gap-2"><i class="ph-fill ph-clock text-gray-400"></i> Live ETA</span>
+                                <span class="flex items-center gap-2"><i class="ph-fill ph-currency-dollar text-green-600"></i> Upfront Pricing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#F8F9FA] p-6 rounded-lg border border-gray-200 shadow-lg flex justify-center items-center">
+                        <img src="assets/acquisition_1.jpg" alt="Uber App Booking Flow" class="w-full h-auto max-h-[500px] object-contain drop-shadow-xl">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="bg-[#F8F9FA] p-6 rounded-lg border border-gray-200 shadow-lg flex justify-center items-center lg:order-1 order-2">
+                        <img src="assets/acquisition_2.jpg" alt="Uber Referral Flow" class="w-full h-auto max-h-[400px] object-contain drop-shadow-xl">
+                    </div>
+                    <div class="bg-uberGray p-8 border-l-4 border-[#03A046] lg:order-2 order-1">
+                        <h3 class="text-2xl font-black mb-3">3. Reciprocity (Viral Loops)</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Uber didn't just buy ads; they turned every user into a growth channel. By offering free ride credits for referrals, they tapped into the psychological principle of reciprocity.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Users feel they are offering a valuable gift (helping friends) while financially benefiting themselves. This dual-sided incentive created an incredibly low Customer Acquisition Cost (CAC) and viral, exponential network growth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-uberBlack text-white p-12 md:p-20 rounded-lg shadow-2xl text-center">
+            <h2 class="text-3xl font-black uppercase tracking-tight mb-4">The Acquisition Flywheel</h2>
+            <p class="text-gray-400 mb-16 max-w-2xl mx-auto">Why competitors struggle to catch up: They can copy features, but they cannot easily copy driver network, rider density, or city coverage. These are Network-Effect Moats.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 max-w-5xl mx-auto font-bold text-sm md:text-base">
+                
+                <div class="bg-[#111] border border-[#333] p-6 rounded-full w-48 h-48 flex items-center justify-center text-center flywheel-arrow md:after:content-['→'] md:after:right-[-30px] md:after:top-1/2 md:after:left-auto md:after:bottom-auto md:after:-translate-y-1/2 md:after:text-3xl md:after:text-white">
+                    <span class="text-uberAccent">More<br>Riders</span>
+                </div>
+                
+                <div class="bg-[#111] border border-[#333] p-6 rounded-full w-48 h-48 flex items-center justify-center text-center flywheel-arrow md:after:content-['→'] md:after:right-[-30px] md:after:top-1/2 md:after:left-auto md:after:bottom-auto md:after:-translate-y-1/2 md:after:text-3xl md:after:text-white">
+                    More Drivers<br>Join
+                </div>
+                
+                <div class="bg-[#111] border border-[#333] p-6 rounded-full w-48 h-48 flex items-center justify-center text-center flywheel-arrow md:after:content-['→'] md:after:right-[-30px] md:after:top-1/2 md:after:left-auto md:after:bottom-auto md:after:-translate-y-1/2 md:after:text-3xl md:after:text-white">
+                    Better Coverage<br>& Faster Pickups
+                </div>
+                
+                <div class="bg-[#111] border border-[#333] p-6 rounded-full w-48 h-48 flex items-center justify-center text-center">
+                    Better<br>Experience
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="border-t border-gray-200 pt-16">
+            <h2 class="text-3xl font-black uppercase tracking-tight mb-12">Product Analyst Dashboard</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white border border-gray-200 p-8 shadow-sm">
+                    <h3 class="text-lg font-bold mb-6 flex items-center gap-2"><i class="ph-fill ph-chart-bar"></i> Acquisition KPIs</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="border-b-2 border-uberBlack">
+                                    <th class="pb-3 font-bold uppercase text-gray-500">Metric</th>
+                                    <th class="pb-3 font-bold uppercase text-gray-500">Description</th>
+                                    <th class="pb-3 font-bold uppercase text-gray-500">Target Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 font-bold text-uberBlack">CAC (Cost of Acquisition)</td>
+                                    <td class="py-4 text-gray-600">Total marketing & referral spend / New users</td>
+                                    <td class="py-4 text-green-600 font-bold">Decrease ↓</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 font-bold text-uberBlack">Cost Per Install (CPI)</td>
+                                    <td class="py-4 text-gray-600">Cost to get app downloaded to a new device</td>
+                                    <td class="py-4 text-green-600 font-bold">Decrease ↓</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 font-bold text-uberBlack">Referral Conv. Rate</td>
+                                    <td class="py-4 text-gray-600">% of shared referral codes that result in a new rider</td>
+                                    <td class="py-4 text-blue-600 font-bold">Increase ↑</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 font-bold text-uberBlack">First Ride Conv.</td>
+                                    <td class="py-4 text-gray-600">App Opens → First successfully completed ride</td>
+                                    <td class="py-4 text-blue-600 font-bold">Increase ↑</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 font-bold text-uberBlack">Rider-to-Driver Ratio</td>
+                                    <td class="py-4 text-gray-600">Liquidity metric ensuring market balance</td>
+                                    <td class="py-4 text-purple-600 font-bold">Equilibrium ⇋</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1 bg-uberGray border border-gray-200 p-8 shadow-sm">
+    <h3 class="text-lg font-bold mb-6 flex items-center gap-2"><i class="ph-fill ph-lightbulb"></i> Analyst Takeaways</h3>
+    <div class="space-y-6">
+        <div>
+            <h4 class="font-bold text-uberBlack text-sm uppercase tracking-wide border-l-2 border-uberAccent pl-2 mb-2">Funnel Analysis</h4>
+            <p class="text-sm text-gray-600">Frictionless onboarding is critical. By delaying complex steps like payment setup and requiring minimal upfront cognitive load between App Install and First Ride Request, Uber effectively reduces top-of-funnel drop-offs.</p>
+        </div>
+        <div>
+            <h4 class="font-bold text-uberBlack text-sm uppercase tracking-wide border-l-2 border-uberAccent pl-2 mb-2">Geographic Cohorts</h4>
+            <p class="text-sm text-gray-600">Acquisition efficiency is hyper-localized. CAC drops significantly in high-density urban cohorts where network effects take hold faster, proving that city-by-city launches are more viable than broad national campaigns.</p>
+        </div>
+        <div>
+            <h4 class="font-bold text-uberBlack text-sm uppercase tracking-wide border-l-2 border-uberAccent pl-2 mb-2">Referral Performance</h4>
+            <p class="text-sm text-gray-600">Dual-sided referral incentives function as a self-sustaining viral loop. They consistently yield a lower CAC and generate users with a higher Lifetime Value (LTV) compared to traditional paid marketing channels.</p>
+        </div>
+        <div>
+            <h4 class="font-bold text-uberBlack text-sm uppercase tracking-wide border-l-2 border-uberAccent pl-2 mb-2">Supply-Demand Balance</h4>
+            <p class="text-sm text-gray-600">Rider acquisition is futile without driver liquidity. If rider demand outpaces driver supply, high ETAs immediately trigger early churn, meaning acquisition campaigns must be tightly synchronized across both sides of the market.</p>
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

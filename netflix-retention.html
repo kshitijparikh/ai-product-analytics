@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix: Master of Retention | Product Analyst Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        netflixRed: '#E50914',
+                        netflixDark: '#141414',
+                        netflixGray: '#222222',
+                        netflixLight: '#E5E5E5',
+                        uberBlack: '#000000',
+                        blinkitYellow: '#F8CB46',
+                        amazonOrange: '#FF9900',
+                        spotifyGreen: '#1DB954',
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['SFMono-Regular', 'Menlo', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #141414;
+            color: #E5E5E5;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .vignette-overlay {
+            background: radial-gradient(circle, transparent 50%, #141414 100%);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-netflixRed selection:text-white">
+
+    <nav class="sticky top-0 z-50 bg-[#0A0A0A] text-white border-b border-[#333] shadow-lg shadow-black/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2 font-bold text-lg tracking-tight">
+                    <i class="ph-fill ph-briefcase"></i>
+                    <span>Kshitij <span class="font-normal text-gray-400">| Product Analyst</span></span>
+                </div>
+                <a href="pirate.html" class="text-sm font-medium bg-[#222] text-white px-4 py-1.5 rounded hover:bg-[#333] transition-colors border border-[#444]">
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+        <div class="bg-[#111] w-full overflow-x-auto hide-scrollbar">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-8 py-3 text-sm font-bold uppercase tracking-wider text-gray-400">
+                <span class="text-xs text-gray-500 mr-4">Growth Funnel:</span>
+                <a href="uber-acquisition.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-magnet"></i> Acquisition
+                </a>
+                <a href="blinkit-activation.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-lightning"></i> Activation
+                </a>
+                <a href="#" class="text-white border-b-2 border-netflixRed pb-1 flex items-center gap-2">
+                    <i class="ph-fill ph-lock-key text-netflixRed"></i> Retention
+                </a>
+                <a href="amazon-revenue.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-currency-dollar"></i> Revenue
+                </a>
+                <a href="spotify-referral.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-users"></i> Referral
+                </a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+        
+        <header class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-[#222] text-white px-3 py-1 text-xs font-bold uppercase tracking-widest mb-6 border border-netflixRed/50 rounded-sm">
+                    <i class="ph-fill ph-strategy text-netflixRed"></i> Product Insights 03
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-white mb-6 leading-tight">
+                    Netflix <span class="block text-gray-500 font-light">— Master of Retention</span>
+                </h1>
+                <p class="text-xl text-gray-400 leading-relaxed mb-8">
+                    Netflix doesn't sell movies; Netflix sells attention. Discover how algorithmic personalization, psychological loops, and hyper-segmented UI engineering created the ultimate "Binge-Watching" retention moat.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#psychology" class="bg-netflixRed text-white px-6 py-3 font-bold rounded hover:bg-red-700 transition-colors flex items-center gap-2 shadow-[0_0_15px_rgba(229,9,20,0.4)]">
+                        Deconstruct the Algorithm <i class="ph-bold ph-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="relative h-[450px] rounded-lg overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.8)] border border-[#333]">
+                <img src="assets/retention_2.jpg" alt="Netflix UI Rows" class="w-full h-full object-cover">
+                <div class="absolute inset-0 vignette-overlay pointer-events-none"></div>
+            </div>
+        </header>
+
+        <section class="bg-[#111] border border-[#333] rounded-lg p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 text-netflixRed/10 pointer-events-none">
+                <i class="ph-fill ph-ticket text-[20rem]"></i>
+            </div>
+            <div class="relative z-10 max-w-3xl">
+                <h2 class="text-3xl font-black text-white mb-4 flex items-center gap-3">
+                    <i class="ph-fill ph-calendar-star text-netflixRed"></i> The "First Month Free" Bridge
+                </h2>
+                <p class="text-lg text-gray-400 leading-relaxed mb-6">
+                    Before Netflix became a household utility, they utilized a brilliant acquisition-to-retention bridge: <strong>The Free 30-Day Trial</strong>. 
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    By asking for a credit card upfront but charging nothing, they eliminated financial friction. The goal was simple: use those 30 days to collect enough viewing data to personalize the home screen so accurately that, by day 31, canceling felt like losing a curated part of your identity. It shifted the product challenge from Acquisition to pure Retention.
+                </p>
+            </div>
+        </section>
+
+        <section id="psychology" class="border-t border-[#333] pt-16">
+            <h2 class="text-3xl font-black uppercase tracking-tight mb-4 text-white">The Psychology of Bingeing</h2>
+            <p class="text-gray-500 mb-12 max-w-3xl">Netflix engineered its UX based on deep behavioral psychology. Every pixel is designed to keep users in the platform ecosystem.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-[#111] border border-[#333] rounded-lg overflow-hidden shadow-lg group">
+                    <div class="h-48 overflow-hidden relative bg-black">
+                        <img src="assets/retention_3.jpg" alt="Swipe and Autoplay UI" class="w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#111] to-transparent"></div>
+                        <i class="ph-fill ph-play-circle text-5xl text-white absolute bottom-4 left-4 drop-shadow-lg"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-black mb-3 text-white">Endowed Progress & Autoplay</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            The "Next episode starts in 5..." countdown removes the decision to keep watching. By automatically rolling users into the next episode, Netflix creates momentum. The psychological principle of <i>Endowed Progress</i> makes users feel that stopping halfway through a season is "losing" their invested time.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-[#111] border border-[#333] rounded-lg overflow-hidden shadow-lg group">
+                    <div class="h-48 overflow-hidden relative bg-black flex items-center justify-center">
+                        <i class="ph-fill ph-video-camera text-[6rem] text-netflixRed/30 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-black mb-3 text-white">90-Second Display Previews</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Decision paralysis is the enemy of retention. Netflix counters this with auto-playing trailers when hovering over a title. These highly optimized 90-second previews instantly demonstrate value, pulling the user into the narrative before they even have a chance to debate watching it.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-[#111] border border-[#333] rounded-lg overflow-hidden shadow-lg group md:col-span-2 flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-black flex items-center justify-center p-4 border-r border-[#333]">
+                        <img src="assets/retention_4.jpg" alt="Netflix Secret Codes" class="w-full max-h-64 object-contain">
+                    </div>
+                    <div class="p-8 md:w-2/3 flex flex-col justify-center">
+                        <h3 class="text-xl font-black mb-3 text-white">Personal Identity & Micro-Genres</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Netflix doesn't just recommend "Comedies." They recommend "Quirky Romantic Comedies with a Strong Female Lead." By hyper-segmenting content into thousands of micro-genres (often accessed via secret numerical codes), users subconsciously associate these niche rows with their own personal identity, making the platform feel intimately built for them.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center border-t border-[#333] pt-16">
+            
+            <div class="bg-black border border-[#333] rounded-lg overflow-hidden shadow-2xl p-4">
+                <img src="assets/retention_1.jpg" alt="Recommendation Algorithm" class="w-full h-auto rounded">
+            </div>
+
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-3xl font-black uppercase tracking-tight mb-4 text-white">The Algorithmic Moat</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Netflix’s competitive advantage is its data flywheel. Competitors can buy the same movies, but they cannot buy the exact viewing preferences of 200+ million global subscribers.
+                    </p>
+                    
+                    <div class="bg-[#111] border border-[#333] p-6 rounded-lg relative">
+                        <h4 class="text-sm font-bold text-netflixRed uppercase tracking-widest mb-4">The Retention Engine</h4>
+                        <div class="flex flex-col gap-2 font-mono text-sm text-gray-300">
+                            <div class="flex items-center gap-3"><span class="bg-[#222] text-white w-6 h-6 flex items-center justify-center rounded">1</span> Watch Content</div>
+                            <div class="ml-3 border-l border-[#444] pl-4 py-1 text-[#666]">↓</div>
+                            <div class="flex items-center gap-3"><span class="bg-[#222] text-white w-6 h-6 flex items-center justify-center rounded">2</span> Generate Granular Data</div>
+                            <div class="ml-3 border-l border-[#444] pl-4 py-1 text-[#666]">↓</div>
+                            <div class="flex items-center gap-3"><span class="bg-[#222] text-white w-6 h-6 flex items-center justify-center rounded">3</span> Improve ML Predictions</div>
+                            <div class="ml-3 border-l border-[#444] pl-4 py-1 text-[#666]">↓</div>
+                            <div class="flex items-center gap-3"><span class="bg-[#222] text-netflixRed border border-netflixRed w-6 h-6 flex items-center justify-center rounded">4</span> Recommend Hyper-Relevant Titles</div>
+                            <div class="ml-3 border-l border-[#444] pl-4 py-1 text-[#666]">↓</div>
+                            <div class="flex items-center gap-3"><span class="bg-netflixRed text-white w-6 h-6 flex items-center justify-center rounded">5</span> Watch Again (Habit Formed)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-t border-[#333] pt-16">
+            <h2 class="text-3xl font-black uppercase tracking-tight mb-12 text-white">Product Analyst Dashboard</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-[#111] border border-[#333] p-8 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-bold mb-6 flex items-center gap-2 text-white"><i class="ph-fill ph-chart-polar text-netflixRed"></i> Core Retention KPIs</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="border-b border-[#444]">
+                                    <th class="pb-3 font-bold uppercase text-gray-500">Metric</th>
+                                    <th class="pb-3 font-bold uppercase text-gray-500">Definition</th>
+                                    <th class="pb-3 font-bold uppercase text-gray-500">Target</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-300">
+                                <tr class="border-b border-[#222] hover:bg-[#1A1A1A] transition-colors">
+                                    <td class="py-4 font-bold text-white">DAU / MAU Ratio</td>
+                                    <td class="py-4 text-gray-400">Daily Active Users divided by Monthly Active Users (measures habituation).</td>
+                                    <td class="py-4 text-blue-500 font-bold flex items-center gap-1"><i class="ph-bold ph-trend-up"></i> Maximize</td>
+                                </tr>
+                                <tr class="border-b border-[#222] hover:bg-[#1A1A1A] transition-colors">
+                                    <td class="py-4 font-bold text-white">Total Watch Hours</td>
+                                    <td class="py-4 text-gray-400">Total volume of content consumed per user per billing cycle.</td>
+                                    <td class="py-4 text-blue-500 font-bold flex items-center gap-1"><i class="ph-bold ph-trend-up"></i> Maximize</td>
+                                </tr>
+                                <tr class="border-b border-[#222] hover:bg-[#1A1A1A] transition-colors">
+                                    <td class="py-4 font-bold text-white">Content Completion Rate</td>
+                                    <td class="py-4 text-gray-400">Percentage of initiated shows/movies that are watched to 90%+ completion.</td>
+                                    <td class="py-4 text-blue-500 font-bold flex items-center gap-1"><i class="ph-bold ph-trend-up"></i> Maximize</td>
+                                </tr>
+                                <tr class="hover:bg-[#1A1A1A] transition-colors">
+                                    <td class="py-4 font-bold text-white">Voluntary Churn Rate</td>
+                                    <td class="py-4 text-gray-400">Percentage of users actively canceling their subscriptions monthly.</td>
+                                    <td class="py-4 text-green-500 font-bold flex items-center gap-1"><i class="ph-bold ph-trend-down"></i> Minimize</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1 bg-[#141414] border border-[#444] p-8 rounded-lg shadow-lg relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-1 bg-netflixRed"></div>
+    <h3 class="text-lg font-bold mb-6 flex items-center gap-2 text-white"><i class="ph-fill ph-lightbulb text-netflixRed"></i> Analyst Insights</h3>
+    <div class="space-y-6">
+        <div>
+            <h4 class="font-bold text-white text-sm uppercase tracking-wide mb-1">Churn Prediction</h4>
+            <p class="text-sm text-gray-400 leading-relaxed">Declining session frequency is the strongest leading indicator of churn. Netflix proactively combats this by tracking deviations from historical viewing baselines, using those drops to trigger highly personalized re-engagement emails before a user decides to cancel.</p>
+        </div>
+        <div>
+            <h4 class="font-bold text-white text-sm uppercase tracking-wide mb-1">Recommendation Effectiveness</h4>
+            <p class="text-sm text-gray-400 leading-relaxed">The ultimate proof of Netflix's retention moat is their search-to-recommendation ratio. The vast majority of total watch hours originate directly from algorithmic rows (like "Top Picks") rather than manual search, indicating immense product trust and zero decision fatigue.</p>
+        </div>
+        <div>
+            <h4 class="font-bold text-white text-sm uppercase tracking-wide mb-1">Engagement Depth</h4>
+            <p class="text-sm text-gray-400 leading-relaxed">Retention isn't just driven by daily logins; it relies heavily on session length. By deploying auto-playing 90-second trailers, Netflix effectively converts passive "browsers" into active "watchers," drastically lowering the 'Time to First Play' metric and extending total watch hours.</p>
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-[#333] py-8 text-center text-gray-600 text-sm mt-12 bg-black">
+        <p>Designed and analyzed by Kshitij. Built to demonstrate full-funnel product thinking.</p>
+    </footer>
+
+</body>
+</html>

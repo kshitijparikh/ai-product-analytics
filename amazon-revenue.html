@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon: Master of Revenue | Product Analyst Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amazonOrange: '#FF9900',
+                        amazonBlue: '#131921',
+                        amazonLightDark: '#232F3E',
+                        amazonLight: '#F3F3F3',
+                        uberBlack: '#000000',
+                        netflixRed: '#E50914',
+                        blinkitYellow: '#F8CB46',
+                        spotifyGreen: '#1DB954',
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['SFMono-Regular', 'Menlo', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #131921;
+            color: #FFFFFF;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amazonOrange selection:text-black">
+
+    <nav class="sticky top-0 z-50 bg-[#0B0F17] text-white border-b border-[#2A3644] shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2 font-bold text-lg tracking-tight">
+                    <i class="ph-fill ph-briefcase"></i>
+                    <span>Kshitij <span class="font-normal text-gray-400">| Product Analyst</span></span>
+                </div>
+                <a href="pirate.html" class="text-sm font-medium bg-[#232F3E] text-white px-4 py-1.5 rounded hover:bg-[#2E3F52] transition-colors border border-[#3A4B5C]">
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+        <div class="bg-[#19222D] w-full overflow-x-auto hide-scrollbar">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-8 py-3 text-sm font-bold uppercase tracking-wider text-gray-400">
+                <span class="text-xs text-gray-500 mr-4">Growth Funnel:</span>
+                <a href="uber-acquisition.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-magnet"></i> Acquisition
+                </a>
+                <a href="blinkit-activation.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-lightning"></i> Activation
+                </a>
+                <a href="netflix-retention.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-lock-key"></i> Retention
+                </a>
+                
+                <a href="#" class="text-white border-b-2 border-amazonOrange pb-1 flex items-center gap-2">
+                    <i class="ph-fill ph-currency-dollar text-amazonOrange"></i> Revenue
+                </a>
+                <a href="spotify-referral.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-users"></i> Referral
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+        
+        <header class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-amazonLightDark text-amazonOrange px-3 py-1 text-xs font-bold uppercase tracking-widest mb-6 border border-amazonOrange/30 rounded">
+                    <i class="ph-fill ph-strategy"></i> Product Insights 04
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-white mb-6 leading-tight">
+                    Amazon <span class="block text-gray-400 font-light">— Master of Revenue</span>
+                </h1>
+                <p class="text-xl text-gray-400 leading-relaxed mb-8">
+                    An analytical deep dive into how Amazon monetizes every user interaction. Through choice architecture, multi-tiered optimization funnels, and algorithmic cross-selling, Amazon maximizes Average Order Value (AOV) and long-term user equity.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#monetization" class="bg-amazonOrange text-black px-6 py-3 font-bold rounded hover:bg-amber-500 transition-colors flex items-center gap-2 shadow-lg shadow-amazonOrange/20">
+                        Analyze Revenue Mechanics <i class="ph-bold ph-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="relative h-[450px] rounded-xl overflow-hidden shadow-2xl border border-[#232F3E]">
+                <img src="assets/revenue_1.jpg" alt="Amazon Checkout Optimization" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-amazonBlue via-transparent to-transparent"></div>
+            </div>
+        </header>
+
+        <section id="monetization" class="border-t border-[#232F3E] pt-16">
+            <h2 class="text-3xl font-black uppercase tracking-tight mb-4 text-white">The Monetization Engine: Bundling, Upselling & Cross-Selling</h2>
+            <p class="text-gray-400 mb-12 max-w-3xl">Amazon maximizes checkout values by dynamically layering specific algorithmic recommendations across different stages of the purchase intent cycle.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-amazonLightDark border border-[#3A4B5C] rounded-xl p-8 shadow-md relative overflow-hidden group">
+                    <div class="text-amazonOrange mb-6"><i class="ph-fill ph-package text-4xl"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Dynamic Bundling</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        The <strong>"Frequently Bought Together"</strong> feature utilizes associative mining algorithms to create single-click purchase bundles. By offering a unified checkbox for complementary products (e.g., a camera, a memory card, and a case), Amazon minimizes selection friction and increases systemic basket sizes.
+                    </p>
+                </div>
+
+                <div class="bg-amazonLightDark border border-[#3A4B5C] rounded-xl p-8 shadow-md relative overflow-hidden group">
+                    <div class="text-amazonOrange mb-6"><i class="ph-fill ph-arrows-merge text-4xl"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Algorithmic Cross-Selling</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Through <strong>"Products related to this item"</strong> matrices, Amazon routes traffic to long-tail marketplace inventory. These contextual recommendation widgets display substitutes and high-affinity alternatives right on the product description pages, preventing drop-offs and ensuring sustained session values.
+                    </p>
+                </div>
+
+                <div class="bg-amazonLightDark border border-[#3A4B5C] rounded-xl p-8 shadow-md relative overflow-hidden group">
+                    <div class="text-amazonOrange mb-6"><i class="ph-fill ph-trend-up text-4xl"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Contextual Upselling</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Amazon upsells seamlessly by highlighting newer product variants, performance upgrades, or by offering protection plans directly before cart finalization. This positions add-on micro-transactions as high-value safety mechanisms, capturing high margins at checkout.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center border-t border-[#232F3E] pt-16">
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-3xl font-black uppercase tracking-tight mb-4">Psychological Architecture of Purchase Funnels</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Amazon’s user interface relies on established behavioral economics to lower cognitive barriers to checkout and increase immediate purchase certainty.
+                    </p>
+                    
+                    <div class="space-y-4 font-sans text-sm">
+                        <div class="p-4 bg-amazonLightDark/50 border-l-4 border-amazonOrange rounded-r">
+                            <strong class="text-white block mb-1">Price Anchoring</strong>
+                            <span class="text-gray-300">Displaying the manufacturer's suggested retail price (MSRP) alongside a strike-through sale price establishes an immediate value baseline, triggering a high sense of bargain urgency.</span>
+                        </div>
+                        <div class="p-4 bg-amazonLightDark/50 border-l-4 border-amazonOrange rounded-r">
+                            <strong class="text-white block mb-1">Trust Signals (Prime & Social Proof)</strong>
+                            <span class="text-gray-300">The explicit placement of aggregate ratings, real-time verified reviews, and the distinct blue "Prime Badge" completely removes delivery and quality anxiety from the customer path.</span>
+                        </div>
+                        <div class="p-4 bg-amazonLightDark/50 border-l-4 border-amazonOrange rounded-r">
+                            <strong class="text-white block mb-1">Social Referral Triggers</strong>
+                            <span class="text-gray-300">Amazon embeds powerful loop invitations inside private buying behavior. By making wishlists, baby registries, and shopping carts easily shareable with friends and family, they transform solo shopping into social, peer-referred gifting funnels.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-black border border-[#232F3E] rounded-xl p-4 shadow-2xl">
+                <img src="assets/revenue_2.jpg" alt="Amazon Monetization Grid" class="w-full h-auto rounded">
+            </div>
+        </section>
+
+        <section class="border-t border-[#232F3E] pt-16 text-center max-w-4xl mx-auto">
+            <h2 class="text-3xl font-black uppercase tracking-tight mb-6">The Self-Sustaining Revenue Flywheel</h2>
+            <p class="text-gray-400 leading-relaxed mb-12">
+                Monetization efficiency allows Amazon to continuously scale their catalog selection, driving a structural competitive advantage that single-category platforms cannot replicate.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4 font-mono text-xs font-bold text-gray-300">
+                <div class="p-4 bg-amazonLightDark border border-[#3A4B5C] rounded-lg flex flex-col justify-center items-center"><span class="text-amazonOrange mb-2 text-lg">01</span> Traffic Growth</div>
+                <div class="flex items-center justify-center text-amazonOrange text-lg">→</div>
+                <div class="p-4 bg-amazonLightDark border border-[#3A4B5C] rounded-lg flex flex-col justify-center items-center"><span class="text-amazonOrange mb-2 text-lg">02</span> Purchase Velocity</div>
+                <div class="flex items-center justify-center text-amazonOrange text-lg">→</div>
+                <div class="p-4 bg-amazonLightDark border border-[#3A4B5C] rounded-lg flex flex-col justify-center items-center"><span class="text-amazonOrange mb-2 text-lg">03</span> More Sellers</div>
+                <div class="flex items-center justify-center text-amazonOrange text-lg">→</div>
+                <div class="p-4 bg-amazonLightDark border border-[#3A4B5C] rounded-lg flex flex-col justify-center items-center"><span class="text-amazonOrange mb-2 text-lg">04</span> Greater Selection</div>
+                <div class="flex items-center justify-center text-amazonOrange text-lg">→</div>
+                <div class="p-4 bg-amazonLightDark border border-[#3A4B5C] rounded-lg flex flex-col justify-center items-center"><span class="text-amazonOrange mb-2 text-lg">05</span> Enhanced UX</div>
+                <div class="flex items-center justify-center text-amazonOrange text-lg">→</div>
+                <div class="p-4 bg-amazonOrange text-black rounded-lg flex flex-col justify-center items-center"><span class="font-black mb-2 text-lg">06</span> Scale Moat</div>
+            </div>
+        </section>
+
+        <section class="border-t border-[#232F3E] pt-16">
+            <h2 class="text-3xl font-black uppercase tracking-tight mb-12 text-white">Product Analyst Dashboard</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-amazonLightDark border border-[#3A4B5C] p-8 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-bold mb-6 flex items-center gap-2 text-white"><i class="ph-fill ph-chart-bar text-amazonOrange"></i> Core Revenue KPIs</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="border-b border-[#3A4B5C] text-gray-400 font-bold">
+                                    <th class="pb-3 uppercase">Metric</th>
+                                    <th class="pb-3 uppercase">Analytical Definition</th>
+                                    <th class="pb-3 uppercase">Strategic Target</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-300">
+                                <tr class="border-b border-[#19222D] hover:bg-[#2E3F52] transition-colors">
+                                    <td class="py-4 font-bold text-white">ARPU / ARPM</td>
+                                    <td class="py-4 text-gray-400">Average Revenue Per User / Monthly Active Purchasing Member.</td>
+                                    <td class="py-4 text-amazonOrange font-bold flex items-center gap-1"><i class="ph-bold ph-trend-up"></i> Maximize</td>
+                                </tr>
+                                <tr class="border-b border-[#19222D] hover:bg-[#2E3F52] transition-colors">
+                                    <td class="py-4 font-bold text-white">Average Basket Size (AOV)</td>
+                                    <td class="py-4 text-gray-400">The metric showing the average dollar amount spent per transaction checkout.</td>
+                                    <td class="py-4 text-amazonOrange font-bold flex items-center gap-1"><i class="ph-bold ph-trend-up"></i> Maximize</td>
+                                </tr>
+                                <tr class="border-b border-[#19222D] hover:bg-[#2E3F52] transition-colors">
+                                    <td class="py-4 font-bold text-white">Prime Conversion Rate</td>
+                                    <td class="py-4 text-gray-400">Percentage of casual retail purchasers converting into annual Prime subscription members.</td>
+                                    <td class="py-4 text-amazonOrange font-bold flex items-center gap-1"><i class="ph-bold ph-trend-up"></i> Maximize</td>
+                                </tr>
+                                <tr class="hover:bg-[#2E3F52] transition-colors">
+                                    <td class="py-4 font-bold text-white">Cart Abandonment Rate</td>
+                                    <td class="py-4 text-gray-400">Percentage of generated user carts abandoned prior to payment authorization.</td>
+                                    <td class="py-4 text-green-500 font-bold flex items-center gap-1"><i class="ph-bold ph-trend-down"></i> Minimize</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1 bg-amazonBlue border border-[#3A4B5C] p-8 rounded-xl shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-amazonOrange"></div>
+                    <h3 class="text-lg font-bold mb-6 flex items-center gap-2 text-white"><i class="ph-fill ph-lightbulb text-amazonOrange"></i> Analyst Insights</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-white text-sm uppercase tracking-wide mb-1">Conversion Optimization</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Amazon's "1-Click Ordering" patent successfully reduced purchase friction by bypassing the shopping cart entirely. By eliminating steps in the conversion funnel, Amazon minimizes the user's deliberation window, capturing intent before cart abandonment can occur.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm uppercase tracking-wide mb-1">Cross-Selling Synergy</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Cross-selling models are directly linked to item affinity metrics rather than popularity. Recommending accessory dependencies right on the core page drives higher checkout values without requiring a separate marketing touchpoint.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm uppercase tracking-wide mb-1">Pricing Experiments</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Dynamic pricing models rely on competitive indexing, real-time inventory depth, and velocity tracking. Price updates are deployed continuously to maximize absolute margins while reinforcing Amazon's market position as a low-cost leader.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+            <div class="rounded-lg overflow-hidden border border-[#232F3E] shadow-md">
+                <img src="assets/revenue_1.jpg" alt="Analysis Board 1" class="w-full h-auto object-cover">
+            </div>
+            <div class="rounded-lg overflow-hidden border border-[#232F3E] shadow-md">
+                <img src="assets/revenue_2.jpg" alt="Analysis Board 2" class="w-full h-auto object-cover">
+            </div>
+            <div class="rounded-lg overflow-hidden border border-[#232F3E] shadow-md">
+                <img src="assets/revenue_3.jpg" alt="Analysis Board 3" class="w-full h-auto object-cover">
+            </div>
+            <div class="rounded-lg overflow-hidden border border-[#232F3E] shadow-md">
+                <img src="assets/revenue_4.jpg" alt="Analysis Board 4" class="w-full h-auto object-cover">
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-[#232F3E] py-8 text-center text-gray-500 text-sm mt-12 bg-black">
+        <p>Designed and analyzed by Kshitij. Built to demonstrate monetization modeling and funnel analytics.</p>
+    </footer>
+
+</body>
+</html>

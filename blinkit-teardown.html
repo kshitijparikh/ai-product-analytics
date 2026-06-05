@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinkit Product Teardown</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blinkitYellow: '#F8CB46',
+                        blinkitGreen: '#0C831F',
+                        blinkitDark: '#1C1C1C',
+                        blinkitGray: '#F3F4F6',
+                        blinkitLightGray: '#6B7280'
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9FAFB; /* gray-50 */
+            color: #111827; /* gray-900 */
+        }
+        /* Custom scrollbar for horizontal tabs */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blinkitYellow selection:text-black">
+
+    <!-- HORIZONTAL SELECTION TAB -->
+    <nav class="sticky top-0 z-50 bg-white bg-opacity-95 border-b border-gray-200 backdrop-blur-sm shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                
+                <!-- Teardown Navigation -->
+                <div class="flex overflow-x-auto hide-scrollbar space-x-8">
+                    <!-- Inactive Tabs -->
+                    <a href="netflix-teardown.html" class="text-gray-500 hover:text-black transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Netflix
+                    </a>
+                    <!-- Active Tab -->
+                    <a href="#" class="text-blinkitGreen border-b-[3px] border-blinkitYellow font-bold whitespace-nowrap px-1 pb-1 flex items-center gap-2">
+                        <i class="ph-fill ph-shopping-bag text-xl text-blinkitYellow"></i> Blinkit
+                    </a>
+                    <!-- Inactive Tabs -->
+                    <a href="amazon.html" class="text-gray-500 hover:text-black transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Amazon
+                    </a>
+                    <a href="spotify.html" class="text-gray-500 hover:text-black transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Spotify
+                    </a>
+                    <a href="uber.html" class="text-gray-500 hover:text-black transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Uber
+                    </a>
+                    <a href="crunchyroll.html" class="text-gray-500 hover:text-black transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Crunchyroll
+                    </a>
+                </div>
+
+                <!-- Back to Homepage Button -->
+                <a href="index.html" class="hidden sm:flex items-center gap-2 text-sm font-bold bg-gray-100 hover:bg-gray-200 text-gray-800 px-5 py-2 rounded-lg transition-colors ml-4 whitespace-nowrap">
+                    <i class="ph-bold ph-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Mobile Back Button -->
+        <a href="index.html" class="sm:hidden flex items-center gap-2 text-sm font-bold text-gray-600 hover:text-black mb-6">
+            <i class="ph-bold ph-arrow-left"></i> Back to Home
+        </a>
+
+        <!-- HERO SECTION -->
+        <header class="mb-12 bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+            <!-- Decorative background element -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blinkitYellow opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="flex-1 relative z-10">
+                <div class="inline-flex items-center gap-2 bg-yellow-50 text-yellow-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-yellow-200">
+                    <i class="ph-fill ph-lightning text-blinkitYellow text-sm"></i> 10 Min Delivery
+                </div>
+                <h1 class="text-5xl md:text-6xl font-black tracking-tight text-gray-900 mb-2">Blinkit Product Teardown</h1>
+                <p class="text-2xl font-bold tracking-tight text-blinkitGreen bg-green-50 inline-block px-4 py-1 rounded-lg mt-2">-Bookmarked Recipes</p>
+            </div>
+            <div class="w-48 h-48 rounded-2xl overflow-hidden shrink-0 border-4 border-white shadow-lg relative z-10 bg-gray-50">
+                <img src="assets/blinkit.png" alt="Blinkit Rider" class="w-full h-full object-cover">
+            </div>
+        </header>
+
+        <!-- PRODUCT OVERVIEW GRID -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <h2 class="text-2xl font-black mb-6 text-gray-900 flex items-center gap-2">
+                    <i class="ph-fill ph-info text-blinkitYellow text-3xl"></i> Overview
+                </h2>
+                <ul class="space-y-4 text-gray-600 list-none">
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-check text-blinkitGreen mt-1"></i> <span><strong class="text-gray-900">Founded:</strong> 2013 (as Grofers)</span></li>
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-check text-blinkitGreen mt-1"></i> <span><strong class="text-gray-900">Acquired by:</strong> Zomato (now Eternal) in 2022 for $568M</span></li>
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-check text-blinkitGreen mt-1"></i> <span><strong class="text-gray-900">Category:</strong> Quick-Commerce (10-20 minute delivery)</span></li>
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-check text-blinkitGreen mt-1"></i> <span><strong class="text-gray-900">Core Offering:</strong> Groceries, baby care, daily essentials, personal care, electronics</span></li>
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-check text-blinkitGreen mt-1"></i> <span><strong class="text-gray-900">Delivery Model:</strong> Operates via dark stores (~2,000-3,000 sq. ft. micro-warehouses)</span></li>
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-check text-blinkitGreen mt-1"></i> <span><strong class="text-gray-900">Mission:</strong> "To make instant commerce indistinguishable from magic."</span></li>
+                </ul>
+
+                <h2 class="text-2xl font-black mb-6 mt-10 text-gray-900 flex items-center gap-2">
+                    <i class="ph-fill ph-trend-up text-blinkitYellow text-3xl"></i> Key Performance Metrics (July 2025)
+                </h2>
+                <ul class="space-y-4 text-gray-600 list-none">
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-caret-right text-blinkitYellow mt-1"></i> <span><strong class="text-gray-900">Daily Active Users:</strong> 6.2 million</span></li>
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-caret-right text-blinkitYellow mt-1"></i> <span><strong class="text-gray-900">Daily Orders:</strong> Over 1 million</span></li>
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-caret-right text-blinkitYellow mt-1"></i> <span><strong class="text-gray-900">GOV:</strong> ₹4,923 Cr (Q1 FY26) → 140% YoY growth</span></li>
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-caret-right text-blinkitYellow mt-1"></i> <span><strong class="text-gray-900">Dark Stores:</strong> 1,000+ live → Target: 2,000 by Dec 2025</span></li>
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-caret-right text-blinkitYellow mt-1"></i> <span><strong class="text-gray-900">AOV:</strong> ₹700+</span></li>
+                    <li class="flex items-start gap-3"><i class="ph-bold ph-caret-right text-blinkitYellow mt-1"></i> <span><strong class="text-gray-900">Market Share:</strong> 46% (ahead of Zepto & Instamart)</span></li>
+                </ul>
+            </div>
+            
+            <div class="flex flex-col gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex-1">
+                    <h2 class="text-2xl font-black mb-4 text-gray-900 flex items-center gap-2">
+                        <i class="ph-fill ph-storefront text-blinkitYellow text-3xl"></i> Business Model
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Blinkit operates on a dark store-based hyperlocal model, where micro-warehouses are strategically placed across urban areas to enable delivery in under 20 minutes.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Each order is fulfilled from the nearest dark store, powered by AI-led demand forecasting, real-time inventory sync, and dynamic rider allocation. Unlike traditional e-commerce, it is optimized for high-repeat, low-ticket items with small baskets and high frequency.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex-1">
+                    <h2 class="text-2xl font-black mb-6 text-gray-900 flex items-center gap-2">
+                        <i class="ph-fill ph-coins text-blinkitGreen text-3xl"></i> Revenue Streams
+                    </h2>
+                    <ul class="space-y-3 text-gray-600 list-none">
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-dot-outline text-blinkitYellow"></i> <span><strong class="text-gray-900">Product Sales:</strong> Groceries, electronics, etc.</span></li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-dot-outline text-blinkitYellow"></i> <span><strong class="text-gray-900">Delivery Charges:</strong> Per order or via Blinkit Prime</span></li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-dot-outline text-blinkitYellow"></i> <span><strong class="text-gray-900">Private Label:</strong> Higher margin branded items</span></li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-dot-outline text-blinkitYellow"></i> <span><strong class="text-gray-900">Sponsored Listings:</strong> FMCG brand promotion</span></li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-dot-outline text-blinkitYellow"></i> <span><strong class="text-gray-900">Merchant Commissions:</strong> On SKUs sold</span></li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-dot-outline text-blinkitYellow"></i> <span><strong class="text-gray-900">In-App Advertising:</strong> Performance-based campaigns</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARKET LANDSCAPE & CHALLENGES -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-black mb-8 text-center text-gray-900">Market Landscape & Challenges</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
+                <div class="absolute -bottom-10 -left-10 text-blinkitYellow opacity-5 pointer-events-none">
+                    <i class="ph-fill ph-chart-line-down text-[20rem]"></i>
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-xl font-black mb-4 text-gray-900 bg-red-50 text-red-700 inline-block px-3 py-1 rounded">Business Challenges</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4 font-medium">
+                        Rapid growth has pushed GOV to new highs - but unit economics are tightening.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 list-disc list-inside mb-8">
+                        <li>AOV plateauing around ₹700, limiting margin expansion</li>
+                        <li>Delivery costs rising, especially for small-ticket orders</li>
+                        <li>Repeat rates lower among transactional, need-based users</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-black mb-4 text-gray-900 bg-blue-50 text-blue-700 inline-block px-3 py-1 rounded">The Shift in User Behavior</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Users opening Blinkit aren't always following a pre-planned shopping list - many are seeking meal inspiration in the moment. Search drop-offs occur for generic queries like "paneer", and decision fatigue sets in with hundreds of SKUs.
+                    </p>
+                </div>
+                <div class="flex justify-center relative z-10">
+                    <img src="assets/blinkit_marketshare.jpg" alt="Market Share" class="rounded-xl shadow-md border border-gray-200">
+                </div>
+            </div>
+        </section>
+
+        <!-- USER PERSONAS -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-black mb-8 text-center text-gray-900">User Personas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Persona 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-md relative overflow-hidden group hover:border-blinkitYellow transition-colors">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-blinkitYellow"></div>
+                    <h3 class="text-3xl font-black text-gray-900 mb-1">Riya</h3>
+                    <p class="text-sm text-blinkitGreen font-bold mb-4 bg-green-50 inline-block px-2 py-1 rounded">The Decision-Fatigued Urban Professional</p>
+                    <p class="text-sm text-gray-500 mb-8 font-medium">Age 27 | Gurgaon | Consultant at a Big 4 | Lives alone</p>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-red-50/50 p-4 rounded-xl border border-red-100">
+                            <h4 class="font-bold text-red-800 mb-3 flex items-center gap-2"><i class="ph-fill ph-warning-circle text-lg"></i> Pain Points</h4>
+                            <ul class="text-sm text-gray-700 list-none space-y-2">
+                                <li class="flex gap-2"><i class="ph-bold ph-x text-red-400 mt-0.5 shrink-0"></i> Doesn't know what to cook - opens app with no plan</li>
+                                <li class="flex gap-2"><i class="ph-bold ph-x text-red-400 mt-0.5 shrink-0"></i> Gets overwhelmed by too many product choices</li>
+                                <li class="flex gap-2"><i class="ph-bold ph-x text-red-400 mt-0.5 shrink-0"></i> Forgets the recipes she liked last week</li>
+                                <li class="flex gap-2"><i class="ph-bold ph-x text-red-400 mt-0.5 shrink-0"></i> Buys ingredients but forgets essentials</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50/50 p-4 rounded-xl border border-green-100">
+                            <h4 class="font-bold text-blinkitGreen mb-3 flex items-center gap-2"><i class="ph-fill ph-check-circle text-lg"></i> What She Needs</h4>
+                            <ul class="text-sm text-gray-700 list-none space-y-2">
+                                <li class="flex gap-2"><i class="ph-bold ph-check text-blinkitGreen mt-0.5 shrink-0"></i> A recipe feed based on saved preferences</li>
+                                <li class="flex gap-2"><i class="ph-bold ph-check text-blinkitGreen mt-0.5 shrink-0"></i> One-tap "Add All to Cart" for ingredients</li>
+                                <li class="flex gap-2"><i class="ph-bold ph-check text-blinkitGreen mt-0.5 shrink-0"></i> Saved recipes she can revisit on weeknights</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Persona 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-md relative overflow-hidden group hover:border-blinkitYellow transition-colors">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-blinkitGreen"></div>
+                    <h3 class="text-3xl font-black text-gray-900 mb-1">Swati</h3>
+                    <p class="text-sm text-blinkitGreen font-bold mb-4 bg-green-50 inline-block px-2 py-1 rounded">The Habit-Driven Household Planner</p>
+                    <p class="text-sm text-gray-500 mb-8 font-medium">Age 34 | Bangalore | School Teacher | Lives with family</p>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-red-50/50 p-4 rounded-xl border border-red-100">
+                            <h4 class="font-bold text-red-800 mb-3 flex items-center gap-2"><i class="ph-fill ph-warning-circle text-lg"></i> Pain Points</h4>
+                            <ul class="text-sm text-gray-700 list-none space-y-2">
+                                <li class="flex gap-2"><i class="ph-bold ph-x text-red-400 mt-0.5 shrink-0"></i> Repeats the same 6-7 meals every week</li>
+                                <li class="flex gap-2"><i class="ph-bold ph-x text-red-400 mt-0.5 shrink-0"></i> Relies on memory/WhatsApp - forgets ingredients</li>
+                                <li class="flex gap-2"><i class="ph-bold ph-x text-red-400 mt-0.5 shrink-0"></i> Gets frustrated switching between sites and Blinkit</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50/50 p-4 rounded-xl border border-green-100">
+                            <h4 class="font-bold text-blinkitGreen mb-3 flex items-center gap-2"><i class="ph-fill ph-check-circle text-lg"></i> What She Needs</h4>
+                            <ul class="text-sm text-gray-700 list-none space-y-2">
+                                <li class="flex gap-2"><i class="ph-bold ph-check text-blinkitGreen mt-0.5 shrink-0"></i> A way to save go-to family meals in one place</li>
+                                <li class="flex gap-2"><i class="ph-bold ph-check text-blinkitGreen mt-0.5 shrink-0"></i> Recipes bundled with auto-added ingredients</li>
+                                <li class="flex gap-2"><i class="ph-bold ph-check text-blinkitGreen mt-0.5 shrink-0"></i> Easy filters (e.g., vegetarian, kid-friendly)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- UX RECOMMENDATIONS (BOOKMARKED RECIPES) -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-black mb-4 text-center text-gray-900">Feature Teardown: Bookmarked Recipes</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12 text-lg">
+                Favourite Recipes is a feature designed to turn user inspiration into high-value transactions - by helping users discover, save, and shop full meal recipes in one tap.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <span class="bg-blinkitYellow text-black w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span> 
+                        "Daily Bites" on Homepage
+                    </h3>
+                    <span class="inline-block bg-blue-50 text-blue-700 text-xs font-bold px-2 py-1 rounded mb-4 self-start">UX Recommendation</span>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-8 flex-grow">
+                        Surfaces 3-4 recently saved or frequently used recipes right on the homepage. Each card features a thumbnail, dish name, and a small cart icon that adds all ingredients in one tap. Helps users repeat meals they enjoyed without navigating deep into menus.
+                    </p>
+                    <div class="bg-gray-50 rounded-xl p-4 flex justify-center">
+                        <img src="assets/blinkit_recommmendation1.jpg" alt="Daily Bites" class="w-48 md:w-56 block rounded-xl border border-gray-200 shadow-md object-contain">
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <span class="bg-blinkitYellow text-black w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span> 
+                        "Flavor Lab" Recipe Hub
+                    </h3>
+                    <span class="inline-block bg-blue-50 text-blue-700 text-xs font-bold px-2 py-1 rounded mb-4 self-start">UX Recommendation</span>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-8 flex-grow">
+                        A structured home for saved recipes under the "My Account" tab. Includes category filters like Weeknight, Kids, Breakfast. Users can add short personal notes like "skip chili for kid". Prominent CTAs like "Cook Again" and add all to cart.
+                    </p>
+                    <div class="bg-gray-50 rounded-xl p-4 flex justify-center">
+                        <img src="assets/blinkit_recommmendation2.jpg" alt="Flavor Lab" class="w-48 md:w-56 block rounded-xl border border-gray-200 shadow-md object-contain">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- USER JOURNEY -->
+        <section class="mb-20 bg-white p-8 md:p-12 rounded-3xl border border-gray-100 shadow-sm">
+            <h2 class="text-3xl font-black mb-10 text-center text-gray-900">User Journey</h2>
+            
+            <div class="flex flex-col gap-12">
+                
+                <!-- Row 1: Steps 1 to 4 -->
+                <div class="flex items-center justify-between overflow-x-auto hide-scrollbar gap-4 md:gap-0 pb-4">
+                    
+                    <!-- Step 1 -->
+                    <div class="w-40 md:w-48 flex-shrink-0 flex flex-col items-center gap-4">
+                        <div class="relative w-full aspect-[9/16] rounded-2xl p-2 bg-gray-50 border border-gray-200 shadow-inner group hover:border-blinkitYellow transition-colors">
+                            <img src="assets/blinkit_1.png" alt="Journey Step 1" class="w-full h-full object-cover object-top rounded-xl shadow-sm group-hover:shadow-md transition-shadow">
+                        </div>
+                        <span class="bg-gray-100 text-gray-800 font-bold text-xs uppercase tracking-widest px-3 py-1 rounded-full">Step 1</span>
+                    </div>
+
+                    <!-- Flow Arrow (Desktop) -->
+                    <div class="flex-shrink-0 text-blinkitGreen hidden md:block opacity-60">
+                        <i class="ph-bold ph-arrow-right text-4xl"></i>
+                    </div>
+                    <!-- Flow Arrow (Mobile) -->
+                    <div class="flex-shrink-0 text-blinkitGreen md:hidden opacity-60">
+                        <i class="ph-bold ph-caret-right text-2xl"></i>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="w-40 md:w-48 flex-shrink-0 flex flex-col items-center gap-4">
+                        <div class="relative w-full aspect-[9/16] rounded-2xl p-2 bg-gray-50 border border-gray-200 shadow-inner group hover:border-blinkitYellow transition-colors">
+                            <img src="assets/blinkit_2.png" alt="Journey Step 2" class="w-full h-full object-cover object-top rounded-xl shadow-sm group-hover:shadow-md transition-shadow">
+                        </div>
+                        <span class="bg-gray-100 text-gray-800 font-bold text-xs uppercase tracking-widest px-3 py-1 rounded-full">Step 2</span>
+                    </div>
+
+                    <!-- Flow Arrow (Desktop) -->
+                    <div class="flex-shrink-0 text-blinkitGreen hidden md:block opacity-60">
+                        <i class="ph-bold ph-arrow-right text-4xl"></i>
+                    </div>
+                    <!-- Flow Arrow (Mobile) -->
+                    <div class="flex-shrink-0 text-blinkitGreen md:hidden opacity-60">
+                        <i class="ph-bold ph-caret-right text-2xl"></i>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="w-40 md:w-48 flex-shrink-0 flex flex-col items-center gap-4">
+                        <div class="relative w-full aspect-[9/16] rounded-2xl p-2 bg-gray-50 border border-gray-200 shadow-inner group hover:border-blinkitYellow transition-colors">
+                            <img src="assets/blinkit_3.png" alt="Journey Step 3" class="w-full h-full object-cover object-top rounded-xl shadow-sm group-hover:shadow-md transition-shadow">
+                        </div>
+                        <span class="bg-gray-100 text-gray-800 font-bold text-xs uppercase tracking-widest px-3 py-1 rounded-full">Step 3</span>
+                    </div>
+
+                    <!-- Flow Arrow (Desktop) -->
+                    <div class="flex-shrink-0 text-blinkitGreen hidden md:block opacity-60">
+                        <i class="ph-bold ph-arrow-right text-4xl"></i>
+                    </div>
+                    <!-- Flow Arrow (Mobile) -->
+                    <div class="flex-shrink-0 text-blinkitGreen md:hidden opacity-60">
+                        <i class="ph-bold ph-caret-right text-2xl"></i>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="w-40 md:w-48 flex-shrink-0 flex flex-col items-center gap-4">
+                        <div class="relative w-full aspect-[9/16] rounded-2xl p-2 bg-gray-50 border border-gray-200 shadow-inner group hover:border-blinkitYellow transition-colors">
+                            <img src="assets/blinkit_4.png" alt="Journey Step 4" class="w-full h-full object-cover object-top rounded-xl shadow-sm group-hover:shadow-md transition-shadow">
+                        </div>
+                        <span class="bg-gray-100 text-gray-800 font-bold text-xs uppercase tracking-widest px-3 py-1 rounded-full">Step 4</span>
+                    </div>
+
+                </div>
+
+                <!-- Row 2: Steps 5 to 8 -->
+                <div class="flex items-center justify-between overflow-x-auto hide-scrollbar gap-4 md:gap-0 pb-4">
+                    
+                    <!-- Step 5 -->
+                    <div class="w-40 md:w-48 flex-shrink-0 flex flex-col items-center gap-4">
+                        <div class="relative w-full aspect-[9/16] rounded-2xl p-2 bg-gray-50 border border-gray-200 shadow-inner group hover:border-blinkitYellow transition-colors">
+                            <img src="assets/blinkit_5.png" alt="Journey Step 5" class="w-full h-full object-cover object-top rounded-xl shadow-sm group-hover:shadow-md transition-shadow">
+                        </div>
+                        <span class="bg-gray-100 text-gray-800 font-bold text-xs uppercase tracking-widest px-3 py-1 rounded-full">Step 5</span>
+                    </div>
+
+                    <!-- Flow Arrow (Desktop) -->
+                    <div class="flex-shrink-0 text-blinkitGreen hidden md:block opacity-60">
+                        <i class="ph-bold ph-arrow-right text-4xl"></i>
+                    </div>
+                    <!-- Flow Arrow (Mobile) -->
+                    <div class="flex-shrink-0 text-blinkitGreen md:hidden opacity-60">
+                        <i class="ph-bold ph-caret-right text-2xl"></i>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="w-40 md:w-48 flex-shrink-0 flex flex-col items-center gap-4">
+                        <div class="relative w-full aspect-[9/16] rounded-2xl p-2 bg-gray-50 border border-gray-200 shadow-inner group hover:border-blinkitYellow transition-colors">
+                            <img src="assets/blinkit_6.png" alt="Journey Step 6" class="w-full h-full object-cover object-top rounded-xl shadow-sm group-hover:shadow-md transition-shadow">
+                        </div>
+                        <span class="bg-gray-100 text-gray-800 font-bold text-xs uppercase tracking-widest px-3 py-1 rounded-full">Step 6</span>
+                    </div>
+
+                    <!-- Flow Arrow (Desktop) -->
+                    <div class="flex-shrink-0 text-blinkitGreen hidden md:block opacity-60">
+                        <i class="ph-bold ph-arrow-right text-4xl"></i>
+                    </div>
+                    <!-- Flow Arrow (Mobile) -->
+                    <div class="flex-shrink-0 text-blinkitGreen md:hidden opacity-60">
+                        <i class="ph-bold ph-caret-right text-2xl"></i>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div class="w-40 md:w-48 flex-shrink-0 flex flex-col items-center gap-4">
+                        <div class="relative w-full aspect-[9/16] rounded-2xl p-2 bg-gray-50 border border-gray-200 shadow-inner group hover:border-blinkitYellow transition-colors">
+                            <img src="assets/blinkit_7.png" alt="Journey Step 7" class="w-full h-full object-cover object-top rounded-xl shadow-sm group-hover:shadow-md transition-shadow">
+                        </div>
+                        <span class="bg-gray-100 text-gray-800 font-bold text-xs uppercase tracking-widest px-3 py-1 rounded-full">Step 7</span>
+                    </div>
+
+                    <!-- Flow Arrow (Desktop) -->
+                    <div class="flex-shrink-0 text-blinkitGreen hidden md:block opacity-60">
+                        <i class="ph-bold ph-arrow-right text-4xl"></i>
+                    </div>
+                    <!-- Flow Arrow (Mobile) -->
+                    <div class="flex-shrink-0 text-blinkitGreen md:hidden opacity-60">
+                        <i class="ph-bold ph-caret-right text-2xl"></i>
+                    </div>
+
+                    <!-- Step 8 -->
+                    <div class="w-40 md:w-48 flex-shrink-0 flex flex-col items-center gap-4">
+                        <div class="relative w-full aspect-[9/16] rounded-2xl p-2 bg-gray-50 border border-gray-200 shadow-inner group hover:border-blinkitYellow transition-colors">
+                            <img src="assets/blinkit_8.png" alt="Journey Step 8" class="w-full h-full object-cover object-top rounded-xl shadow-sm group-hover:shadow-md transition-shadow">
+                        </div>
+                        <span class="bg-gray-100 text-gray-800 font-bold text-xs uppercase tracking-widest px-3 py-1 rounded-full">Step 8</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- KEY METRICS -->
+        <section>
+            <h2 class="text-3xl font-black mb-8 text-center text-gray-900">Key Metrics & North Star</h2>
+            
+            <div class="bg-white p-8 md:p-12 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden">
+                <!-- Decorative background icon -->
+                <div class="absolute -right-8 -top-8 text-blinkitYellow opacity-10 pointer-events-none">
+                    <i class="ph-fill ph-star text-[15rem]"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-6 border-l-4 border-blinkitYellow pl-4 relative z-10">North Star Metric</h3>
+                <div class="mb-10 p-8 bg-yellow-50 rounded-xl border border-yellow-200 relative z-10 shadow-sm">
+                    <p class="text-2xl font-black text-blinkitGreen mb-2 flex items-center gap-2">
+                        <i class="ph-fill ph-shooting-star text-blinkitYellow text-3xl"></i> Recipe-to-Order Conversion Rate
+                    </p>
+                    <p class="text-gray-700 font-medium text-lg max-w-3xl">The percentage of Saved Recipe views that result in "Add All Ingredients" and a completed order. Directly ties the feature to revenue and engagement.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-gray-900 mb-4 flex items-center gap-2 border-b border-gray-200 pb-2"><i class="ph-fill ph-chart-bar text-blinkitYellow"></i> Level 1 Metrics</h4>
+                        <ul class="space-y-4 text-sm text-gray-600 list-none">
+                            <li class="flex gap-3"><i class="ph-bold ph-caret-right text-blinkitGreen mt-0.5 shrink-0"></i> <span><strong class="text-gray-900">New Saves per User:</strong> Avg. number of bookmarks per user in their first session.</span></li>
+                            <li class="flex gap-3"><i class="ph-bold ph-caret-right text-blinkitGreen mt-0.5 shrink-0"></i> <span><strong class="text-gray-900">Saved-Recipe Views:</strong> % of users who click into their Bookmarked Recipes.</span></li>
+                            <li class="flex gap-3"><i class="ph-bold ph-caret-right text-blinkitGreen mt-0.5 shrink-0"></i> <span><strong class="text-gray-900">AOV Uplift:</strong> Avg. basket value for orders initiated via Saved Recipes vs. standard orders.</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-gray-900 mb-4 flex items-center gap-2 border-b border-gray-200 pb-2"><i class="ph-fill ph-chart-line-up text-blinkitYellow"></i> Level 2 Metrics</h4>
+                        <ul class="space-y-4 text-sm text-gray-600 list-none">
+                            <li class="flex gap-3"><i class="ph-bold ph-caret-right text-blinkitGreen mt-0.5 shrink-0"></i> <span><strong class="text-gray-900">Repeat Usage Rate:</strong> % of users who revisit Saved Recipes ≥2x within 14 days.</span></li>
+                            <li class="flex gap-3"><i class="ph-bold ph-caret-right text-blinkitGreen mt-0.5 shrink-0"></i> <span><strong class="text-gray-900">Ingredient Removal Rate:</strong> % of auto-added items removed before checkout (lower is better).</span></li>
+                            <li class="flex gap-3"><i class="ph-bold ph-caret-right text-blinkitGreen mt-0.5 shrink-0"></i> <span><strong class="text-gray-900">Time-to-Checkout Reduction:</strong> Avg. time from Saved Recipe click to completed order.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Product Teardown: Reviews</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amzBlue: '#232F3E', /* Dark blue header */
+                        amzLightBlue: '#37475A',
+                        amzOrange: '#FF9900', /* Classic Amazon Orange */
+                        amzYellow: '#FFD814', /* Add to cart button yellow */
+                        amzLink: '#007185',
+                        amzGray: '#EAEDED',
+                        amzText: '#0F1111'
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #0F1111;
+        }
+        /* Custom scrollbar for horizontal tabs */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amzOrange selection:text-white">
+
+    <!-- HORIZONTAL SELECTION TAB -->
+    <nav class="sticky top-0 z-50 bg-amzBlue border-b border-amzLightBlue shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-3">
+                
+                <!-- Teardown Navigation -->
+                <div class="flex overflow-x-auto hide-scrollbar space-x-6 items-center">
+                    <a href="netflix-teardown.html" class="text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap text-sm">
+                        Netflix
+                    </a>
+                    <a href="blinkit-teardown.html" class="text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap text-sm">
+                        Blinkit
+                    </a>
+                    <!-- Active Tab -->
+                    <a href="#" class="text-white font-bold whitespace-nowrap flex items-center gap-1 border-b-2 border-amzOrange pb-1">
+                        <i class="ph-fill ph-shopping-cart text-amzOrange text-lg"></i> Amazon
+                    </a>
+                    <a href="spotify.html" class="text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap text-sm">
+                        Spotify
+                    </a>
+                    <a href="uber.html" class="text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap text-sm">
+                        Uber
+                    </a>
+                    <a href="crunchyroll.html" class="text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap text-sm">
+                        Crunchyroll
+                    </a>
+                </div>
+
+                <!-- Back to Homepage Button -->
+                <a href="index.html" class="hidden sm:flex items-center gap-1 text-sm font-bold bg-amzLightBlue hover:bg-gray-600 text-white px-4 py-2 rounded transition-colors whitespace-nowrap">
+                    <i class="ph-bold ph-arrow-left"></i> Home
+                </a>
+            </div>
+        </div>
+    
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+        
+        <!-- HERO / PRODUCT HEADER (Amazon Style Product Listing) -->
+        <header class="flex flex-col md:flex-row gap-8 bg-white pb-8 border-b border-gray-200">
+            <!-- Left: "Product" Image -->
+            <div class="md:w-1/3 shrink-0">
+                <div class="border border-gray-200 rounded p-4 text-center">
+                    <i class="ph-fill ph-star text-9xl text-amzOrange"></i>
+                    <i class="ph-fill ph-star text-9xl text-amzOrange"></i>
+                    <i class="ph-fill ph-star text-9xl text-amzOrange"></i>
+                </div>
+            </div>
+            
+            <!-- Right: "Product" Details -->
+            <div class="md:w-2/3">
+                <h1 class="text-3xl md:text-4xl font-normal text-amzText mb-2">Product Teardown: <span class="font-bold">Amazon.com "Reviews"</span></h1>
+                <p class="text-sm text-amzLink hover:underline cursor-pointer mb-2">By Rushi Kale | Learn in Public Challenge (3/6)</p>
+                
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="flex text-amzOrange text-lg">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i>
+                    </div>
+                    <span class="text-amzLink text-sm hover:underline cursor-pointer">1,541,000 Ratings</span>
+                </div>
+
+                <hr class="my-4 border-gray-200">
+
+                <div class="space-y-2 text-sm text-amzText">
+                    <p><strong class="w-32 inline-block">Company:</strong> Amazon</p>
+                    <p><strong class="w-32 inline-block">Foundation:</strong> 1994</p>
+                    <p><strong class="w-32 inline-block">Headquarters:</strong> Seattle, Washington, USA</p>
+                    <p><strong class="w-32 inline-block">CEO:</strong> Andy Jassy</p>
+                    <p><strong class="w-32 inline-block">Employees:</strong> 1,541,000</p>
+                    <p><strong class="w-32 inline-block">Market Capital:</strong> $956 billion USD (2023)</p>
+                    <p><strong class="w-32 inline-block">Revenue:</strong> USD $514B (2022)</p>
+                    <p><strong class="w-32 inline-block">Profit:</strong> USD $2.7B (2022)</p>
+                </div>
+
+                <hr class="my-4 border-gray-200">
+
+                <h3 class="font-bold text-lg mb-2">About this company</h3>
+                <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                    <li>Multinational technology company founded by Jeff Bezos in 1994.</li>
+                    <li>Started as an online bookstore and evolved into the world's largest e-commerce and cloud-computing company.</li>
+                    <li>Diverse range of products and services includes online retail, streaming, artificial intelligence, and more.</li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- BUSINESS MODEL & COMPETITORS (Sponsored Products Style) -->
+        <section>
+            <h2 class="text-xl font-bold text-amzOrange mb-4">Business Model & Revenue Streams</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                
+                <div class="border border-gray-200 rounded p-4 flex flex-col hover:shadow-md bg-white">
+                    <i class="ph-fill ph-storefront text-4xl text-amzLightBlue mb-2"></i>
+                    <h4 class="font-bold text-sm text-amzLink mb-1">Marketplace</h4>
+                    <p class="text-xs text-gray-600">Generates over 42% ($220B of $513.98B revenue in 2022) through online stores and third-party seller fees.</p>
+                </div>
+                <div class="border border-gray-200 rounded p-4 flex flex-col hover:shadow-md bg-white">
+                    <i class="ph-fill ph-certificate text-4xl text-amzLightBlue mb-2"></i>
+                    <h4 class="font-bold text-sm text-amzLink mb-1">Patents</h4>
+                    <p class="text-xs text-gray-600">Boasts 17,600+ patents, generating revenue through licensing, with 2,051 patents granted in 2022 alone.</p>
+                </div>
+                <div class="border border-gray-200 rounded p-4 flex flex-col hover:shadow-md bg-white">
+                    <i class="ph-fill ph-book-open-text text-4xl text-amzLightBlue mb-2"></i>
+                    <h4 class="font-bold text-sm text-amzLink mb-1">Kindle</h4>
+                    <p class="text-xs text-gray-600">E-reading service connecting users with Kindle Store's books, indirectly contributing to Prime membership growth.</p>
+                </div>
+                <div class="border border-gray-200 rounded p-4 flex flex-col hover:shadow-md bg-white">
+                    <i class="ph-fill ph-cloud text-4xl text-amzLightBlue mb-2"></i>
+                    <h4 class="font-bold text-sm text-amzLink mb-1">AWS</h4>
+                    <p class="text-xs text-gray-600">Profitable IT infrastructure platform serving global companies and organizations.</p>
+                </div>
+                <div class="border border-gray-200 rounded p-4 flex flex-col hover:shadow-md bg-white">
+                    <i class="ph-fill ph-crown text-4xl text-amzLightBlue mb-2"></i>
+                    <h4 class="font-bold text-sm text-amzLink mb-1">Prime</h4>
+                    <p class="text-xs text-gray-600">Subscription service with 150+ million members, offering video streaming, free shipping, fueling substantial revenue.</p>
+                </div>
+                <div class="border border-gray-200 rounded p-4 flex flex-col hover:shadow-md bg-white">
+                    <i class="ph-fill ph-megaphone text-4xl text-amzLightBlue mb-2"></i>
+                    <h4 class="font-bold text-sm text-amzLink mb-1">Advertising</h4>
+                    <p class="text-xs text-gray-600">Efficient marketing channel offering sponsored ads and videos, capitalizing on intent-driven audience.</p>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-amzGray p-6 rounded border border-gray-300 flex items-center justify-between flex-wrap gap-4">
+                <h3 class="font-bold text-lg text-amzText">Major Competitors</h3>
+                <div class="flex gap-3 flex-wrap">
+                    <span class="bg-white border border-gray-300 px-4 py-2 rounded text-sm font-bold shadow-sm">Flipkart</span>
+                    <span class="bg-white border border-gray-300 px-4 py-2 rounded text-sm font-bold shadow-sm">eBay</span>
+                    <span class="bg-white border border-gray-300 px-4 py-2 rounded text-sm font-bold shadow-sm">Walmart</span>
+                    <span class="bg-white border border-gray-300 px-4 py-2 rounded text-sm font-bold shadow-sm">Alibaba</span>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-gray-200">
+
+        <!-- USER SEGMENTATION & PERSONAS -->
+        <section>
+            <h2 class="text-2xl font-bold text-amzText mb-6">User Segmentation & Personas</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white border border-gray-200 rounded p-6 shadow-sm">
+                    <h3 class="text-lg font-bold text-amzLink flex items-center gap-2 mb-2"><i class="ph-fill ph-shopping-bag"></i> Buyers</h3>
+                    <p class="text-sm text-gray-700">Millions of individuals globally purchasing products and services. Amazon tracks customers based on characteristics such as interests, engagement, and personal information (age, gender, geographical location).</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded p-6 shadow-sm">
+                    <h3 class="text-lg font-bold text-amzLink flex items-center gap-2 mb-2"><i class="ph-fill ph-storefront"></i> Sellers</h3>
+                    <p class="text-sm text-gray-700">Companies utilizing Amazon's e-commerce platform to reach a vast audience. Offer products to Amazon's wide customer base.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded p-6 shadow-sm">
+                    <h3 class="text-lg font-bold text-amzLink flex items-center gap-2 mb-2"><i class="ph-fill ph-code"></i> Developers (AWS)</h3>
+                    <p class="text-sm text-gray-700">Community associated with Amazon Web Services. Encompasses customers and partners across various industries and sizes (startups, enterprises, public sector).</p>
+                </div>
+            </div>
+
+            <!-- Detailed Personas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Buyer Persona -->
+                <div class="border border-gray-200 rounded-lg p-6 bg-white flex flex-col">
+                    <div class="flex items-center gap-4 mb-4 border-b border-gray-200 pb-4">
+                        <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xl shrink-0">A</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-amzText">Abhishek (Buyer)</h3>
+                            <p class="text-sm text-gray-600">15-year-old student residing in a tier 2 city in Maharashtra, preparing for competitive exams.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-sm text-amzText flex items-center gap-1"><i class="ph-bold ph-warning-circle text-red-600"></i> Pain Points</h4>
+                            <ul class="text-sm text-gray-700 list-disc list-inside mt-1">
+                                <li>Unable to find required study materials in local bookstores.</li>
+                                <li>Limited access to competitive exam books in his city.</li>
+                                <li>Hassle of traveling to bigger cities to buy books, incurring extra costs and time.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-amzText flex items-center gap-1"><i class="ph-bold ph-check-circle text-green-600"></i> Needs</h4>
+                            <ul class="text-sm text-gray-700 list-disc list-inside mt-1">
+                                <li>Access to a wide variety of competitive exam books.</li>
+                                <li>Convenient online platform to purchase study materials without extensive travel.</li>
+                                <li>Affordable and timely delivery services to his tier 2 city.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seller Persona -->
+                <div class="border border-gray-200 rounded-lg p-6 bg-white flex flex-col">
+                    <div class="flex items-center gap-4 mb-4 border-b border-gray-200 pb-4">
+                        <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center text-amzOrange font-bold text-xl shrink-0">S</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-amzText">Sayajirao (Seller)</h3>
+                            <p class="text-sm text-gray-600">40-year-old director of a leading book publication with 85% market share.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-sm text-amzText flex items-center gap-1"><i class="ph-bold ph-warning-circle text-red-600"></i> Pain Points</h4>
+                            <ul class="text-sm text-gray-700 list-disc list-inside mt-1">
+                                <li>Inability to reach customers in tier 2 and tier 3 cities, limiting market expansion.</li>
+                                <li>Losing potential customers due to the lack of availability in smaller cities.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-amzText flex items-center gap-1"><i class="ph-bold ph-check-circle text-green-600"></i> Needs</h4>
+                            <ul class="text-sm text-gray-700 list-disc list-inside mt-1">
+                                <li>An online platform with a vast reach, enabling her to sell books nationwide.</li>
+                                <li>Access to a reliable e-commerce platform that caters to customers from tier 2 and tier 3 cities.</li>
+                                <li>Efficient logistics and delivery services to ensure books reach customers promptly.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-gray-200">
+
+        <!-- HOW AMAZON REVIEWS WORK -->
+        <section class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+            <h2 class="text-2xl font-bold text-amzText mb-6">Customer Reviews: How it Works</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <div class="flex gap-3 bg-white p-4 border border-gray-200 rounded shadow-sm">
+                        <i class="ph-fill ph-chat-circle-text text-2xl text-amzOrange shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-amzText">Customer Feedback</h4>
+                            <p class="text-sm text-gray-600">Reviews are submitted by customers who have bought the product.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 bg-white p-4 border border-gray-200 rounded shadow-sm">
+                        <i class="ph-fill ph-star text-2xl text-amzOrange shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-amzText">Star Ratings and Comments</h4>
+                            <p class="text-sm text-gray-600">Customers rate the product on a scale of 1 to 5 stars and provide written feedback.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 bg-white p-4 border border-gray-200 rounded shadow-sm">
+                        <i class="ph-fill ph-seal-check text-2xl text-amzOrange shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-amzText">Verification</h4>
+                            <p class="text-sm text-gray-600">Reviews can be verified (from confirmed buyers) or unverified (from customers who didn't buy through Amazon).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex gap-3 bg-white p-4 border border-gray-200 rounded shadow-sm">
+                        <i class="ph-fill ph-thumbs-up text-2xl text-amzOrange shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-amzText">Helpful Votes</h4>
+                            <p class="text-sm text-gray-600">Other customers can mark reviews as helpful, guiding fellow shoppers.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 bg-white p-4 border border-gray-200 rounded shadow-sm">
+                        <i class="ph-fill ph-grape text-2xl text-amzOrange shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-amzText">Amazon Vine Program</h4>
+                            <p class="text-sm text-gray-600">Trusted reviewers receive products for honest feedback through the Vine program.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 bg-white p-4 border border-gray-200 rounded shadow-sm">
+                        <i class="ph-fill ph-shield-warning text-2xl text-amzOrange shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-amzText">Moderation</h4>
+                            <p class="text-sm text-gray-600">Reviews are moderated to remove fake ones, ensuring authenticity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invalid Reviews Callout -->
+            <div class="mt-8 bg-red-50 border-l-4 border-red-600 p-4">
+                <h4 class="font-bold text-red-800 mb-2 flex items-center gap-2"><i class="ph-bold ph-prohibit"></i> Who Cannot Give Reviews on Amazon?</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-red-900">
+                    <span class="flex items-center gap-2"><i class="ph-bold ph-x"></i> Biased review with financial interest.</span>
+                    <span class="flex items-center gap-2"><i class="ph-bold ph-x"></i> Personal ties to owner/artist.</span>
+                    <span class="flex items-center gap-2"><i class="ph-bold ph-x"></i> Manufacturer posing as shopper.</span>
+                    <span class="flex items-center gap-2"><i class="ph-bold ph-x"></i> Multiple negatives from one customer.</span>
+                    <span class="flex items-center gap-2"><i class="ph-bold ph-x"></i> Paid or rewarded reviews.</span>
+                    <span class="flex items-center gap-2"><i class="ph-bold ph-x"></i> In-game credits exchange for review.</span>
+                    <span class="flex items-center gap-2"><i class="ph-bold ph-x"></i> Competitor's negative review.</span>
+                    <span class="flex items-center gap-2"><i class="ph-bold ph-x"></i> Artist mutual praise for positive reviews.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- USER JOURNEY (Review Writing Funnel) -->
+        <section>
+            <h2 class="text-2xl font-bold text-amzText mb-6">User Journey: Writing a Review</h2>
+            
+            <div class="flex overflow-x-auto hide-scrollbar gap-4 pb-4">
+                
+                <!-- Steps 1-4 -->
+                <div class="min-w-[200px] border border-gray-200 rounded shadow-sm bg-white overflow-hidden flex flex-col">
+                    <div class="bg-amzGray p-2 font-bold text-sm text-center border-b border-gray-200 text-amzText">Step 1</div>
+                    <div class="p-4 flex-grow text-sm text-gray-700 flex items-center justify-center text-center">
+                        Select a product for review from Order Info.
+                    </div>
+                </div>
+                <div class="flex items-center text-gray-300"><i class="ph-bold ph-caret-right text-2xl"></i></div>
+                
+                <div class="min-w-[200px] border border-gray-200 rounded shadow-sm bg-white overflow-hidden flex flex-col">
+                    <div class="bg-amzGray p-2 font-bold text-sm text-center border-b border-gray-200 text-amzText">Step 2</div>
+                    <div class="p-4 flex-grow text-sm text-gray-700 flex items-center justify-center text-center">
+                        Give overall rating out of 5 stars.
+                    </div>
+                </div>
+                <div class="flex items-center text-gray-300"><i class="ph-bold ph-caret-right text-2xl"></i></div>
+
+                <div class="min-w-[200px] border border-gray-200 rounded shadow-sm bg-white overflow-hidden flex flex-col">
+                    <div class="bg-amzGray p-2 font-bold text-sm text-center border-b border-gray-200 text-amzText">Step 3-6</div>
+                    <div class="p-4 flex-grow text-sm text-gray-700 flex items-center justify-center text-center">
+                        Click on add photo, capture the photo, and upload the photo.
+                    </div>
+                </div>
+                <div class="flex items-center text-gray-300"><i class="ph-bold ph-caret-right text-2xl"></i></div>
+
+                <div class="min-w-[200px] border border-gray-200 rounded shadow-sm bg-white overflow-hidden flex flex-col">
+                    <div class="bg-amzGray p-2 font-bold text-sm text-center border-b border-gray-200 text-amzText">Step 7-8</div>
+                    <div class="p-4 flex-grow text-sm text-gray-700 flex items-center justify-center text-center">
+                        Write title for the review, write the review text, and click next.
+                    </div>
+                </div>
+                <div class="flex items-center text-gray-300"><i class="ph-bold ph-caret-right text-2xl"></i></div>
+
+                <div class="min-w-[200px] border border-gray-200 rounded shadow-sm bg-white overflow-hidden flex flex-col">
+                    <div class="bg-amzGray p-2 font-bold text-sm text-center border-b border-gray-200 text-amzText">Step 9-11</div>
+                    <div class="p-4 flex-grow text-sm text-gray-700 flex items-center justify-center text-center">
+                        Give specific feature ratings (e.g. charging power, travelling, battery life) and submit.
+                    </div>
+                </div>
+                <div class="flex items-center text-gray-300"><i class="ph-bold ph-caret-right text-2xl"></i></div>
+
+                <div class="min-w-[200px] border border-gray-200 rounded shadow-sm bg-white overflow-hidden flex flex-col">
+                    <div class="bg-amzGray p-2 font-bold text-sm text-center border-b border-gray-200 text-amzText">Step 12</div>
+                    <div class="p-4 flex-grow text-sm text-gray-700 flex items-center justify-center text-center">
+                        Review submitted! Can select next product to review.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- NORTH STAR & METRICS FRAMEWORK (Amazon Checkout Button Style) -->
+        <section class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
+            <h2 class="text-2xl font-bold text-amzText mb-8 border-b border-gray-200 pb-2">Metrics Framework</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- North Star -->
+                <div class="lg:col-span-1 border border-amzOrange bg-[#FFF9ED] rounded-lg p-6 shadow-md relative overflow-hidden flex flex-col justify-center text-center">
+                    <div class="absolute -top-4 -right-4 text-amzOrange opacity-10">
+                        <i class="ph-fill ph-star text-9xl"></i>
+                    </div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-amzOrange mb-2 relative z-10">North Star Metric (NSM)</h3>
+                    <h4 class="text-2xl font-black text-amzText mb-3 relative z-10">% Review Marked Useful</h4>
+                    <p class="text-sm text-gray-700 relative z-10">
+                        Percentage of reviews marked useful by readers compared to total published reviews.
+                    </p>
+                </div>
+
+                <!-- L1 & L2 -->
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- L1 Metrics -->
+                    <div class="border border-gray-200 rounded p-5 bg-gray-50 flex flex-col justify-center">
+                        <h4 class="text-sm font-bold text-amzLink mb-3 uppercase tracking-wide">L1 Metrics</h4>
+                        <ul class="space-y-4 text-sm text-gray-800">
+                            <li>
+                                <strong class="text-amzText block text-base"><i class="ph-bold ph-check-circle text-green-600 mr-1"></i> % Quality Reviews</strong> 
+                            </li>
+                            <li>
+                                <strong class="text-amzText block text-base"><i class="ph-bold ph-envelope-open text-blue-600 mr-1"></i> Engagement Time</strong> 
+                                Number of notifications opened per user / Engagement Time.
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- L2 Metrics -->
+                    <div class="border border-gray-200 rounded p-5 bg-gray-50 flex flex-col justify-center">
+                        <h4 class="text-sm font-bold text-amzLink mb-3 uppercase tracking-wide">L2 Metric</h4>
+                        <ul class="space-y-4 text-sm text-gray-800">
+                            <li>
+                                <strong class="text-amzText block text-base"><i class="ph-bold ph-pencil-simple text-amzOrange mr-1"></i> # Reviews Written</strong> 
+                                <p class="text-xs text-gray-600 mt-1">Amazon's success highly depends on the number of reviews written on its platform.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

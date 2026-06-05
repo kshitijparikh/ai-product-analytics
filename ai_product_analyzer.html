@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Product Analytics Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { --bg: #f8fafc; --surface: #ffffff; --primary: #2563eb; --text: #0f172a; --border: #e2e8f0; --error: #dc2626; --success: #10b981; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 2rem; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .card { background: var(--surface); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); margin-bottom: 2rem; border: 1px solid var(--border); }
+        h1, h2 { margin-top: 0; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        input[type="text"], input[type="file"], textarea { width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; font-family: monospace; font-size: 0.9rem;}
+        button { background: var(--primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+        button:hover { opacity: 0.9; }
+        button:disabled { background: #cbd5e1; cursor: not-allowed; }
+        .loader { display: none; font-size: 0.9rem; color: #64748b; margin-top: 0.5rem; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        
+        /* Badge style for flexing the sandbox */
+        .security-badge { display: inline-block; font-size: 0.75rem; color: var(--success); background: #d1fae5; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600; margin-top: 0.75rem; border: 1px solid #34d399; }
+        
+        /* Styles for beautifully formatted results */
+        .result-text { background: #f8fafc; color: #0f172a; padding: 1.5rem; border-radius: 6px; border: 1px solid var(--border); font-size: 1rem; line-height: 1.6; }
+        .result-text h3 { margin-top: 0; color: var(--primary); }
+        .result-text h4 { margin-bottom: 0.25rem; margin-top: 1.2rem; color: #334155; text-transform: capitalize; }
+        .result-text p { margin-top: 0; }
+        .result-text ul { margin-top: 0.5rem; padding-left: 1.5rem; list-style-type: none; }
+        .result-text li { margin-bottom: 0.75rem; }
+        .code-block { background: #1e293b; color: #f8fafc; padding: 1rem; border-radius: 6px; overflow-x: auto; font-family: monospace; font-size: 0.9rem; margin-top: 1.5rem; white-space: pre-wrap; }
+        .error-text h3 { color: var(--error); }
+        
+        /* Style for gracefully rendering massive nested JSON objects */
+        .nested-json { background: #e2e8f0; color: #0f172a; padding: 1rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem; max-height: 300px; overflow-y: auto; margin-top: 0.5rem; border: 1px solid #cbd5e1; }
+        
+        /* Project Demo Box Styles */
+        .demo-box { background: #eff6ff; border-color: #bfdbfe; }
+        .demo-box h2 { color: #1e3a8a; margin-bottom: 0.5rem; }
+        .demo-box p { color: #1e40af; margin-top: 0; }
+        .video-container { margin-top: 1rem; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); background: #000; }
+        .download-btn { display: inline-block; background: var(--success); color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600; margin-top: 1.5rem; transition: opacity 0.2s; }
+        .download-btn:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 AI Product Analytics Assistant</h1>
+
+    <!-- PROJECT DEMO BOX -->
+    <div class="card demo-box">
+        <h2>📺 Project Demo</h2>
+        <p><strong>Note:</strong> LLMs are like evolving animals, they hallucinate. So, sometimes answers don't come up to the mark. Try producing AI One Click Report more than 2 times.</p>
+        
+        <div class="video-container">
+            <video width="100%" controls>
+                <source src="assets/demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <a href="./assets/User Acquisition Campaign Evaluation.csv" download class="download-btn">⬇️ Download Demo Dataset</a>
+    </div>
+    
+    <div class="card">
+        <label>Backend URL</label>
+        <!-- CRITICAL FIX: Pointing straight to your hosted Hugging Face API -->
+        <input type="text" id="apiUrl" value="https://kpark99-ai-product-analytics-backend.hf.space" placeholder="https://your-backend.onrender.com">
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h2 style="margin: 0;">1. Ingest Data</h2>
+                <button onclick="loadDemoData()" style="background: var(--success); padding: 0.5rem 1rem; font-size: 0.85rem;">✨ Quick Fill Demo</button>
+            </div>
+            
+            <label>Upload Dataset (CSV/Excel)</label>
+            <input type="file" id="fileInput">
+            
+            <label>Table Name</label>
+            <input type="text" id="tableName" placeholder="e.g., Q3_Campaigns" value="Q3_Campaigns">
+            
+            <label>Column Descriptions (JSON Format)</label>
+            <textarea id="columnDescriptions" rows="5">{
+  "total_cost": "Total spend for the campaign (USD)",
+  "users_acquired": "Number of users brought in",
+  "revenue": "Total revenue attributed"
+}</textarea>
+            
+            <label>Business Formulas (JSON Format)</label>
+            <textarea id="formulas" rows="4">{
+  "CAC": "total_cost / users_acquired",
+  "ROAS": "revenue / total_cost"
+}</textarea>
+            
+            <button id="uploadBtn" onclick="uploadData()">Initialize Dataset</button>
+            <div id="uploadStatus" class="loader">Processing...</div>
+        </div>
+
+        <div class="card">
+            <h2>2. Ask the Data</h2>
+            <label>Natural Language Query</label>
+            <input type="text" id="chatQuery" placeholder="e.g., What is our average CAC and ROAS?">
+            <button id="chatBtn" onclick="askQuestion()">Ask AI</button>
+            <br>
+            <span class="security-badge">🛡️ Running in Secure AST Sandbox</span>
+            <div id="chatStatus" class="loader">AI is generating and executing code...</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. One-Click AI Report</h2>
+        <button id="reportBtn" onclick="generateReport()">Generate Executive Report</button>
+        <div id="reportStatus" class="loader">Calculating metrics and writing report... (This takes a moment)</div>
+    </div>
+    
+    <div class="card" id="dashboardCard" style="display: none;">
+        <h2>📊 Automated Dashboard</h2>
+        <div id="chartContainer" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        </div>
+    </div>
+    
+    <div class="card" id="resultsCard" style="display: none;">
+        <h2>Results</h2>
+        <div id="jsonResult" class="result-text"></div>
+    </div>
+</div>
+
+<script>
+    function getApiUrl() { return document.getElementById('apiUrl').value.replace(/\/$/, ""); }
+    
+    // --- LOAD DEMO DATA MAGIC ---
+    async function loadDemoData() {
+        // 1. Fill Table Name
+        document.getElementById('tableName').value = "User Acquisition Campaign Evaluation";
+        
+        // 2. Fill Column Descriptions (Using template literals for clean multiline string)
+        document.getElementById('columnDescriptions').value = `{
+  "campaign_id": "Unique ID assigned to each campaign",
+  "channel": "Marketing channel used (e.g., Paid Social, Email, SEO)",
+  "users_acquired": "Number of users brought in via the campaign",
+  "total_cost": "Total spend for the campaign (USD)",
+  "orders_placed": "Number of total orders generated from this campaign",
+  "revenue": "Total revenue attributed to the campaign",
+  "users_retained_after_30_days": "Users who were still active after 30 days"
+}`;
+        
+        // 3. Fill Formulas
+        document.getElementById('formulas').value = `{
+  "CAC": "total_cost / users_acquired — cost to acquire each user",
+  "ROAS": "revenue / total_cost — return per dollar spent",
+  "30-Day Retention": "users_retained_after_30_days / users_acquired — loyalty measure",
+  "Normalization": "Rescales different metrics to 0–1 range to enable fair comparison",
+  "Inverse Normalization": "Used when lower values are better (e.g., lower CAC)",
+  "Campaign Score": "Weighted index of ROAS, Retention, and CAC to rank campaigns",
+  "Budget Optimization": "Shifting spend from underperforming to high-return campaigns"
+}`;
+
+        // 4. Pre-fill the question query
+        document.getElementById('chatQuery').value = "What is the CAC ?";
+        
+        document.getElementById('uploadStatus').style.display = 'block';
+        document.getElementById('uploadStatus').innerText = 'Fetching hosted CSV...';
+
+        try {
+            // 5. Fetch the CSV file hosted in your assets folder
+            // ⚠️ Ensure your CSV is named correctly and placed inside the 'assets' folder
+            const response = await fetch('./assets/User Acquisition Campaign Evaluation.csv'); 
+            
+            if (!response.ok) {
+                throw new Error("Could not find the CSV file. Make sure it is located at ./assets/User Acquisition Campaign Evaluation.csv relative to your index.html file.");
+            }
+            
+            const csvBlob = await response.blob();
+            
+            // 6. Convert to a real File object and attach it to the HTML input
+            const file = new File([csvBlob], "User Acquisition Campaign Evaluation.csv", { type: "text/csv" });
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            document.getElementById('fileInput').files = dataTransfer.files;
+            
+            // 7. Automatically trigger the upload
+            document.getElementById('uploadStatus').innerText = 'Processing...';
+            uploadData();
+            
+        } catch (error) {
+            alert(error.message);
+            document.getElementById('uploadStatus').style.display = 'none';
+        }
+    }
+
+    function showResult(data) {
+        const resultsCard = document.getElementById('resultsCard');
+        const dashboardCard = document.getElementById('dashboardCard');
+        const jsonResult = document.getElementById('jsonResult');
+        
+        resultsCard.style.display = 'block';
+        jsonResult.className = "result-text"; // Reset class
+        
+        // --- ERROR LAYOUT ---
+        if (data.detail) {
+            dashboardCard.style.display = 'none';
+            jsonResult.classList.add("error-text");
+            const errorMsg = typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail, null, 2);
+            jsonResult.innerHTML = `<h3>❌ Execution Error</h3><p><strong>Backend reported:</strong><br>${errorMsg}</p>`;
+            
+        } else if (data.charts) {
+            // --- GENERATE REPORT LAYOUT ---
+            dashboardCard.style.display = 'block';
+            
+            let reportContent = "<h3>📝 Executive Summary</h3>";
+            if (typeof data.qualitative_analysis === 'object' && data.qualitative_analysis !== null) {
+                for (const [key, value] of Object.entries(data.qualitative_analysis)) {
+                    const cleanTitle = key.replace(/_/g, ' '); 
+                    reportContent += `<h4>${cleanTitle}</h4><p>${value}</p>`;
+                }
+            } else {
+                reportContent += `<p>${data.qualitative_analysis}</p>`;
+            }
+            
+            jsonResult.innerHTML = reportContent;
+            renderDashboard(data.charts);
+            
+        } else if (data.result !== undefined) {
+            // --- ASK AI LAYOUT ---
+            dashboardCard.style.display = 'none'; 
+            
+            let formattedAnswer = "<h3>🤖 AI Answer</h3>";
+            
+            if (typeof data.result === 'object' && data.result !== null) {
+                formattedAnswer += "<ul>";
+                for (const [key, value] of Object.entries(data.result)) {
+                    if (typeof value === 'object' && value !== null) {
+                        const jsonString = JSON.stringify(value, null, 2);
+                        formattedAnswer += `<li><strong>${key}:</strong><div class="nested-json"><pre style="margin:0">${jsonString}</pre></div></li>`;
+                    } 
+                    else if (typeof value === 'number') {
+                        formattedAnswer += `<li><strong>${key}:</strong> ${value.toFixed(2)}</li>`;
+                    } 
+                    else {
+                        formattedAnswer += `<li><strong>${key}:</strong> ${value}</li>`;
+                    }
+                }
+                formattedAnswer += "</ul>";
+            } else {
+                formattedAnswer += `<p><strong>Result:</strong> ${data.result}</p>`;
+            }
+            
+            formattedAnswer += `<div class="code-block"><strong>💻 Code Executed:</strong><br>${data.code_executed}</div>`;
+            jsonResult.innerHTML = formattedAnswer;
+            
+        } else {
+            // --- UPLOAD LAYOUT ---
+            dashboardCard.style.display = 'none';
+            
+            let uploadContent = "<h3>✅ Success</h3>";
+            if (data.message) uploadContent += `<p>${data.message}</p>`;
+            if (data.details && data.details.table_name) {
+                uploadContent += `<ul><li><strong>Table Created:</strong> ${data.details.table_name}</li></ul>`;
+            }
+            jsonResult.innerHTML = uploadContent;
+        }
+        
+        setTimeout(() => {
+            resultsCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 150);
+    }
+
+    function renderDashboard(chartsData) {
+        const container = document.getElementById('chartContainer');
+        const dashboardCard = document.getElementById('dashboardCard');
+        
+        container.innerHTML = ''; 
+        dashboardCard.style.display = 'block';
+
+        chartsData.forEach((chart, index) => {
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = `<h3>${chart.title}</h3><canvas id="chart_${index}"></canvas>`;
+            container.appendChild(wrapper);
+
+            new Chart(document.getElementById(`chart_${index}`), {
+                type: chart.type, 
+                data: {
+                    labels: chart.labels,
+                    datasets: chart.datasets.map(ds => ({
+                        label: ds.label,
+                        data: ds.data,
+                        backgroundColor: '#2563eb80', 
+                        borderColor: '#2563eb',       
+                        borderWidth: 2,
+                        tension: 0.3 
+                    }))
+                },
+                options: { responsive: true }
+            });
+        });
+    }
+
+    // Helper to safely fetch and catch HTML 500 errors
+    async function safeFetch(url, options) {
+        const res = await fetch(url, options);
+        if (!res.ok) {
+            let errorData;
+            try {
+                errorData = await res.json();
+            } catch (e) {
+                // If it's a hard crash (text/html), grab the text so we can see it
+                const errorText = await res.text();
+                errorData = { detail: `Server crashed with Status ${res.status}: ${errorText.substring(0, 500)}` };
+            }
+            return errorData;
+        }
+        return await res.json();
+    }
+
+    async function uploadData() {
+        const fileInput = document.getElementById('fileInput').files[0];
+        const tableName = document.getElementById('tableName').value;
+        const formulasRaw = document.getElementById('formulas').value;
+        const columnDescriptionsRaw = document.getElementById('columnDescriptions').value;
+        const baseUrl = getApiUrl();
+
+        if (!fileInput) { alert("Please select a file first."); return; }
+
+        let parsedFormulas, parsedColumns;
+        try {
+            parsedFormulas = JSON.parse(formulasRaw);
+            parsedColumns = JSON.parse(columnDescriptionsRaw);
+        } catch (e) {
+            alert("❌ Invalid JSON format in Column Descriptions or Business Formulas. Please check your syntax (quotes, commas, brackets).");
+            return;
+        }
+
+        document.getElementById('uploadBtn').disabled = true;
+        document.getElementById('uploadStatus').style.display = 'block';
+
+        try {
+            const formData = new FormData();
+            formData.append("files", fileInput);
+            
+            // Safe fetch catches non-JSON errors
+            const uploadData = await safeFetch(`${baseUrl}/upload/`, { method: "POST", body: formData });
+            if (uploadData.detail) return showResult(uploadData); // Error out early
+            
+            const filePath = uploadData.files[0];
+
+            const metaPayload = {
+                table_name: tableName,
+                table_description: "Uploaded dataset for demo",
+                column_descriptions: parsedColumns, 
+                business_formulas: parsedFormulas
+            };
+            
+            // Use encodeURIComponent to handle spaces in file_path
+            const metaData = await safeFetch(`${baseUrl}/metadata/?file_path=${encodeURIComponent(filePath)}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(metaPayload)
+            });
+            
+            showResult(metaData.detail ? metaData : { message: "Upload & Initialization Successful!", details: metaData });
+        } catch (error) {
+            console.error(error);
+            showResult({detail: "Critical UI/Network Error: " + error.message});
+        } finally {
+            document.getElementById('uploadBtn').disabled = false;
+            document.getElementById('uploadStatus').style.display = 'none';
+        }
+    }
+
+    async function askQuestion() {
+        const tableName = document.getElementById('tableName').value;
+        const question = document.getElementById('chatQuery').value;
+        const baseUrl = getApiUrl();
+
+        if (!question) { alert("Please ask a question."); return; }
+
+        document.getElementById('chatBtn').disabled = true;
+        document.getElementById('chatStatus').style.display = 'block';
+
+        try {
+            const data = await safeFetch(`${baseUrl}/chat/`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ table_name: tableName, question: question })
+            });
+            showResult(data);
+        } catch (error) {
+            console.error(error);
+            showResult({detail: "Critical UI/Network Error: " + error.message});
+        } finally {
+            document.getElementById('chatBtn').disabled = false;
+            document.getElementById('chatStatus').style.display = 'none';
+        }
+    }
+
+    async function generateReport() {
+        const tableName = document.getElementById('tableName').value;
+        const baseUrl = getApiUrl();
+
+        document.getElementById('reportBtn').disabled = true;
+        document.getElementById('reportStatus').style.display = 'block';
+
+        try {
+            // FIX: Added encodeURIComponent to prevent space-related URL breaks
+            const data = await safeFetch(`${baseUrl}/analyze/${encodeURIComponent(tableName)}`, { method: "POST" });
+            showResult(data);
+        } catch (error) {
+            console.error(error);
+            showResult({detail: "Critical UI/Network Error: " + error.message});
+        } finally {
+            document.getElementById('reportBtn').disabled = false;
+            document.getElementById('reportStatus').style.display = 'none';
+        }
+    }
+</script>
+</body>
+</html>

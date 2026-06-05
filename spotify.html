@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Product Teardown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spotifyGreen: '#1DB954',
+                        spotifyBase: '#121212',
+                        spotifyElevated: '#181818',
+                        spotifyHighlight: '#282828',
+                        spotifyText: '#FFFFFF',
+                        spotifySubtext: '#B3B3B3'
+                    },
+                    fontFamily: {
+                        sans: ['Circular', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #FFFFFF;
+        }
+        /* Custom scrollbar for horizontal tabs */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Smooth gradient for hero */
+        .spotify-gradient {
+            background: linear-gradient(180deg, #1e3264 0%, #121212 100%);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-spotifyGreen selection:text-white">
+
+    <nav class="sticky top-0 z-50 bg-[#000000] bg-opacity-90 border-b border-spotifyHighlight backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                
+                <div class="flex overflow-x-auto hide-scrollbar space-x-8">
+                    <a href="netflix-teardown.html" class="text-spotifySubtext hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Netflix
+                    </a>
+                    <a href="blinkit-teardown.html" class="text-spotifySubtext hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Blinkit
+                    </a>
+                    <a href="amazon.html" class="text-spotifySubtext hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Amazon
+                    </a>
+                    <a href="#" class="text-spotifyGreen border-b-2 border-spotifyGreen font-bold whitespace-nowrap px-1 pb-1 flex items-center gap-2">
+                        <i class="ph-fill ph-spotify-logo text-xl"></i> Spotify
+                    </a>
+                    <a href="uber.html" class="text-spotifySubtext hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Uber
+                    </a>
+                    <a href="crunchyroll.html" class="text-spotifySubtext hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Crunchyroll
+                    </a>
+                </div>
+
+                <a href="index.html" class="hidden sm:flex items-center gap-2 text-sm font-semibold bg-white text-black hover:scale-105 px-5 py-2 rounded-full transition-transform ml-4 whitespace-nowrap">
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="spotify-gradient pt-16 pb-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-end gap-6 md:gap-8">
+            
+            <!-- Logo Container -->
+            <div class="w-48 h-48 md:w-60 md:h-60 rounded-lg shadow-2xl flex-shrink-0 bg-black flex items-center justify-center overflow-hidden group">
+                <img src="assets/spotify_logo.png" alt="Spotify Logo" class="w-3/4 h-3/4 object-contain group-hover:scale-105 transition-transform duration-500">
+            </div>
+            
+            <div class="flex-1 pb-2">
+                <span class="text-sm font-bold tracking-widest uppercase mb-2 block">Product Teardown</span>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-white mb-4">Personalization &<br>Recommendations</h1>
+                <p class="text-spotifySubtext text-sm md:text-base font-medium flex items-center gap-2">
+                    <i class="ph-fill ph-user-circle text-spotifyGreen"></i> Kshitij Parikh • <span class="font-normal">5-7 min read</span> • <span class="font-normal">Product Strategy</span>
+                </p>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+        
+        <div class="flex items-center gap-6">
+            <button class="w-14 h-14 bg-spotifyGreen rounded-full flex items-center justify-center text-black hover:scale-105 transition-transform shadow-lg">
+                <i class="ph-fill ph-play text-2xl"></i>
+            </button>
+            <button class="text-spotifySubtext hover:text-white transition-colors">
+                <i class="ph-bold ph-heart text-3xl"></i>
+            </button>
+            <button class="text-spotifySubtext hover:text-white transition-colors">
+                <i class="ph-bold ph-dots-three text-3xl"></i>
+            </button>
+        </div>
+
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-8">
+                <div>
+                    <h2 class="text-2xl font-bold mb-4">About Spotify</h2>
+                    <p class="text-spotifySubtext leading-relaxed">
+                        Founded in 2006 by Daniel Ek and Martin Lorentzon, Spotify is the world's largest music streaming service provider. Guided by the mission <em>"to unlock the potential of human creativity,"</em> the platform gives millions of artists the opportunity to live off their art, and billions of fans the opportunity to be inspired by it.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-spotifyElevated p-6 rounded-lg hover:bg-spotifyHighlight transition-colors">
+                        <h3 class="font-bold mb-2 flex items-center gap-2"><i class="ph-bold ph-currency-dollar text-spotifyGreen"></i> Business Model</h3>
+                        <p class="text-sm text-spotifySubtext"><strong>Freemium Model.</strong> Basic functions are free (ad-supported).</p><br>
+                         <p class="text-sm text-spotifySubtext"><strong> Premium subscriptions</strong> offer offline listening, higher quality, and an ad-free experience.</p>
+                    </div>
+                    <div class="bg-spotifyElevated p-6 rounded-lg hover:bg-spotifyHighlight transition-colors">
+                        <h3 class="font-bold mb-2 flex items-center gap-2"><i class="ph-bold ph-sword text-spotifyGreen"></i> Market Competitors</h3>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="bg-[#282828] px-3 py-1 rounded-full text-xs font-semibold">Apple Music</span>
+                            <span class="bg-[#282828] px-3 py-1 rounded-full text-xs font-semibold">YouTube Music</span>
+                            <span class="bg-[#282828] px-3 py-1 rounded-full text-xs font-semibold">Amazon Music</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-spotifyElevated p-8 rounded-lg flex flex-col justify-center space-y-6">
+                <h3 class="text-sm font-bold tracking-widest uppercase text-spotifySubtext border-b border-spotifyHighlight pb-2">Platform Scale</h3>
+                <div>
+                    <p class="text-3xl font-black text-white">500M+</p>
+                    <p class="text-sm text-spotifySubtext">Monthly Active Users (MAU)</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-black text-spotifyGreen">200M+</p>
+                    <p class="text-sm text-spotifySubtext">Premium Subscribers</p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-xl font-bold text-white">100M+</p>
+                        <p class="text-xs text-spotifySubtext">Songs</p>
+                    </div>
+                    <div>
+                        <p class="text-xl font-bold text-white">10M+</p>
+                        <p class="text-xs text-spotifySubtext">Artists</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold mb-6 border-b border-spotifyHighlight pb-4 flex items-center gap-3">
+                <i class="ph-fill ph-magic-wand text-spotifyGreen"></i> The Recommendation Engine
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="bg-spotifyElevated p-6 rounded-lg hover:bg-spotifyHighlight transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-[#282828] rounded-full flex items-center justify-center mb-4 group-hover:bg-spotifyGreen transition-colors">
+                        <i class="ph-fill ph-brain text-xl group-hover:text-black transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Machine Learning</h3>
+                    <p class="text-sm text-spotifySubtext leading-relaxed">
+                        Analyzes audio models and user behavior to create hyper-personalized playlists (like Discover Weekly). If a user plays pop, the algorithm surfaces sonically similar pop tracks to keep engagement high.
+                    </p>
+                </div>
+
+                <div class="bg-spotifyElevated p-6 rounded-lg hover:bg-spotifyHighlight transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-[#282828] rounded-full flex items-center justify-center mb-4 group-hover:bg-spotifyGreen transition-colors">
+                        <i class="ph-fill ph-clock text-xl group-hover:text-black transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Listening Preferences</h3>
+                    <p class="text-sm text-spotifySubtext leading-relaxed">
+                        Factors in the time of day, length of listening sessions, and even the type of device used. This ensures a morning commute playlist feels drastically different from a late-night focus mix.
+                    </p>
+                </div>
+
+                <div class="bg-spotifyElevated p-6 rounded-lg hover:bg-spotifyHighlight transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-[#282828] rounded-full flex items-center justify-center mb-4 group-hover:bg-spotifyGreen transition-colors">
+                        <i class="ph-fill ph-users-three text-xl group-hover:text-black transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Collaborative Filtering</h3>
+                    <p class="text-sm text-spotifySubtext leading-relaxed">
+                        Analyzes listening habits across millions of users. If User A and User B share 80% of their tastes, the algorithm recommends the remaining 20% to each other to drive organic discovery.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+        <!-- USER JOURNEY -->
+        <section>
+            <h2 class="text-2xl font-bold mb-6 border-b border-spotifyHighlight pb-4 flex items-center gap-3">
+                <i class="ph-fill ph-path text-spotifyGreen"></i> User Journey
+            </h2>
+            
+            <!-- Single Image Showcase -->
+            <div class="bg-spotifyElevated rounded-xl p-2 md:p-6 mb-8 border border-[#282828] shadow-lg relative">
+                <div class="w-full overflow-x-auto hide-scrollbar cursor-ew-resize">
+                    <!-- min-w-[800px] ensures it doesn't get too tiny on mobile -->
+                    <img src="assets/spotify_user_journey.png" alt="Spotify User Journey Flow" class="w-full min-w-[800px] h-auto object-contain rounded-lg">
+                </div>
+                <!-- Swipe Hint for Mobile -->
+                <div class="absolute bottom-4 right-4 bg-black/70 text-spotifySubtext text-xs px-3 py-1 rounded-full md:hidden flex items-center gap-2 backdrop-blur-sm">
+                    <i class="ph-bold ph-arrows-left-right"></i> Swipe to explore
+                </div>
+            </div>
+
+            <!-- Text Summary Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-[#1a1a1a] p-5 rounded-lg border border-spotifyHighlight hover:border-spotifyGreen/50 transition-colors">
+                    <span class="text-xs font-bold text-spotifyGreen uppercase tracking-wider mb-2 block">1. Home Screen</span>
+                    <ul class="text-xs text-spotifySubtext space-y-2 list-disc list-inside">
+                        <li>User can choose from 'Music or Podcast'.</li>
+                        <li>Recommendations are based on previously streamed content.</li>
+                        <li>Playlists based around top artists and stream mood.</li>
+                        <li>Current playing song is visible at the bottom.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-[#1a1a1a] p-5 rounded-lg border border-spotifyHighlight hover:border-spotifyGreen/50 transition-colors">
+                    <span class="text-xs font-bold text-spotifyGreen uppercase tracking-wider mb-2 block">2. Exploration</span>
+                    <ul class="text-xs text-spotifySubtext space-y-2 list-disc list-inside">
+                        <li>Browse curated hubs like "Today's biggest hits" and "Your top mixes".</li>
+                    </ul>
+                </div>
+
+                <div class="bg-[#1a1a1a] p-5 rounded-lg border border-spotifyHighlight hover:border-spotifyGreen/50 transition-colors">
+                    <span class="text-xs font-bold text-spotifyGreen uppercase tracking-wider mb-2 block">3. Music View</span>
+                    <ul class="text-xs text-spotifySubtext space-y-2 list-disc list-inside">
+                        <li>Selection made as per choice.</li>
+                        <li>Shows top trends and recommendations based on past streams.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-[#1a1a1a] p-5 rounded-lg border border-spotifyHighlight hover:border-spotifyGreen/50 transition-colors">
+                    <span class="text-xs font-bold text-spotifyGreen uppercase tracking-wider mb-2 block">4. Podcast View</span>
+                    <ul class="text-xs text-spotifySubtext space-y-2 list-disc list-inside">
+                        <li>Recommendations based on followed content.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 class="text-2xl font-bold mb-6">Target Personas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-spotifyElevated rounded-lg p-6 flex flex-col gap-6">
+                    <div class="flex items-center gap-4 border-b border-spotifyHighlight pb-4">
+                        <div class="w-16 h-16 rounded-full bg-spotifyHighlight overflow-hidden flex-shrink-0">
+                            <img src="assets/spotify_userprofile1.jpg" alt="Student Persona" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Kritika Kapoor</h3>
+                            <p class="text-sm text-spotifySubtext">Age 22 • Student</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm italic text-spotifySubtext mb-4">"I love listening to music, it's a takeaway from reality. Transports me to a place as per my mood and vibes."</p>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-spotifyGreen">Goals</span>
+                                <ul class="text-sm text-spotifyText mt-1 space-y-1 list-disc list-inside">
+                                    <li>Hassle-free, mood-based music experiences.</li>
+                                    <li>Keep preferred music in easy-to-access playlists.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-red-400">Friction Points</span>
+                                <ul class="text-sm text-spotifySubtext mt-1 space-y-1 list-disc list-inside">
+                                    <li>Searching for specific songs is tedious; prefers curated tastes.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-spotifyElevated rounded-lg p-6 flex flex-col gap-6">
+                    <div class="flex items-center gap-4 border-b border-spotifyHighlight pb-4">
+                        <div class="w-16 h-16 rounded-full bg-spotifyHighlight overflow-hidden flex-shrink-0">
+                            <img src="assets/spotify_userprofile2.jpg" alt="Analyst Persona" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Kunal Shah</h3>
+                            <p class="text-sm text-spotifySubtext">Age 29 • Analyst</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm italic text-spotifySubtext mb-4">"My go-to is podcasts and I enjoy listening to hidden gems. Discovering the new is always what I need."</p>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-spotifyGreen">Goals</span>
+                                <ul class="text-sm text-spotifyText mt-1 space-y-1 list-disc list-inside">
+                                    <li>Explore niche podcast topics and hidden-gem artists.</li>
+                                    <li>Follow and stay updated with new episodes easily.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-red-400">Friction Points</span>
+                                <ul class="text-sm text-spotifySubtext mt-1 space-y-1 list-disc list-inside">
+                                    <li>Hard to discover highly specific, engaging content outside the mainstream.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="bg-[#1a1a1a] rounded-xl p-8 border border-spotifyHighlight">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/3">
+                    <h2 class="text-3xl font-black text-white mb-2">Strategic Enhancements</h2>
+                    <p class="text-spotifySubtext text-sm">Opportunities to evolve the UX and deepen algorithmic stickiness.</p>
+                </div>
+                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-spotifyBase p-5 rounded-lg border border-spotifyHighlight">
+                        <i class="ph-bold ph-scales text-spotifyGreen text-2xl mb-2"></i>
+                        <h4 class="font-bold text-white mb-1">Explicit Feedback Loops</h4>
+                        <p class="text-xs text-spotifySubtext">Allow users to rate personalized content or explicitly mark "dislikes" to fine-tune the algorithm faster than passive listening data allows.</p>
+                    </div>
+                    <div class="bg-spotifyBase p-5 rounded-lg border border-spotifyHighlight">
+                        <i class="ph-bold ph-sliders-horizontal text-spotifyGreen text-2xl mb-2"></i>
+                        <h4 class="font-bold text-white mb-1">Algorithmic Control</h4>
+                        <p class="text-xs text-spotifySubtext">Give users sliders (e.g., "More Discovery" vs "More Familiar") to actively steer their recommendation engine depending on their current mood.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-16">
+            <h2 class="text-2xl font-bold mb-8">Performance Tracking</h2>
+            
+            <div class="bg-gradient-to-r from-spotifyGreen/20 to-spotifyBase border border-spotifyGreen/30 rounded-xl p-8 mb-6 text-center">
+                <p class="text-sm font-bold text-spotifyGreen uppercase tracking-widest mb-2">North Star Metric</p>
+                <h3 class="text-3xl font-black text-white mb-3">Monthly Active Listening Hours</h3>
+                <p class="text-spotifySubtext max-w-2xl mx-auto">The ultimate indicator of platform health. Measures the total number of hours users spend actively engaged with music, podcasts, and audio content.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-spotifyElevated p-6 rounded-lg border-t-4 border-[#282828] hover:border-spotifyGreen transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-lg font-bold">L1: Playlist Engagement</h4>
+                        <span class="bg-[#282828] text-xs px-2 py-1 rounded">Interaction</span>
+                    </div>
+                    <p class="text-sm text-spotifySubtext mb-4">Measures deep interaction with recommended content.</p>
+                    <ul class="text-xs font-mono text-spotifySubtext space-y-2">
+                        <li class="flex justify-between border-b border-[#282828] pb-1"><span>Target Actions:</span> <span class="text-white">Saves, Shares, Likes</span></li>
+                        <li class="flex justify-between border-b border-[#282828] pb-1"><span>Why it matters:</span> <span class="text-white">Shows algorithmic relevance</span></li>
+                    </ul>
+                </div>
+
+                <div class="bg-spotifyElevated p-6 rounded-lg border-t-4 border-[#282828] hover:border-spotifyGreen transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-lg font-bold">L2: Discovery Conversion Rate</h4>
+                        <span class="bg-[#282828] text-xs px-2 py-1 rounded">Exploration</span>
+                    </div>
+                    <p class="text-sm text-spotifySubtext mb-4">Measures the conversion of passive listeners into active explorers.</p>
+                    <ul class="text-xs font-mono text-spotifySubtext space-y-2">
+                        <li class="flex justify-between border-b border-[#282828] pb-1"><span>Target Actions:</span> <span class="text-white">Clicking to new artist profiles</span></li>
+                        <li class="flex justify-between border-b border-[#282828] pb-1"><span>Why it matters:</span> <span class="text-white">Breeds long-term retention</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

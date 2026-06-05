@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Product Teardown</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        uberBlack: '#000000',
+                        uberWhite: '#FFFFFF',
+                        uberGray: '#EEEEEE',
+                        uberDarkGray: '#333333',
+                        uberLightText: '#545454'
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        /* Custom scrollbar for horizontal tabs */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-uberBlack selection:text-white">
+
+    <!-- HORIZONTAL SELECTION TAB -->
+    <nav class="sticky top-0 z-50 bg-white bg-opacity-95 border-b border-gray-200 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                
+                <!-- Teardown Navigation -->
+                <div class="flex overflow-x-auto hide-scrollbar space-x-8">
+                    <a href="netflix-teardown.html" class="text-uberLightText hover:text-black transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Netflix
+                    </a>
+                    <a href="blinkit-teardown.html" class="text-uberLightText hover:text-black transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Blinkit
+                    </a>
+                    <a href="amazon.html" class="text-uberLightText hover:text-black transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Amazon
+                    </a>
+                    <a href="spotify.html" class="text-uberLightText hover:text-black transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Spotify
+                    </a>
+                    <!-- Active Tab -->
+                    <a href="#" class="text-uberBlack border-b-2 border-uberBlack font-bold whitespace-nowrap px-1 pb-1 flex items-center gap-2">
+                        <i class="ph-fill ph-car-profile text-xl"></i> Uber
+                    </a>
+                    <a href="crunchyroll.html" class="text-uberLightText hover:text-black transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Crunchyroll
+                    </a>
+                </div>
+
+                <!-- Back to Homepage Button -->
+                <a href="index.html" class="hidden sm:flex items-center gap-2 text-sm font-bold bg-uberBlack hover:bg-uberDarkGray text-white px-5 py-2 rounded-full transition-colors ml-4 whitespace-nowrap">
+                    <i class="ph-bold ph-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+        
+        <!-- HERO SECTION -->
+        <header class="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 border-b-4 border-uberBlack pb-12">
+            <div class="max-w-3xl">
+                <span class="bg-uberGray text-uberBlack font-bold px-3 py-1 text-xs uppercase tracking-widest mb-4 inline-block">Product Teardown</span>
+                <h1 class="text-6xl md:text-8xl font-black tracking-tighter text-uberBlack mb-6 leading-none">Uber</h1>
+                <p class="text-xl md:text-2xl font-medium text-uberLightText leading-relaxed">
+                    Connecting the physical and digital worlds to help make movement happen at the tap of a button.
+                </p>
+                <div class="mt-8 flex items-center gap-4 text-sm font-bold text-uberLightText">
+                    <div class="flex items-center gap-2">
+                        <i class="ph-fill ph-user-circle text-2xl text-uberBlack"></i>
+                        <span>Teardown by Kshitij</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <span class="border border-uberBlack px-4 py-2 font-bold text-sm">Scale: 10,000+ Cities</span>
+                <span class="border border-uberBlack px-4 py-2 font-bold text-sm">Reach: 700+ Airports</span>
+            </div>
+        </header>
+
+        <!-- 1. PRODUCT OVERVIEW & DNA -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-8 space-y-12">
+                <div>
+                    <h2 class="text-3xl font-black mb-6 uppercase tracking-tight">The Origin & DNA</h2>
+                    <p class="text-lg text-uberLightText leading-relaxed">
+                        The idea for Uber was born on a snowy night in Paris in 2008, and ever since then their DNA of reimagination and reinvention carries on. They've gone from connecting rides on 4 wheels to 2 wheels to 18-wheel freight deliveries. Safety is a top priority every single day.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-uberGray p-8">
+                        <h3 class="font-black text-xl mb-4 flex items-center gap-2"><i class="ph-fill ph-target"></i> Mission</h3>
+                        <ul class="space-y-4 text-sm text-uberLightText">
+                            <li><strong class="text-uberBlack">Dual-sided Opportunity:</strong> They empower both riders and drivers. Riders gain convenient on-demand mobility, while drivers earn a living through flexible work opportunities.</li>
+                            <li><strong class="text-uberBlack">Speed and Efficiency:</strong> They aim to connect riders with drivers seamlessly, "in real time" and "at the incredible speed of now".</li>
+                            <li><strong class="text-uberBlack">Universal Accessibility:</strong> Striving to make transportation universally accessible, "anywhere and for everyone," just like reliable utilities such as running water.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-uberBlack text-white p-8">
+                        <h3 class="font-black text-xl mb-4 flex items-center gap-2"><i class="ph-fill ph-handshake"></i> Value Proposition</h3>
+                        <ul class="space-y-4 text-sm text-gray-300">
+                            <li><strong class="text-white">One Uber:</strong> Be a part of something bigger than any one team. They work together to do what's best for Uber.</li>
+                            <li><strong class="text-white">Diversity:</strong> Great minds don't think alike. They seek out diversity of ideas, identity, ethnicity, experience, and education.</li>
+                            <li><strong class="text-white">Build with heart:</strong> Their products profoundly affect user lives and they care deeply about their impact.</li>
+                            <li><strong class="text-white">Stand for safety:</strong> Relentless pursuit to make Uber safer for everyone.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 space-y-8">
+                <div class="border-t-4 border-uberBlack pt-6">
+                    <h3 class="font-black text-xl mb-4 uppercase">Market Competitors</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-uberGray px-4 py-2 text-sm font-bold">Grab</span>
+                        <span class="bg-uberGray px-4 py-2 text-sm font-bold">Taxify (Bolt)</span>
+                        <span class="bg-uberGray px-4 py-2 text-sm font-bold">OLA</span>
+                        <span class="bg-uberGray px-4 py-2 text-sm font-bold">DiDi</span>
+                        <span class="bg-uberGray px-4 py-2 text-sm font-bold">Lyft</span>
+                    </div>
+                </div>
+
+                <div class="border-t-4 border-uberBlack pt-6">
+                    <h3 class="font-black text-xl mb-4 uppercase">Ecosystem Expansion</h3>
+                    <ul class="space-y-3 text-sm text-uberLightText">
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-car text-uberBlack text-lg"></i> UberX & Premier</li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-leaf text-uberBlack text-lg"></i> Uber Green</li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-bus text-uberBlack text-lg"></i> Uber Shuttle</li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-bicycle text-uberBlack text-lg"></i> 2 or 3 Wheels (Bikes/Scooters)</li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-hamburger text-uberBlack text-lg"></i> Uber Eats</li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-truck text-uberBlack text-lg"></i> Uber Freight</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. BUSINESS MODEL & STRATEGY -->
+        <section class="bg-uberGray p-8 md:p-16">
+            <h2 class="text-3xl font-black mb-12 uppercase tracking-tight text-center">Business & Strategy</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-black mb-4">How Uber Makes Money</h3>
+                    <ul class="space-y-6 text-uberLightText">
+                        <li>
+                            <strong class="text-uberBlack block mb-1">Commission-based Revenue</strong>
+                            They facilitate connections between riders and drivers, taking a commission (mostly 20-25%) while keeping the marketplace model asset-light.
+                        </li>
+                        <li>
+                            <strong class="text-uberBlack block mb-1">Dynamic Pricing Optimization</strong>
+                            They leverage dynamic pricing strategies like surge pricing to manage supply and demand. This ensures driver availability during peak hours and maintains fair pricing.
+                        </li>
+                        <li>
+                            <strong class="text-uberBlack block mb-1">Multi-service Expansion</strong>
+                            Moving beyond ridesharing by offering services like Uber Eats and Uber Freight to diversify revenue streams.
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-black mb-4">Strategic Moats</h3>
+                    <ul class="space-y-6 text-uberLightText">
+                        <li>
+                            <strong class="text-uberBlack block mb-1">Solving a Fundamental Need</strong>
+                            The traditional taxi industry lacked efficiency and convenience. By tackling this core need, Uber carved a niche in a market ripe for disruption.
+                        </li>
+                        <li>
+                            <strong class="text-uberBlack block mb-1">Building a Scalable Platform</strong>
+                            The core matching technology can be adapted to different services, creating a one-stop shop for on-demand services.
+                        </li>
+                        <li>
+                            <strong class="text-uberBlack block mb-1">Network Effects</strong>
+                            As the rider and driver base grows, the value proposition increases. More riders attract more drivers, leading to faster service.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. TARGET PERSONAS -->
+        <section>
+            <div class="flex items-center justify-between mb-12 border-b-4 border-uberBlack pb-4">
+                <h2 class="text-3xl font-black uppercase tracking-tight">User Personas</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Persona 1 -->
+                <div class="border border-gray-200 p-8 hover:shadow-2xl transition-shadow bg-white flex flex-col">
+                    <h3 class="text-2xl font-black text-uberBlack mb-1">Riya Sharma</h3>
+                    <p class="text-sm font-bold text-uberLightText mb-6 uppercase tracking-wider">Female, 30 | Mumbai | Marketing Mgr</p>
+                    <p class="text-sm italic text-uberLightText mb-8 border-l-4 border-uberBlack pl-4 flex-grow">
+                        "Every minute counts in my fast-paced job. Uber helps me get to meetings and client pitches on time, without the stress of traffic or unreliable public transport."
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 uppercase tracking-wide">Pain Points</span>
+                            <p class="text-sm text-uberLightText mt-2">Unpredictable traffic delays, crowded and unreliable public transportation, limited taxi availability, difficulty finding parking.</p>
+                        </div>
+                        <div>
+                            <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 uppercase tracking-wide">Needs</span>
+                            <p class="text-sm text-uberLightText mt-2">Safe, reliable, and time-efficient transit. Appreciates cashless payments and ride tracking.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Persona 2 -->
+                <div class="border border-gray-200 p-8 hover:shadow-2xl transition-shadow bg-white flex flex-col">
+                    <h3 class="text-2xl font-black text-uberBlack mb-1">David Miller</h3>
+                    <p class="text-sm font-bold text-uberLightText mb-6 uppercase tracking-wider">Male, 35 | London | Int. Sales Director</p>
+                    <p class="text-sm italic text-uberLightText mb-8 border-l-4 border-uberBlack pl-4 flex-grow">
+                        "Uber is a game-changer when I travel for work. It allows me to navigate unfamiliar cities with ease, avoiding language barriers and expensive taxi fares."
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 uppercase tracking-wide">Pain Points</span>
+                            <p class="text-sm text-uberLightText mt-2">Difficulty navigating public transit in new cities, language barriers, unreliable/expensive taxis.</p>
+                        </div>
+                        <div>
+                            <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 uppercase tracking-wide">Needs</span>
+                            <p class="text-sm text-uberLightText mt-2">Reliable transit in unfamiliar cities. Appreciates global availability, ease of use, and upfront pricing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Persona 3 -->
+                <div class="border border-gray-200 p-8 hover:shadow-2xl transition-shadow bg-white flex flex-col">
+                    <h3 class="text-2xl font-black text-uberBlack mb-1">Anjali Patel</h3>
+                    <p class="text-sm font-bold text-uberLightText mb-6 uppercase tracking-wider">Female, 26 | Bengaluru | Designer</p>
+                    <p class="text-sm italic text-uberLightText mb-8 border-l-4 border-uberBlack pl-4 flex-grow">
+                        "Uber Eats is a lifesaver! I can order delicious food from my favorite restaurants without stepping out, especially on busy days."
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 uppercase tracking-wide">Pain Points</span>
+                            <p class="text-sm text-uberLightText mt-2">Limited time for cooking, long wait times at restaurants, inconvenient grocery shopping trips.</p>
+                        </div>
+                        <div>
+                            <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 uppercase tracking-wide">Needs</span>
+                            <p class="text-sm text-uberLightText mt-2">Convenient access to food delivery. Appreciates wide restaurant selection and tracking features.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. USER JOURNEY FUNNELS -->
+        <section>
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 border-b-4 border-uberBlack pb-4">
+                <h2 class="text-3xl font-black uppercase tracking-tight">Core User Journeys</h2>
+                <div class="flex gap-2 mt-4 md:mt-0">
+                    <span class="bg-uberBlack text-white px-4 py-1 text-sm font-bold">Onboarding Flow</span>
+                    <span class="bg-uberGray text-uberBlack px-4 py-1 text-sm font-bold">Ride Booking Flow</span>
+                </div>
+            </div>
+
+            <!-- Onboarding Journey -->
+            <div class="mb-16">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="ph-fill ph-sign-in"></i> New User Onboarding</h3>
+                <div class="flex overflow-x-auto hide-scrollbar gap-6 pb-4">
+                    <div class="min-w-[200px] border border-gray-200 p-4">
+                        <div class="w-8 h-8 bg-uberBlack text-white flex items-center justify-center font-bold mb-4">1</div>
+                        <h4 class="font-bold mb-2">Get Started</h4>
+                        <p class="text-xs text-uberLightText">User downloads the app and clicks "Get started with Uber".</p>
+                    </div>
+                    <div class="flex items-center text-gray-300"><i class="ph-bold ph-arrow-right text-2xl"></i></div>
+                    <div class="min-w-[200px] border border-gray-200 p-4">
+                        <div class="w-8 h-8 bg-uberBlack text-white flex items-center justify-center font-bold mb-4">2</div>
+                        <h4 class="font-bold mb-2">Permissions</h4>
+                        <p class="text-xs text-uberLightText">Allowing device location to enable accurate pickup mapping.</p>
+                    </div>
+                    <div class="flex items-center text-gray-300"><i class="ph-bold ph-arrow-right text-2xl"></i></div>
+                    <div class="min-w-[200px] border border-gray-200 p-4">
+                        <div class="w-8 h-8 bg-uberBlack text-white flex items-center justify-center font-bold mb-4">3</div>
+                        <h4 class="font-bold mb-2">Verification</h4>
+                        <p class="text-xs text-uberLightText">Fetching device phone number, entering mobile number, and verifying via OTP.</p>
+                    </div>
+                    <div class="flex items-center text-gray-300"><i class="ph-bold ph-arrow-right text-2xl"></i></div>
+                    <div class="min-w-[200px] border border-gray-200 p-4">
+                        <div class="w-8 h-8 bg-uberBlack text-white flex items-center justify-center font-bold mb-4">4</div>
+                        <h4 class="font-bold mb-2">Home Page</h4>
+                        <p class="text-xs text-uberLightText">User lands on the home page featuring the "Where to?" search bar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Journey -->
+            <div>
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="ph-fill ph-car"></i> Ride Booking Flow</h3>
+                <div class="flex overflow-x-auto hide-scrollbar gap-6 pb-4">
+                    <div class="min-w-[200px] border border-gray-200 p-4 bg-uberGray">
+                        <div class="w-8 h-8 bg-uberBlack text-white flex items-center justify-center font-bold mb-4">1</div>
+                        <h4 class="font-bold mb-2">Destination</h4>
+                        <p class="text-xs text-uberLightText">Enter the location where you want to go in the search bar.</p>
+                    </div>
+                    <div class="flex items-center text-gray-300"><i class="ph-bold ph-arrow-right text-2xl"></i></div>
+                    <div class="min-w-[200px] border border-gray-200 p-4 bg-uberGray">
+                        <div class="w-8 h-8 bg-uberBlack text-white flex items-center justify-center font-bold mb-4">2</div>
+                        <h4 class="font-bold mb-2">Ride Selection</h4>
+                        <p class="text-xs text-uberLightText">Select the ride type (e.g., Uber Go, UberXL, Premier) and review upfront pricing.</p>
+                    </div>
+                    <div class="flex items-center text-gray-300"><i class="ph-bold ph-arrow-right text-2xl"></i></div>
+                    <div class="min-w-[200px] border border-gray-200 p-4 bg-uberGray">
+                        <div class="w-8 h-8 bg-uberBlack text-white flex items-center justify-center font-bold mb-4">3</div>
+                        <h4 class="font-bold mb-2">Confirmation</h4>
+                        <p class="text-xs text-uberLightText">Confirm the ride and verify the exact pickup spot on the map.</p>
+                    </div>
+                    <div class="flex items-center text-gray-300"><i class="ph-bold ph-arrow-right text-2xl"></i></div>
+                    <div class="min-w-[200px] border border-gray-200 p-4 bg-uberGray">
+                        <div class="w-8 h-8 bg-uberBlack text-white flex items-center justify-center font-bold mb-4">4</div>
+                        <h4 class="font-bold mb-2">Payment</h4>
+                        <p class="text-xs text-uberLightText">Search starts for nearby driver. User selects payment mode (Cash, Uber Cash, Business).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PRODUCT STRATEGY & IMPROVEMENTS -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-uberBlack text-white p-8 md:p-16">
+            <div>
+                <h2 class="text-3xl font-black mb-8 uppercase tracking-tight">Scope of Improvement</h2>
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-2"><i class="ph-bold ph-steering-wheel text-uberGray"></i> Enhancing Experience</h4>
+                        <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
+                            <li><strong class="text-white">Advanced ETA accuracy:</strong> Providing riders with real-time traffic updates and precise estimates.</li>
+                            <li><strong class="text-white">Driver destination filters:</strong> Allowing drivers to set preferred zones to optimize earnings and reduce deadheading.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-2"><i class="ph-bold ph-plant text-uberGray"></i> Sustainable Solutions</h4>
+                        <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
+                            <li><strong class="text-white">Expand micromobility:</strong> Increase e-bikes and scooters to encourage short-distance green commutes.</li>
+                            <li><strong class="text-white">Partner with EV makers:</strong> Incentivize drivers to switch to electric cars via charging support or lease discounts.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-2"><i class="ph-bold ph-shield-check text-uberGray"></i> Safety & Security</h4>
+                        <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
+                            <li><strong class="text-white">Advanced screening:</strong> Stricter background checks and driver training programs.</li>
+                            <li><strong class="text-white">In-app features:</strong> "Ride check-in" or emergency buttons for peace of mind.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-2"><i class="ph-bold ph-buildings text-uberGray"></i> Urban Planning</h4>
+                        <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
+                            <li><strong class="text-white">City authorities:</strong> Partnering to develop data-driven solutions for congestion, like designated pick-up/drop-off zones.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NORTH STAR METRIC FRAMEWORK -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-black mb-8 uppercase tracking-tight">North Star Metric Framework</h2>
+            
+            <div class="space-y-6">
+                <!-- North Star -->
+                <div class="bg-uberBlack text-white p-8 md:p-10 border border-[#333333] shadow-2xl relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 text-[#222222] opacity-50 pointer-events-none">
+                        <i class="ph-fill ph-star text-[16rem]"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-sm font-bold tracking-widest uppercase text-gray-400 mb-3 flex items-center gap-2">
+                            <i class="ph-fill ph-shooting-star text-white text-lg"></i> North Star Metric
+                        </h3>
+                        <h4 class="text-4xl md:text-5xl font-black mb-4 tracking-tighter">Monthly Active Platform Consumers (MAPCs)</h4>
+                        <p class="text-lg text-gray-300 max-w-3xl">
+                            The ultimate indicator of overall platform health and ecosystem adoption, representing the total number of unique users who accessed rides, eats, or freight.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Supporting Metrics -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- L1 Metrics -->
+                    <div class="bg-[#111111] p-6 md:p-8 border-t-4 border-white shadow-lg">
+                        <h4 class="text-xl font-black text-white mb-6 uppercase tracking-tight">L1: Engagement & Quality</h4>
+                        <ul class="text-sm text-gray-300 space-y-5">
+                            <li>
+                                <strong class="text-white block mb-1 text-base"><i class="ph-bold ph-trend-up mr-1"></i> Avg Trip Frequency</strong> 
+                                Average number of trips a user takes per month.
+                            </li>
+                            <li>
+                                <strong class="text-white block mb-1 text-base"><i class="ph-bold ph-check-circle mr-1"></i> Trip Completion Rate</strong> 
+                                Percentage of initiated trips successfully completed.
+                            </li>
+                            <li>
+                                <strong class="text-white block mb-1 text-base"><i class="ph-bold ph-smiley mr-1"></i> CSAT & NPS</strong> 
+                                Gauges overall experience satisfaction, brand loyalty, and likelihood to recommend.
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- L2 Metrics -->
+                    <div class="bg-[#111111] p-6 md:p-8 border-t-4 border-white shadow-lg">
+                        <h4 class="text-xl font-black text-white mb-6 uppercase tracking-tight">L2: Network & Efficiency</h4>
+                        <ul class="text-sm text-gray-300 space-y-5">
+                            <li>
+                                <strong class="text-white block mb-1 text-base"><i class="ph-bold ph-clock mr-1"></i> Driver Availability & Response Time</strong> 
+                                Tracks matching speeds and healthy network density.
+                            </li>
+                            <li>
+                                <strong class="text-white block mb-1 text-base"><i class="ph-bold ph-currency-dollar mr-1"></i> ARPU</strong> 
+                                Average Revenue per User, derived by dividing total revenue by MAPCs.
+                            </li>
+                            <li>
+                                <strong class="text-white block mb-1 text-base"><i class="ph-bold ph-squares-four mr-1"></i> Growth in Services</strong> 
+                                Expanding Eats/Freight to strengthen the overall network effect.
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

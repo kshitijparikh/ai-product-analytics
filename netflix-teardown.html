@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Product Teardown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        netflixRed: '#E50914',
+                        netflixDark: '#141414',
+                        netflixGray: '#333333',
+                        netflixLightGray: '#B3B3B3',
+                        netflixHover: '#222222'
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #141414;
+            color: #ffffff;
+        }
+        /* Custom scrollbar for horizontal tabs */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-netflixRed selection:text-white">
+
+    <nav class="sticky top-0 z-50 bg-[#141414] bg-opacity-95 border-b border-netflixGray backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                
+                <!-- Product Teardown Tabs -->
+                <div class="flex overflow-x-auto hide-scrollbar space-x-8">
+                    <a href="#" class="text-white border-b-2 border-netflixRed font-bold whitespace-nowrap px-1 pb-1 flex items-center gap-2">
+                        <i class="ph-fill ph-play-circle text-netflixRed text-xl"></i> Netflix
+                    </a>
+                    <a href="blinkit-teardown.html" class="text-netflixLightGray hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Blinkit
+                    </a>
+                    <a href="amazon.html" class="text-netflixLightGray hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Amazon
+                    </a>
+                    <a href="spotify.html" class="text-netflixLightGray hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Spotify
+                    </a>
+                    <a href="uber.html" class="text-netflixLightGray hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Uber
+                    </a>
+                    <a href="crunchyroll.html" class="text-netflixLightGray hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Crunchyroll
+                    </a>
+                </div>
+
+                <!-- Home Button -->
+                <a href="index.html" class="ml-6 flex-shrink-0 bg-white hover:bg-gray-300 text-black text-sm font-bold px-5 py-2 rounded transition-colors whitespace-nowrap flex items-center gap-2">
+                    <i class="ph-bold ph-house"></i> Back to Home
+                </a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- CINEMATIC HERO -->
+    <header class="relative w-full py-24 mb-16 overflow-hidden flex flex-col justify-center border-b border-netflixGray">
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-[#141414]/90 to-transparent z-0"></div>
+        <div class="absolute -right-10 -top-24 text-[35rem] font-black text-netflixRed opacity-10 pointer-events-none leading-none z-0">N</div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="text-netflixRed text-2xl font-black">N</span>
+                <span class="text-sm font-bold tracking-[0.2em] text-netflixLightGray uppercase">Series</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white mb-6 uppercase drop-shadow-lg">Netflix Product Teardown</h1>
+            <div class="flex gap-4 mt-8">
+                <button class="bg-white text-black px-8 py-3 rounded font-bold text-lg flex items-center gap-2 hover:bg-gray-200 transition">
+                    <i class="ph-fill ph-play text-2xl"></i> Play
+                </button>
+                <button class="bg-netflixGray/80 text-white px-8 py-3 rounded font-bold text-lg flex items-center gap-2 hover:bg-netflixGray transition backdrop-blur-sm">
+                    <i class="ph-bold ph-info text-2xl"></i> More Info
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+            <div>
+                <h2 class="text-2xl font-bold mb-4 uppercase text-white">The Product</h2>
+                <p class="text-netflixLightGray leading-relaxed mb-8 text-lg">
+                    Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more - on thousands of internet-connected devices.
+                </p>
+
+                <h2 class="text-2xl font-bold mb-4 uppercase text-white mt-8">Overview</h2>
+                <p class="text-netflixLightGray leading-relaxed text-lg">
+                    Netflix had approximately 223 million paid subscribers worldwide as of the third quarter of 2022. Most Netflix subscribers are based in the United States and Canada, accounting for over 73 million of Netflix's total global subscriber base.
+                </p>
+            </div>
+            
+            <div class="bg-[#181818] p-8 rounded-lg border border-[#2a2a2a] shadow-2xl">
+                <h2 class="text-2xl font-bold mb-4 uppercase text-white flex items-center gap-2">
+                    <i class="ph-fill ph-currency-circle-dollar text-netflixRed"></i> Revenue Model
+                </h2>
+                <p class="text-netflixLightGray leading-relaxed mb-10">
+                    Netflix is a subscription-based streaming/on-demand platform making money with four plans: Mobile, Basic, Standard, Premium giving access to streamed series, movies, and shows.
+                </p>
+
+                <h2 class="text-2xl font-bold mb-4 uppercase text-white flex items-center gap-2">
+                    <i class="ph-fill ph-users-three text-netflixRed"></i> Competitors
+                </h2>
+                <ul class="flex flex-wrap gap-4">
+                    <li class="bg-black border border-netflixGray px-5 py-2 rounded font-bold text-sm text-white hover:border-white transition-colors cursor-default">Disney+</li>
+                    <li class="bg-black border border-netflixGray px-5 py-2 rounded font-bold text-sm text-white hover:border-white transition-colors cursor-default">Hulu</li>
+                    <li class="bg-black border border-netflixGray px-5 py-2 rounded font-bold text-sm text-white hover:border-white transition-colors cursor-default">Prime Video</li>
+                    <li class="bg-black border border-netflixGray px-5 py-2 rounded font-bold text-sm text-white hover:border-white transition-colors cursor-default">HBO</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 bg-[#181818] p-8 rounded-lg border border-[#2a2a2a]">
+            <div>
+                <h2 class="text-2xl font-bold mb-6 border-l-4 border-netflixRed pl-4 uppercase text-white">Features</h2>
+                <ul class="space-y-4 text-netflixLightGray">
+                    <li class="flex items-center gap-3"><i class="ph-bold ph-check text-netflixRed text-lg"></i> TV shows</li>
+                    <li class="flex items-center gap-3"><i class="ph-bold ph-check text-netflixRed text-lg"></i> Movies</li>
+                    <li class="flex items-center gap-3"><i class="ph-bold ph-check text-netflixRed text-lg"></i> Series</li>
+                    <li class="flex items-center gap-3"><i class="ph-bold ph-check text-netflixRed text-lg"></i> Recommendations to watch</li>
+                    <li class="flex items-center gap-3"><i class="ph-bold ph-check text-netflixRed text-lg"></i> Surprise me</li>
+                    <li class="flex items-center gap-3"><i class="ph-bold ph-check text-netflixRed text-lg"></i> Games</li>
+                    <li class="flex items-center gap-3"><i class="ph-bold ph-check text-netflixRed text-lg"></i> Fast laughs</li>
+                    <li class="flex items-center gap-3"><i class="ph-bold ph-check text-netflixRed text-lg"></i> Kids profile</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold mb-6 border-l-4 border-netflixRed pl-4 uppercase text-white">Key Metrics</h2>
+                <ul class="space-y-4 text-netflixLightGray">
+                    <li class="flex items-center gap-3"><i class="ph-fill ph-chart-bar text-netflixRed text-lg"></i> No of subscriptions purchased in a month</li>
+                    <li class="flex items-center gap-3"><i class="ph-fill ph-chart-bar text-netflixRed text-lg"></i> Watch time per user</li>
+                    <li class="flex items-center gap-3"><i class="ph-fill ph-chart-bar text-netflixRed text-lg"></i> Retention rate of customers</li>
+                    <li class="flex items-center gap-3"><i class="ph-fill ph-chart-bar text-netflixRed text-lg"></i> No of sessions per user per day</li>
+                    <li class="flex items-center gap-3"><i class="ph-fill ph-chart-bar text-netflixRed text-lg"></i> No of shares done per user</li>
+                    <li class="flex items-center gap-3"><i class="ph-fill ph-chart-bar text-netflixRed text-lg"></i> Completion rate of a video</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WHO'S WATCHING (User Personas) -->
+        <section class="mb-24 pt-12 border-t border-netflixGray">
+            <h2 class="text-4xl md:text-5xl font-normal mb-16 text-center text-white">Who's watching?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+                
+                <!-- Persona 1 -->
+                <div class="flex flex-col items-center group">
+                    <div class="bg-[#181818] w-full p-6 rounded-lg border border-[#2a2a2a] opacity-90 group-hover:opacity-100 transition-opacity">
+                        <h3 class="text-2xl font-bold text-white mb-1 text-center">Kiddo</h3>
+                        <p class="text-sm text-netflixLightGray mb-6 text-center font-medium">Age - 10 | Location - Trichy</p>
+                        
+                        <div class="mb-5">
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-netflixLightGray mb-2">Persona</h4>
+                            <ul class="text-sm text-white list-disc list-inside space-y-1">
+                                <li>Kiddo is studying 9th grade in Velammal public school.</li>
+                                <li>He is lover of cartoons and animation movies.</li>
+                            </ul>
+                        </div>
+                        <div class="mb-5">
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-red-500 mb-2">Pain Points</h4>
+                            <p class="text-sm text-white">He is not able to complete the sign up process through the mobile app as the sign up process can be completed only through website.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-green-500 mb-2">Goals</h4>
+                            <p class="text-sm text-white">He wishes the sign up process to be completed in mobile app only.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Persona 2 -->
+                <div class="flex flex-col items-center group">
+                    <div class="bg-[#181818] w-full p-6 rounded-lg border border-[#2a2a2a] opacity-90 group-hover:opacity-100 transition-opacity">
+                        <h3 class="text-2xl font-bold text-white mb-1 text-center">Tapu</h3>
+                        <p class="text-sm text-netflixLightGray mb-6 text-center font-medium">Age - 21 | Location - Varanasi</p>
+                        
+                        <div class="mb-5">
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-netflixLightGray mb-2">Persona</h4>
+                            <ul class="text-sm text-white list-disc list-inside space-y-1">
+                                <li>A college student studying in IIT BHU.</li>
+                                <li>He enjoys watching movies and series.</li>
+                                <li>He share his Netflix with four of his friends to share the subscription fee.</li>
+                            </ul>
+                        </div>
+                        <div class="mb-5">
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-red-500 mb-2">Pain Points</h4>
+                            <ul class="text-sm text-white list-disc list-inside space-y-1">
+                                <li>He is not much interested in watching English movies but he wishes to them in his regional language which is not there.</li>
+                                <li>He also feels there is lack of content and movies in his mother tongue.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-green-500 mb-2">Goals</h4>
+                            <p class="text-sm text-white">He wants to watch English and other foreign language movies dubbed in his language and also more of regional content.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Persona 3 -->
+                <div class="flex flex-col items-center group">
+                    <div class="bg-[#181818] w-full p-6 rounded-lg border border-[#2a2a2a] opacity-90 group-hover:opacity-100 transition-opacity">
+                        <h3 class="text-2xl font-bold text-white mb-1 text-center">Jethalal</h3>
+                        <p class="text-sm text-netflixLightGray mb-6 text-center font-medium">Age - 40 | Location - Chennai</p>
+                        
+                        <div class="mb-5">
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-netflixLightGray mb-2">Persona</h4>
+                            <ul class="text-sm text-white list-disc list-inside space-y-1">
+                                <li>He is working as Software engineer in Infosys.</li>
+                                <li>He is not a fan of cinema but likes to watch TV shows and documentaries.</li>
+                            </ul>
+                        </div>
+                        <div class="mb-5">
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-red-500 mb-2">Pain Points</h4>
+                            <ul class="text-sm text-white list-disc list-inside space-y-1">
+                                <li>He is unable to find option of internet banking in the signing up process.</li>
+                                <li>He has to search for the debit card to make the payment.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xs uppercase tracking-wider text-green-500 mb-2">Goals</h4>
+                            <p class="text-sm text-white">Internet banking in the sign up to be included.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MOVIE POSTER STYLE (User Experience) -->
+        <section class="mb-24">
+            <h2 class="text-2xl font-bold mb-6 text-white px-2">User Experience</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-2">
+                
+                <div class="relative rounded-md overflow-hidden transform hover:scale-105 hover:z-20 transition duration-300 shadow-xl border border-[#333] group cursor-pointer bg-[#181818]">
+                    <div class="absolute top-2 left-2 z-10 font-black text-netflixRed text-lg leading-none drop-shadow-md">N</div>
+                    <div class="w-full aspect-[9/16] relative">
+                        <img src="assets/children_profile.png" alt="Children Profile UI" class="w-full h-full object-cover object-top">
+                        <!-- Play Hover Overlay -->
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                            <div class="w-14 h-14 border-2 border-white rounded-full flex items-center justify-center bg-black/40 hover:bg-white hover:text-black transition-colors">
+                                <i class="ph-fill ph-play text-2xl ml-1"></i>
+                            </div>
+                        </div>
+                        <!-- Gradient Bottom text -->
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/90 to-transparent p-4 z-10 pt-12">
+                            <h3 class="text-white font-bold text-lg leading-tight mb-1">Kids Profile</h3>
+                            <p class="text-xs text-netflixLightGray line-clamp-2">Only plays kid-friendly shows and movies, without the gaming feature.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative rounded-md overflow-hidden transform hover:scale-105 hover:z-20 transition duration-300 shadow-xl border border-[#333] group cursor-pointer bg-[#181818]">
+                    <div class="absolute top-2 left-2 z-10 font-black text-netflixRed text-lg leading-none drop-shadow-md">N</div>
+                    <div class="w-full aspect-[9/16] relative">
+                        <img src="assets/surprise_me.png" alt="Surprise Me UI" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                            <div class="w-14 h-14 border-2 border-white rounded-full flex items-center justify-center bg-black/40 hover:bg-white hover:text-black transition-colors">
+                                <i class="ph-fill ph-play text-2xl ml-1"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/90 to-transparent p-4 z-10 pt-12">
+                            <h3 class="text-white font-bold text-lg leading-tight mb-1">Surprise Me</h3>
+                            <p class="text-xs text-netflixLightGray line-clamp-2">Randomly picks and plays a new movie or show for the user.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative rounded-md overflow-hidden transform hover:scale-105 hover:z-20 transition duration-300 shadow-xl border border-[#333] group cursor-pointer bg-[#181818]">
+                    <div class="absolute top-2 left-2 z-10 font-black text-netflixRed text-lg leading-none drop-shadow-md">N</div>
+                    <div class="w-full aspect-[9/16] relative">
+                        <img src="assets/games.png" alt="Games UI" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                            <div class="w-14 h-14 border-2 border-white rounded-full flex items-center justify-center bg-black/40 hover:bg-white hover:text-black transition-colors">
+                                <i class="ph-fill ph-play text-2xl ml-1"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/90 to-transparent p-4 z-10 pt-12">
+                            <h3 class="text-white font-bold text-lg leading-tight mb-1">Games</h3>
+                            <p class="text-xs text-netflixLightGray line-clamp-2">Adds mobile games to keep users on the app longer.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative rounded-md overflow-hidden transform hover:scale-105 hover:z-20 transition duration-300 shadow-xl border border-[#333] group cursor-pointer bg-[#181818]">
+                    <div class="absolute top-2 left-2 z-10 font-black text-netflixRed text-lg leading-none drop-shadow-md">N</div>
+                    <div class="w-full aspect-[9/16] relative">
+                        <img src="assets/fast_laugh.png" alt="Fast Laughs UI" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                            <div class="w-14 h-14 border-2 border-white rounded-full flex items-center justify-center bg-black/40 hover:bg-white hover:text-black transition-colors">
+                                <i class="ph-fill ph-play text-2xl ml-1"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/90 to-transparent p-4 z-10 pt-12">
+                            <h3 class="text-white font-bold text-lg leading-tight mb-1">Fast Laughs</h3>
+                            <p class="text-xs text-netflixLightGray line-clamp-2">Lets users watch and share short comedy clips from Netflix specials.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EPISODE LIST (Customer Journey) -->
+        <section class="mb-24">
+            <h2 class="text-3xl font-bold mb-8 uppercase text-center">Customer Journey</h2>
+            
+            <div class="bg-[#181818] p-8 rounded-lg mb-8 border border-[#2a2a2a]">
+                <p class="mb-3 text-lg"><strong class="text-white font-bold uppercase tracking-wider text-sm mr-2">Persona:</strong> <span class="text-netflixLightGray">Goli | Age 20 | College Student</span></p>
+                <p class="mb-3 text-lg"><strong class="text-white font-bold uppercase tracking-wider text-sm mr-2">Expectations:</strong> <span class="text-netflixLightGray">Good movies and series to watch for entertainment</span></p>
+                <p class="text-lg"><strong class="text-white font-bold uppercase tracking-wider text-sm mr-2">Scenario:</strong> <span class="text-netflixLightGray">He is both a mobile and desktop user. He is viewing the Netflix through the website.</span></p>
+            </div>
+
+            <div class="overflow-x-auto rounded-lg border border-netflixGray">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-[#111] text-netflixLightGray uppercase tracking-widest text-xs border-b-2 border-netflixRed">
+                            <th class="p-5 font-bold">Stage</th>
+                            <th class="p-5 font-bold">Action / Touch Points</th>
+                            <th class="p-5 font-bold">Emotions</th>
+                            <th class="p-5 font-bold">Pain Points</th>
+                            <th class="p-5 font-bold">Potential Solutions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-[#222] bg-[#141414] hover:bg-[#222] transition-colors group">
+                            <td class="p-5 font-bold text-white text-lg flex items-center gap-4">
+                                <span class="text-4xl font-light text-netflixGray group-hover:text-netflixLightGray transition-colors">1</span> Getting Started
+                            </td>
+                            <td class="p-5 text-netflixLightGray">Downloads the app from Play store. Enter the Email ID. Set the account password.</td>
+                            <td class="p-5 text-white">Neutral</td>
+                            <td class="p-5 text-netflixLightGray">-</td>
+                            <td class="p-5 text-netflixLightGray">-</td>
+                        </tr>
+                        <tr class="border-b border-[#222] bg-[#141414] hover:bg-[#222] transition-colors group">
+                            <td class="p-5 font-bold text-white text-lg flex items-center gap-4">
+                                <span class="text-4xl font-light text-netflixGray group-hover:text-netflixLightGray transition-colors">2</span> Choose the Plan
+                            </td>
+                            <td class="p-5 text-netflixLightGray">Select the subscription plan. Selected Basic plan.</td>
+                            <td class="p-5 text-green-400">Excited with Netflix platform and its content</td>
+                            <td class="p-5 text-netflixLightGray">-</td>
+                            <td class="p-5 text-netflixLightGray">-</td>
+                        </tr>
+                        <tr class="border-b border-[#222] bg-[#141414] hover:bg-[#222] transition-colors group">
+                            <td class="p-5 font-bold text-white text-lg flex items-center gap-4">
+                                <span class="text-4xl font-light text-netflixGray group-hover:text-netflixLightGray transition-colors">3</span> Payment
+                            </td>
+                            <td class="p-5 text-netflixLightGray">Credit/Debit card or UPI. Selected Google pay. Review your details. Approve payment. Complete the payment through GPay.</td>
+                            <td class="p-5 text-red-400">Disappointed. He feels sad on money deducted from account.</td>
+                            <td class="p-5 text-white">No option of internet banking is available</td>
+                            <td class="p-5 text-netflixLightGray">Internet banking can be included</td>
+                        </tr>
+                        <tr class="border-b border-[#222] bg-[#141414] hover:bg-[#222] transition-colors group">
+                            <td class="p-5 font-bold text-white text-lg flex items-center gap-4">
+                                <span class="text-4xl font-light text-netflixGray group-hover:text-netflixLightGray transition-colors">4</span> Movie Search
+                            </td>
+                            <td class="p-5 text-netflixLightGray">Search in google for best rated movies and series. Checked whether it is available in Netflix. If available, watched the movie with a snack.</td>
+                            <td class="p-5 text-green-400">Sits on the lounge very happily to see his favourite movie</td>
+                            <td class="p-5 text-white">Had to switch between Google and Netflix to search movies</td>
+                            <td class="p-5 text-netflixLightGray">Can provide rating of the movie so that user need not visit chrome</td>
+                        </tr>
+                        <tr class="bg-[#141414] hover:bg-[#222] transition-colors group">
+                            <td class="p-5 font-bold text-white text-lg flex items-center gap-4">
+                                <span class="text-4xl font-light text-netflixGray group-hover:text-netflixLightGray transition-colors">5</span> Retention
+                            </td>
+                            <td class="p-5 text-netflixLightGray">Goli liked the platform and decided to extend his membership for next month.</td>
+                            <td class="p-5 text-white">Waiting for new releases</td>
+                            <td class="p-5 text-netflixLightGray">-</td>
+                            <td class="p-5 text-netflixLightGray">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <h2 class="text-3xl font-bold mb-12 uppercase text-center border-b border-netflixGray pb-4">Metrics Framework</h2>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                
+                <div class="bg-gradient-to-r from-netflixRed/20 via-[#181818] to-netflixRed/20 p-8 rounded-lg border border-netflixRed text-center shadow-[0_0_30px_rgba(229,9,20,0.15)] relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 text-netflixRed opacity-10 pointer-events-none">
+                        <i class="ph-fill ph-star text-9xl"></i>
+                    </div>
+                    <h3 class="text-sm font-bold tracking-widest uppercase text-netflixRed mb-2 relative z-10 flex items-center justify-center gap-2">
+                        <i class="ph-fill ph-shooting-star text-lg"></i> North Star Metric
+                    </h3>
+                    <h4 class="text-3xl md:text-4xl font-black text-white relative z-10 mb-2">Retention Rate of Customers</h4>
+                    <p class="text-netflixLightGray text-sm relative z-10 max-w-2xl mx-auto">
+                        The ultimate measure of long-term platform value, content quality, and sustainable revenue.
+                    </p>
+                </div>
+
+                <div class="bg-[#181818] p-6 md:p-8 rounded-lg border border-[#2a2a2a] shadow-lg">
+                    <h3 class="text-sm font-bold tracking-widest uppercase text-netflixLightGray mb-6 border-l-2 border-netflixRed pl-3">
+                        L1: Engagement Drivers
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-black/50 p-5 rounded border border-[#333] hover:border-netflixRed/50 transition-colors">
+                            <i class="ph-fill ph-clock text-netflixRed text-3xl mb-3"></i>
+                            <h4 class="font-bold text-white text-base mb-1">Watch Time Per User</h4>
+                            <p class="text-xs text-netflixLightGray">Measures the depth of content consumption and active value extraction.</p>
+                        </div>
+                        <div class="bg-black/50 p-5 rounded border border-[#333] hover:border-netflixRed/50 transition-colors">
+                            <i class="ph-fill ph-check-circle text-netflixRed text-3xl mb-3"></i>
+                            <h4 class="font-bold text-white text-base mb-1">Completion Rate</h4>
+                            <p class="text-xs text-netflixLightGray">Indicates the quality and relevance of content recommendations.</p>
+                        </div>
+                        <div class="bg-black/50 p-5 rounded border border-[#333] hover:border-netflixRed/50 transition-colors">
+                            <i class="ph-fill ph-calendar-check text-netflixRed text-3xl mb-3"></i>
+                            <h4 class="font-bold text-white text-base mb-1">Sessions Per Day</h4>
+                            <p class="text-xs text-netflixLightGray">Tracks user habituation and how frequently the app is opened.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#181818] p-6 md:p-8 rounded-lg border border-[#2a2a2a] shadow-lg">
+                    <h3 class="text-sm font-bold tracking-widest uppercase text-netflixLightGray mb-6 border-l-2 border-netflixRed pl-3">
+                        L2: Acquisition & Growth
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-black/50 p-5 rounded border border-[#333] hover:border-netflixRed/50 transition-colors flex items-start gap-4">
+                            <i class="ph-fill ph-user-plus text-netflixRed text-4xl"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-base mb-1">Monthly Subscriptions</h4>
+                                <p class="text-xs text-netflixLightGray">Tracks top-of-funnel conversion and direct user acquisition growth.</p>
+                            </div>
+                        </div>
+                        <div class="bg-black/50 p-5 rounded border border-[#333] hover:border-netflixRed/50 transition-colors flex items-start gap-4">
+                            <i class="ph-fill ph-share-network text-netflixRed text-4xl"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-base mb-1">Shares Per User</h4>
+                                <p class="text-xs text-netflixLightGray">Measures organic user advocacy and product virality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- UI IMPROVEMENTS (Netflix Spotlight Style) -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-12 uppercase text-center border-b border-netflixGray pb-4">Improvements in User Interface</h2>
+            
+            <div class="space-y-16">
+                <!-- Spotlight 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-netflixRed rounded-lg blur-xl opacity-10 group-hover:opacity-30 transition duration-500"></div>
+                        <img src="assets/netflix_userinterface1.png" alt="Mobile Sign Up Screen" class="relative mx-auto max-h-[500px] object-contain rounded-lg border border-[#333] shadow-2xl z-10">
+                    </div>
+                    <div class="bg-[#181818] p-8 rounded-lg border border-[#2a2a2a] shadow-xl">
+                        <div class="mb-8">
+                            <h3 class="text-sm font-black text-red-500 mb-2 uppercase tracking-widest border-l-2 border-red-500 pl-2">Current Feature:</h3>
+                            <p class="text-white leading-relaxed text-lg">
+                                Completing the sign up process is not possible in the app. So the user has to switch between the website and app to complete the process.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-black text-green-500 mb-2 uppercase tracking-widest border-l-2 border-green-500 pl-2">Improvement:</h3>
+                            <p class="text-netflixLightGray leading-relaxed text-lg">
+                                The whole process of Signing up the profile has to facilitated in mobile app only.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full h-px bg-gradient-to-r from-transparent via-netflixGray to-transparent my-8"></div>
+
+                <!-- Spotlight 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="md:order-2 relative group">
+                        <div class="absolute inset-0 bg-netflixRed rounded-lg blur-xl opacity-10 group-hover:opacity-30 transition duration-500"></div>
+                        <img src="assets/netflix_userinterface2.png" alt="Payment Options Screen" class="relative mx-auto w-full max-h-[500px] object-contain rounded-lg border border-[#333] shadow-2xl z-10">
+                    </div>
+                    <div class="md:order-1 bg-[#181818] p-8 rounded-lg border border-[#2a2a2a] shadow-xl">
+                        <div class="mb-8">
+                            <h3 class="text-sm font-black text-red-500 mb-2 uppercase tracking-widest border-l-2 border-red-500 pl-2">Current Feature:</h3>
+                            <p class="text-white leading-relaxed text-lg">
+                                There is no option of internet banking available for the user to make the payment. So only two modes of payment Card and UPI are available.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-black text-green-500 mb-2 uppercase tracking-widest border-l-2 border-green-500 pl-2">Improvement:</h3>
+                            <p class="text-netflixLightGray leading-relaxed text-lg">
+                                An additional option of Internet banking option to be added so that users who don't have an UPI Id can make the payment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

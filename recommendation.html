@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Recommendation System Architecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        techBg: '#050505',
+                        techCard: '#111111',
+                        techBorder: '#222222',
+                        techCyan: '#00F0FF',
+                        techPurple: '#8A2BE2',
+                        techText: '#A0AEC0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #E2E8F0;
+        }
+        .glass-panel {
+            background: rgba(17, 17, 17, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #222;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #00F0FF, #8A2BE2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00F0FF; }
+    </style>
+</head>
+<body class="antialiased selection:bg-techCyan selection:text-black">
+
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-techBorder">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-black text-xl tracking-tighter flex items-center gap-2">
+                <i class="ph-fill ph-brain text-techCyan text-2xl"></i>
+                <span>Kshitij<span class="text-techCyan">.</span>Dev</span>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm font-medium text-techText">
+                <a href="#foundation" class="hover:text-techCyan transition-colors">Business Foundation</a>
+                <a href="#retrieval" class="hover:text-techCyan transition-colors">Data & Retrieval</a>
+                <a href="#intelligence" class="hover:text-techCyan transition-colors">Intelligence Core</a>
+                <a href="#serving" class="hover:text-techCyan transition-colors">Serving</a>
+            </div>
+            <a href="index.html" class="px-4 py-2 bg-white text-black text-xs font-bold rounded hover:bg-gray-200 transition-colors">
+                Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <header class="relative pt-32 pb-20 overflow-hidden border-b border-techBorder">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-techPurple/10 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <span class="inline-block py-1 px-3 border border-techCyan/30 bg-techCyan/10 text-techCyan text-xs font-mono rounded-full mb-6 uppercase tracking-widest">System Architecture Blueprint</span>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-tight">
+                Universal <span class="gradient-text">Recommendation</span> Engine
+            </h1>
+            <p class="text-lg text-techText max-w-3xl mx-auto mb-10 leading-relaxed">
+                A state-of-the-art machine learning architecture designed to unify Things, Media, and Services. 
+                Combining collaborative filtering, semantic vector search, and a dual-layer AI (Supervised + Reinforcement Learning) optimized purely for long-term product KPIs.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3 font-mono text-xs text-gray-400">
+                <span class="px-3 py-1 bg-techCard rounded border border-techBorder">Reinforcement Learning</span>
+                <span class="px-3 py-1 bg-techCard rounded border border-techBorder">Vector Search</span>
+                <span class="px-3 py-1 bg-techCard rounded border border-techBorder">Product Analytics</span>
+                <span class="px-3 py-1 bg-techCard rounded border border-techBorder">Knowledge Graphs</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16 space-y-32">
+
+        <section class="glass-panel p-8 md:p-12 rounded-2xl relative overflow-hidden border-l-4 border-techCyan glow-cyan">
+            <i class="ph-fill ph-quotes text-6xl text-techCyan/20 absolute top-4 left-4"></i>
+            <div class="relative z-10">
+                <h3 class="text-xl font-bold text-white mb-4">The Engineering Philosophy</h3>
+                <p class="text-techText leading-relaxed text-lg italic">
+                    "Product Analytics is not separate from the recommendation system. Product Analytics defines the KPIs, supervised learning predicts short-term actions that lead toward those KPIs, and reinforcement learning optimizes the long-term sequence of recommendations that maximizes those KPIs over time. It is a combination of analytics, prediction, and decision optimization."
+                </p>
+            </div>
+        </section>
+
+        <section id="foundation" class="scroll-mt-24">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-12 h-12 rounded-lg bg-techCyan/20 text-techCyan flex items-center justify-center font-black text-xl">01</div>
+                <h2 class="text-3xl font-black tracking-tight">The Foundation</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-techCard p-6 rounded-xl border border-techBorder hover:border-techCyan/50 transition-colors">
+                    <h3 class="text-techCyan font-mono text-sm mb-2">Layer 0</h3>
+                    <h4 class="text-xl font-bold mb-4">Business Strategy & KPIs</h4>
+                    <p class="text-sm text-techText mb-4">Everything starts with the North Star metric. Product Analytics owns this layer.</p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-start gap-2"><i class="ph-bold ph-shopping-cart text-techPurple mt-1"></i> <span><strong>Things:</strong> Revenue, Repeat Purchases, AOV</span></li>
+                        <li class="flex items-start gap-2"><i class="ph-bold ph-play-circle text-techPurple mt-1"></i> <span><strong>Media:</strong> Watch Time, Session Length, Retention</span></li>
+                        <li class="flex items-start gap-2"><i class="ph-bold ph-calendar-check text-techPurple mt-1"></i> <span><strong>Services:</strong> Completed Bookings, CSAT</span></li>
+                    </ul>
+                </div>
+
+                <div class="bg-techCard p-6 rounded-xl border border-techBorder hover:border-techCyan/50 transition-colors">
+                    <h3 class="text-techCyan font-mono text-sm mb-2">Layer 1</h3>
+                    <h4 class="text-xl font-bold mb-4">Event Collection</h4>
+                    <p class="text-sm text-techText mb-4">Tracking every user action (Impression, View, Click, Purchase) as the foundation for ML.</p>
+                    <pre class="bg-[#0a0a0a] p-3 rounded text-xs font-mono text-green-400 overflow-x-auto border border-[#222]"><code>{
+  "user_id": 1001,
+  "entity_id": 500,
+  "entity_type": "thing",
+  "event": "purchase",
+  "timestamp": "2026-05-30"
+}</code></pre>
+                </div>
+
+                <div class="bg-techCard p-6 rounded-xl border border-techBorder hover:border-techCyan/50 transition-colors">
+                    <h3 class="text-techCyan font-mono text-sm mb-2">Layer 2</h3>
+                    <h4 class="text-xl font-bold mb-4">Analytics Warehouse</h4>
+                    <p class="text-sm text-techText mb-4">Storing users, entities, and events to calculate the metrics ML needs to optimize.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span class="bg-[#0a0a0a] border border-[#222] px-2 py-1 rounded text-gray-300">Acquisition: CAC, Signup</span>
+                        <span class="bg-[#0a0a0a] border border-[#222] px-2 py-1 rounded text-gray-300">Retention: D1, D7, D30</span>
+                        <span class="bg-[#0a0a0a] border border-[#222] px-2 py-1 rounded text-gray-300">Revenue: ARPU, LTV</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="retrieval" class="scroll-mt-24">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-12 h-12 rounded-lg bg-techPurple/20 text-techPurple flex items-center justify-center font-black text-xl">02</div>
+                <h2 class="text-3xl font-black tracking-tight">Data & Retrieval Pipeline</h2>
+            </div>
+
+            <div class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-techCard p-6 rounded-xl border border-techBorder">
+                        <h3 class="text-techPurple font-mono text-sm mb-2">Layer 3 & 4</h3>
+                        <h4 class="text-xl font-bold mb-2">Entity Representation & Features</h4>
+                        <p class="text-sm text-techText mb-6">Every recommendable object (Media, Thing, Service) becomes a standardized entity with unified feature sets.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-bold text-xs uppercase text-gray-400 mb-2 border-b border-[#222] pb-1">User Features</h5>
+                                <ul class="text-xs text-gray-500 space-y-1">
+                                    <li>Age & Location</li>
+                                    <li>Budget & Frequency</li>
+                                    <li>Preferred Categories</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs uppercase text-gray-400 mb-2 border-b border-[#222] pb-1">Entity Features</h5>
+                                <ul class="text-xs text-gray-500 space-y-1">
+                                    <li>Price & Popularity</li>
+                                    <li>Quality & Freshness</li>
+                                    <li>Rating Aggregate</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-techCard p-6 rounded-xl border border-techBorder">
+                        <h3 class="text-techPurple font-mono text-sm mb-2">Layer 5</h3>
+                        <h4 class="text-xl font-bold mb-2">Candidate Generation</h4>
+                        <p class="text-sm text-techText mb-4">Filtering 10 Million Entities down to 1000 Candidates using independent retrieval engines.</p>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-[#0a0a0a] p-3 rounded border border-[#222] flex items-center gap-3">
+                                <i class="ph-fill ph-share-network text-xl text-gray-400"></i>
+                                <div>
+                                    <h6 class="text-sm font-bold text-white">Knowledge Graph</h6>
+                                    <p class="text-xs text-gray-500">Cross-domain discovery (Fitness Video → Protein → Trainer)</p>
+                                </div>
+                            </div>
+                            <div class="bg-[#0a0a0a] p-3 rounded border border-[#222] flex items-center gap-3 border-l-2 border-l-techPurple">
+                                <i class="ph-fill ph-intersect text-xl text-techPurple"></i>
+                                <div>
+                                    <h6 class="text-sm font-bold text-white">Semantic Embedding Retrieval</h6>
+                                    <p class="text-xs text-gray-500">High-dimensional vector search utilizing SBERT models and Cross-Encoders stored in Qdrant/FAISS for precise semantic similarity matching.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-techCard p-6 rounded-xl border border-techBorder w-full flex flex-col md:flex-row items-center gap-6">
+                    <div class="md:w-1/3">
+                        <h3 class="text-techPurple font-mono text-sm mb-2">Layer 6</h3>
+                        <h4 class="text-xl font-bold mb-2">The Feature Store</h4>
+                        <p class="text-sm text-techText">Every candidate receives a real-time feature vector aggregating User, Entity, and Interaction data.</p>
+                    </div>
+                    <div class="md:w-2/3 w-full">
+                        <pre class="bg-[#0a0a0a] p-4 rounded text-sm font-mono text-yellow-400 overflow-x-auto border border-[#222] w-full"><code>{
+  "user_similarity": 0.92,
+  "collaborative_score": 0.81,
+  "price": 1200,
+  "popularity": 0.67
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="intelligence" class="scroll-mt-24">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-12 h-12 rounded-lg bg-orange-500/20 text-orange-500 flex items-center justify-center font-black text-xl">03</div>
+                <h2 class="text-3xl font-black tracking-tight">The Intelligence Core</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-techCard p-8 rounded-xl border border-techBorder relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl"></div>
+                    <h3 class="text-orange-500 font-mono text-sm mb-2">Layer 7</h3>
+                    <h4 class="text-2xl font-bold mb-4">Supervised Learning</h4>
+                    <p class="text-sm text-techText mb-6">Predicting immediate user behavior based on historical labels. Models evaluate the exact probability of an action.</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Models Used</span>
+                            <div class="flex gap-2 mt-2">
+                                <span class="px-2 py-1 bg-[#0a0a0a] border border-[#222] text-xs font-mono rounded text-white">LightGBM</span>
+                                <span class="px-2 py-1 bg-[#0a0a0a] border border-[#222] text-xs font-mono rounded text-white">XGBoost</span>
+                                <span class="px-2 py-1 bg-[#0a0a0a] border border-[#222] text-xs font-mono rounded text-white">DeepFM / DLRM</span>
+                            </div>
+                        </div>
+                        <div class="bg-[#0a0a0a] p-4 rounded border border-[#222]">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">Output: P(Immediate Success)</span>
+                            <code class="text-xs text-orange-300 block">Movie A = 0.92<br>Movie B = 0.84<br>Movie C = 0.35</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-techCard p-8 rounded-xl border border-techBorder relative overflow-hidden border-t-2 border-t-orange-500">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl"></div>
+                    <h3 class="text-orange-500 font-mono text-sm mb-2">Layer 8</h3>
+                    <h4 class="text-2xl font-bold mb-4">Reinforcement Learning</h4>
+                    <p class="text-sm text-techText mb-6">While SL asks <em>"Will the user click?"</em>, RL asks <em>"What recommendation sequence maximizes future lifetime value?"</em></p>
+                    
+                    <div class="bg-[#0a0a0a] p-4 rounded border border-[#222] mb-4">
+                        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">Policy Learning Journey</span>
+                        <div class="text-xs font-mono text-gray-300 leading-loose">
+                            [State: Profile & History] <br>
+                            &nbsp;&nbsp;↓ <br>
+                            [Policy Network] <br>
+                            &nbsp;&nbsp;↓ <br>
+                            [Action: Recommend Entity] <br>
+                            &nbsp;&nbsp;↓ <br>
+                            <span class="text-green-400">[Reward: Watch Time / Revenue / CSAT]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-techCard p-6 rounded-xl border border-techBorder">
+                <h3 class="text-orange-500 font-mono text-sm mb-2">Layer 9</h3>
+                <h4 class="text-xl font-bold mb-4">Re-Ranking & Business Logic</h4>
+                <p class="text-sm text-techText mb-4">Fusing multiple intelligence layers alongside business rules (diversity, novelty, freshness).</p>
+                <div class="w-full bg-[#0a0a0a] border border-[#222] rounded p-4 text-center font-mono text-sm text-white">
+                    Final Score = <span class="text-blue-400">0.4 × Supervised P()</span> + <span class="text-orange-400">0.4 × RL Expected Reward</span> + <span class="text-green-400">0.1 × Diversity</span> + <span class="text-purple-400">0.1 × Novelty</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="serving" class="scroll-mt-24">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-12 h-12 rounded-lg bg-green-500/20 text-green-500 flex items-center justify-center font-black text-xl">04</div>
+                <h2 class="text-3xl font-black tracking-tight">Serving & Evolution</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="col-span-1 md:col-span-2 bg-techCard p-6 rounded-xl border border-techBorder">
+                    <h3 class="text-green-500 font-mono text-sm mb-2">Layer 10</h3>
+                    <h4 class="text-xl font-bold mb-2">Recommendation Serving</h4>
+                    <p class="text-sm text-techText mb-4">Delivering payload to front-end surfaces at lightning speed.</p>
+                    <div class="bg-[#0a0a0a] border border-green-500/30 p-3 rounded flex justify-between items-center">
+                        <code class="text-xs text-green-400">GET /recommendations</code>
+                        <span class="text-xs font-bold text-white bg-green-500/20 px-2 py-1 rounded">Target Latency: < 100ms</span>
+                    </div>
+                </div>
+
+                <div class="col-span-1 md:col-span-2 bg-techCard p-6 rounded-xl border border-techBorder">
+                    <h3 class="text-green-500 font-mono text-sm mb-2">Layer 12</h3>
+                    <h4 class="text-xl font-bold mb-2">KPI → Reward Mapping</h4>
+                    <p class="text-sm text-techText mb-4">Translating Product Analytics definitions directly into ML optimization signals.</p>
+                    <ul class="text-xs font-mono space-y-2 text-gray-400">
+                        <li class="flex justify-between border-b border-[#222] pb-1"><span>KPI: Revenue</span> <span class="text-green-400">Reward: Purchase Value</span></li>
+                        <li class="flex justify-between border-b border-[#222] pb-1"><span>KPI: LTV</span> <span class="text-green-400">Reward: Predicted Lifetime Val</span></li>
+                    </ul>
+                </div>
+
+                <div class="col-span-1 md:col-span-4 bg-techCard p-6 rounded-xl border border-techBorder flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-green-500 font-mono text-sm mb-2">Layer 11</h3>
+                        <h4 class="text-xl font-bold mb-2">Analytics Feedback Loop</h4>
+                        <p class="text-sm text-techText">Closing the system. Every recommendation generates new impressions, clicks, and conversions which flow back into the Analytics Warehouse to continually update user states and retrain models.</p>
+                    </div>
+                    <div class="md:w-1/2 border-l border-[#222] pl-8">
+                        <h3 class="text-green-500 font-mono text-sm mb-2">Layer 13</h3>
+                        <h4 class="text-xl font-bold mb-2">A/B Testing</h4>
+                        <p class="text-sm text-techText mb-4">Rigorous experimentation for new policies or ranking models.</p>
+                        <div class="flex gap-4">
+                            <div class="w-1/2 bg-[#0a0a0a] border border-[#222] p-2 text-center rounded text-xs font-bold text-gray-300">50% Control</div>
+                            <div class="w-1/2 bg-[#0a0a0a] border border-techCyan/50 p-2 text-center rounded text-xs font-bold text-techCyan">50% Treatment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-t border-techBorder pt-16 mb-20">
+            <h2 class="text-3xl font-black tracking-tight text-center mb-12">End-to-End Flow</h2>
+            
+            <div class="max-w-2xl mx-auto flex flex-col items-center text-sm font-mono text-center relative">
+                <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-techCyan via-techPurple to-green-500 -translate-x-1/2 z-0"></div>
+
+                <div class="bg-techCard border border-techBorder px-6 py-3 rounded-full mb-6 z-10 w-64 shadow-lg shadow-black">Business Goals & KPIs</div>
+                <div class="bg-[#0a0a0a] border border-techCyan/30 text-techCyan px-6 py-3 rounded mb-6 z-10 w-64">Product Analytics</div>
+                <div class="bg-techCard border border-techBorder px-6 py-3 rounded mb-6 z-10 w-64">Event Collection</div>
+                <div class="bg-techCard border border-techBorder px-6 py-3 rounded mb-6 z-10 w-64">Data Warehouse</div>
+                <div class="bg-techCard border border-techBorder px-6 py-3 rounded mb-6 z-10 w-64">Feature Engineering</div>
+                
+                <div class="bg-[#111] border-2 border-[#333] p-4 rounded mb-6 z-10 w-80 text-left">
+                    <div class="text-gray-400 text-xs uppercase tracking-widest mb-3 text-center border-b border-[#333] pb-2">Retrieval Engines</div>
+                    <div class="space-y-2">
+                        <div class="bg-[#0a0a0a] border border-[#222] px-4 py-2 rounded text-center">Content Retrieval</div>
+                        <div class="bg-[#0a0a0a] border border-[#222] px-4 py-2 rounded text-center">Collaborative Filter</div>
+                        <div class="bg-[#0a0a0a] border border-[#222] px-4 py-2 rounded text-center">Knowledge Graph</div>
+                        <div class="bg-[#0a0a0a] border border-[#222] px-4 py-2 rounded text-center text-techPurple">Embedding Search</div>
+                    </div>
+                </div>
+
+                <div class="bg-techCard border border-techBorder px-6 py-3 rounded mb-6 z-10 w-64">Candidate Generation</div>
+                <div class="bg-techCard border border-techBorder px-6 py-3 rounded mb-6 z-10 w-64">Feature Store</div>
+                <div class="bg-[#0a0a0a] border border-orange-500/30 text-orange-400 px-6 py-3 rounded mb-6 z-10 w-64">Supervised Ranking ML</div>
+                <div class="bg-[#0a0a0a] border border-orange-500/30 text-orange-400 px-6 py-3 rounded mb-6 z-10 w-64">Reinforcement Learning</div>
+                <div class="bg-techCard border border-techBorder px-6 py-3 rounded mb-6 z-10 w-64">Re-Ranking</div>
+                <div class="bg-techCard border border-techBorder px-6 py-3 rounded mb-6 z-10 w-64">Recommendation Serving</div>
+                <div class="bg-white text-black font-bold px-6 py-3 rounded mb-6 z-10 w-64">User Actions</div>
+                <div class="bg-[#0a0a0a] border border-techCyan/30 text-techCyan px-6 py-3 rounded mb-6 z-10 w-64">Product Analytics</div>
+                <div class="bg-[#0a0a0a] border border-green-500/30 text-green-400 px-6 py-3 rounded mb-6 z-10 w-64">Reward Generation & KPI Tracking</div>
+                
+                <div class="bg-techCard border border-techBorder px-6 py-3 rounded-full z-10 w-64 flex items-center justify-center gap-2">
+                    <i class="ph-bold ph-arrows-clockwise text-techCyan"></i> Model Retraining
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

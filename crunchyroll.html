@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crunchyroll Product Teardown</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        crOrange: '#F47521',
+                        crDark: '#000000',
+                        crBase: '#141519',
+                        crElevated: '#24252A',
+                        crText: '#FFFFFF',
+                        crSubtext: '#A0A0A0'
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #141519;
+            color: #FFFFFF;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-crOrange selection:text-white">
+
+    <!-- HORIZONTAL SELECTION TAB -->
+    <nav class="sticky top-0 z-50 bg-[#000000] bg-opacity-95 border-b border-crElevated backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                
+                <!-- Teardown Navigation -->
+                <div class="flex overflow-x-auto hide-scrollbar space-x-8">
+                    <a href="netflix-teardown.html" class="text-crSubtext hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Netflix
+                    </a>
+                    <a href="blinkit-teardown.html" class="text-crSubtext hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Blinkit
+                    </a>
+                    <a href="amazon.html" class="text-crSubtext hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Amazon
+                    </a>
+                    <a href="spotify.html" class="text-crSubtext hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Spotify
+                    </a>
+                    <a href="uber.html" class="text-crSubtext hover:text-white transition-colors font-medium whitespace-nowrap px-1 pb-1">
+                        Uber
+                    </a>
+                    <!-- Active Tab -->
+                    <a href="#" class="text-crOrange border-b-2 border-crOrange font-bold whitespace-nowrap px-1 pb-1 flex items-center gap-2">
+                        <i class="ph-fill ph-play-circle text-xl"></i> Crunchyroll
+                    </a>
+                </div>
+
+                <!-- Back to Homepage Button -->
+                <a href="index.html" class="hidden sm:flex items-center gap-2 text-sm font-semibold bg-white text-black hover:bg-gray-200 px-5 py-2 rounded transition-colors ml-4 whitespace-nowrap">
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="bg-gradient-to-b from-[#2A1610] to-crBase pt-16 pb-8 px-4 sm:px-6 lg:px-8 border-b border-crElevated">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8">
+            <div class="w-32 h-32 md:w-48 md:h-48 rounded-2xl flex-shrink-0 bg-crOrange flex items-center justify-center overflow-hidden shadow-[0_0_40px_rgba(244,117,33,0.3)]">
+                <i class="ph-fill ph-television-simple text-6xl md:text-8xl text-white"></i>
+            </div>
+            
+            <div class="flex-1 text-center md:text-left">
+                <span class="text-sm font-bold tracking-widest text-crOrange uppercase mb-2 block">User Onboarding Teardown</span>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-white mb-4">Crunchyroll</h1>
+                <p class="text-crSubtext text-sm md:text-lg font-medium max-w-2xl mx-auto md:mx-0">
+                    Connecting anime and manga fans across 200+ countries and territories with the content and experiences they love.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+        
+        <!-- 1. PRODUCT OVERVIEW & STATS -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-6">
+                <h2 class="text-3xl font-bold flex items-center gap-2 border-b border-crElevated pb-3">
+                    <i class="ph-fill ph-info text-crOrange"></i> Overview
+                </h2>
+                <ul class="text-crSubtext space-y-3 list-disc list-inside">
+                    <li>Crunchyroll was founded in 2006 and was recently acquired by Sony for $1.175Bn, merging with major competitor Funimation.</li>
+                    <li>It provides access to a large library of licensed anime content in multiple languages for viewers worldwide.</li>
+                    <li>The platform offers both free ad-supported content and premium subscription content.</li>
+                    <li>Crunchyroll serves the anime community across various verticals, including events, theatrical releases, games, consumer products, collectibles, and manga publishing.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold mt-8 text-white">Value Propositions</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                    <div class="bg-crElevated p-4 rounded-lg border-l-4 border-crOrange">
+                        <strong class="text-white block mb-1">Simulcast</strong>
+                        <span class="text-sm text-crSubtext">Streaming new releases as soon as they get aired in Japan, decreasing wait time.</span>
+                    </div>
+                    <div class="bg-crElevated p-4 rounded-lg border-l-4 border-crOrange">
+                        <strong class="text-white block mb-1">Dubbed and Subtitled</strong>
+                        <span class="text-sm text-crSubtext">Episodes are made available in different languages or added subtitles for worldwide users.</span>
+                    </div>
+                    <div class="bg-crElevated p-4 rounded-lg border-l-4 border-crOrange">
+                        <strong class="text-white block mb-1">Offline Viewing</strong>
+                        <span class="text-sm text-crSubtext">Episodes can be downloaded to enable users to watch without an internet connection.</span>
+                    </div>
+                    <div class="bg-crElevated p-4 rounded-lg border-l-4 border-crOrange">
+                        <strong class="text-white block mb-1">Bridging the Gap</strong>
+                        <span class="text-sm text-crSubtext">Helping users find and watch an extensive anime library from anywhere in the world.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Column -->
+          <div class="bg-crDark border border-crElevated p-8 rounded-xl flex flex-col justify-between space-y-6 shadow-lg h-full">
+            <!-- Anya Banner Image -->
+            <div class="w-full h-32 rounded-lg overflow-hidden shrink-0">
+                <img src="assets/anya.webp" alt="Anya" class="w-full h-full object-cover object-center">
+            </div>
+            
+            <h3 class="text-sm font-bold tracking-widest uppercase text-crOrange border-b border-crElevated pb-2">By The Numbers</h3>
+            
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <p class="text-2xl font-black text-white">100Mn</p>
+                    <p class="text-xs text-crSubtext">Monthly Viewers</p>
+                </div>
+                <div>
+                    <p class="text-2xl font-black text-crOrange">13Mn</p>
+                    <p class="text-xs text-crSubtext">Paid Subscribers (Jan '24)</p>
+                </div>
+                <div>
+                    <p class="text-2xl font-black text-white">24,000+</p>
+                    <p class="text-xs text-crSubtext">Hours of Video Content</p>
+                </div>
+                <div>
+                    <p class="text-2xl font-black text-white">46,000+</p>
+                    <p class="text-xs text-crSubtext">Episodes Available</p>
+                </div>
+                <div class="col-span-2 bg-crElevated p-3 rounded">
+                    <p class="text-xl font-bold text-crOrange">$27.5Mn</p>
+                    <p class="text-xs text-crSubtext">Revenue in 2023</p>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- 2. BUSINESS & MARKET -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-crElevated rounded-xl p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-white">
+                    <i class="ph-fill ph-chart-line-up text-crOrange"></i> Market Landscape
+                </h2>
+                <ul class="text-crSubtext space-y-4 list-disc list-inside">
+                    <li>The anime market size was valued at $25.8 Bn in 2022.</li>
+                    <li>It is expected to reach $62.7 Bn by 2032 with a CAGR of 9.4%.</li>
+                    <li>The India anime market size is projected to exhibit a growth rate (CAGR) of 12% during 2024-2032.</li>
+                </ul>
+                <div class="mt-6 flex flex-wrap gap-2">
+                    <span class="text-xs font-bold text-white bg-crDark px-3 py-1 rounded">Competitor: Hulu</span>
+                    <span class="text-xs font-bold text-white bg-crDark px-3 py-1 rounded">Competitor: Netflix</span>
+                    <span class="text-xs font-bold text-white bg-crDark px-3 py-1 rounded">Competitor: VRV</span>
+                    <span class="text-xs font-bold text-white bg-crDark px-3 py-1 rounded">Competitor: Prime Video</span>
+                    <span class="text-xs font-bold text-white bg-crDark px-3 py-1 rounded">Competitor: Hi Dive</span>
+                </div>
+            </div>
+
+            <div class="bg-crElevated rounded-xl p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-white">
+                    <i class="ph-fill ph-briefcase text-crOrange"></i> Business Model
+                </h2>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-crOrange font-bold mb-2 text-sm uppercase tracking-wide">Revenue Streams</h4>
+                        <ul class="text-sm text-crSubtext space-y-2 list-disc list-inside">
+                            <li><strong>Premium Subscription:</strong> Multiple subscription plans including a free tier.</li>
+                            <li><strong>Advertising:</strong> The freemium plan displays ads to users.</li>
+                            <li><strong>Merchandise:</strong> Selling anime merchandise like clothing and stationary.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-crOrange font-bold mb-2 text-sm uppercase tracking-wide">Cost Structure</h4>
+                        <ul class="text-sm text-crSubtext space-y-2 list-disc list-inside">
+                            <li>App development and maintenance.</li>
+                            <li>Streaming Rights for buying anime content.</li>
+                            <li>Marketing and paid leads.</li>
+                            <li>Manufacturing of merchandise.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. USER PERSONA -->
+        <section>
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-2 border-b border-crElevated pb-3">
+                <i class="ph-fill ph-user text-crOrange"></i> Target Persona
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-crElevated rounded-xl p-6 lg:col-span-1 border-t-4 border-crOrange">
+                    <h3 class="text-xl font-bold text-white mb-2">The Anime Enthusiast</h3>
+                    <p class="text-sm text-crSubtext mb-4">Crunchyroll target users are audiences who watch anime or read manga and seek a platform to watch content without interruption, preferably in their preferred language or with preferred subtitles.</p>
+                    
+                    <div class="bg-crDark rounded p-4 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-crSubtext">Age 18-24 Base</span>
+                            <span class="text-sm font-bold text-white">49%</span>
+                        </div>
+                        <div class="w-full bg-crElevated rounded-full h-2">
+                            <div class="bg-crOrange h-2 rounded-full" style="width: 49%"></div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-2">
+                            <span class="text-sm text-crSubtext">Male Audience</span>
+                            <span class="text-sm font-bold text-white">67.3%</span>
+                        </div>
+                        <div class="w-full bg-crElevated rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 67.3%"></div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-2">
+                            <span class="text-sm text-crSubtext">Female Audience</span>
+                            <span class="text-sm font-bold text-white">23.7%</span>
+                        </div>
+                        <div class="w-full bg-crElevated rounded-full h-2">
+                            <div class="bg-pink-500 h-2 rounded-full" style="width: 23.7%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-crElevated rounded-xl p-6 lg:col-span-2 flex flex-col md:flex-row gap-6">
+                    <div class="w-24 h-24 bg-crDark rounded-full flex-shrink-0 flex items-center justify-center border-2 border-crOrange overflow-hidden">
+                        <img src="assets/loid.jpg" alt="User Avatar" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">loid Forger</h3>
+                        <p class="text-sm text-crOrange font-medium mb-3">Age 21 • Japan • Final Year College Student</p>
+                        <p class="text-sm italic text-crSubtext mb-4 border-l-2 border-crSubtext pl-3">"I love watching anime they give me a sense of relief from all headaches I have with my college by taking me into a different realm and I love getting lost in that world"</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+                            <div>
+                                <h4 class="font-bold text-white mb-2 flex items-center gap-2"><i class="ph-fill ph-warning-circle text-red-500"></i> Pain Points</h4>
+                                <ul class="text-sm text-crSubtext space-y-2 list-disc list-inside">
+                                    <li>Watches anime on free sites that contain a lot of bugs.</li>
+                                    <li>Free sites frequently rebrand, causing complete loss of watch history.</li>
+                                    <li>Delays in airing time lead to leaked spoilers, hindering excitement.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-2 flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Needs</h4>
+                                <ul class="text-sm text-crSubtext space-y-2 list-disc list-inside">
+                                    <li>Wants to watch anime without buffering issues and app crashes.</li>
+                                    <li>Needs a reliable place to record and keep track of all watched anime.</li>
+                                    <li>Wants immediate notifications when new episodes air to be one of the first to watch.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. ONBOARDING USER JOURNEY -->
+        <section>
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-2 border-b border-crElevated pb-3">
+                <i class="ph-fill ph-sword text-crOrange"></i> User Journey (Onboarding)
+            </h2>
+            
+            <div class="bg-crElevated rounded-xl p-8 border-l-4 border-crOrange shadow-lg">
+                <div class="flex overflow-x-auto hide-scrollbar gap-6 pb-6 snap-x pt-2 pl-2">
+                    
+                    <!-- Step 1: Discovery -->
+                    <div class="min-w-[240px] bg-crDark p-5 rounded-lg snap-start border border-crElevated relative hover:border-crOrange hover:shadow-[0_0_20px_rgba(244,117,33,0.25)] transition-all duration-300 group mt-2">
+                        <div class="absolute -top-4 -left-4 w-10 h-10 bg-crOrange rounded flex items-center justify-center font-black text-white transform -rotate-6 group-hover:rotate-0 transition-transform shadow-md">1</div>
+                        <i class="ph-fill ph-google-play-logo text-3xl text-crSubtext mb-3 group-hover:text-white transition-colors"></i>
+                        <h4 class="font-bold text-white mb-2 uppercase tracking-wide">Discovery</h4>
+                        <p class="text-xs text-crSubtext leading-relaxed">Opens app page on play store and installs Crunchyroll app on device.</p>
+                    </div>
+
+                    <div class="flex items-center text-crOrange pt-4">
+                        <i class="ph-bold ph-caret-double-right text-3xl animate-pulse"></i>
+                    </div>
+
+                    <!-- Step 2: Account Setup -->
+                    <div class="min-w-[240px] bg-crDark p-5 rounded-lg snap-start border border-crElevated relative hover:border-crOrange hover:shadow-[0_0_20px_rgba(244,117,33,0.25)] transition-all duration-300 group mt-2">
+                        <div class="absolute -top-4 -left-4 w-10 h-10 bg-crOrange rounded flex items-center justify-center font-black text-white transform -rotate-6 group-hover:rotate-0 transition-transform shadow-md">2</div>
+                        <i class="ph-fill ph-user-circle-plus text-3xl text-crSubtext mb-3 group-hover:text-white transition-colors"></i>
+                        <h4 class="font-bold text-white mb-2 uppercase tracking-wide">Account Setup</h4>
+                        <p class="text-xs text-crSubtext leading-relaxed">Selects "Create Account", enters email or phone number, creates a password, and completes email verification.</p>
+                    </div>
+
+                    <div class="flex items-center text-crOrange pt-4">
+                        <i class="ph-bold ph-caret-double-right text-3xl animate-pulse"></i>
+                    </div>
+
+                    <!-- Step 3: Monetization -->
+                    <div class="min-w-[240px] bg-crDark p-5 rounded-lg snap-start border border-crElevated relative hover:border-crOrange hover:shadow-[0_0_20px_rgba(244,117,33,0.25)] transition-all duration-300 group mt-2">
+                        <div class="absolute -top-4 -left-4 w-10 h-10 bg-crOrange rounded flex items-center justify-center font-black text-white transform -rotate-6 group-hover:rotate-0 transition-transform shadow-md">3</div>
+                        <i class="ph-fill ph-crown text-3xl text-crSubtext mb-3 group-hover:text-[#F1C40F] transition-colors"></i>
+                        <h4 class="font-bold text-white mb-2 uppercase tracking-wide">Monetization</h4>
+                        <p class="text-xs text-crSubtext leading-relaxed">Navigates to premium plans page, explores free trial, and adds card or Google pay.</p>
+                    </div>
+
+                    <div class="flex items-center text-crOrange pt-4">
+                        <i class="ph-bold ph-caret-double-right text-3xl animate-pulse"></i>
+                    </div>
+
+                    <!-- Step 4: Engagement -->
+                    <div class="min-w-[240px] bg-crDark p-5 rounded-lg snap-start border border-crElevated relative hover:border-crOrange hover:shadow-[0_0_20px_rgba(244,117,33,0.25)] transition-all duration-300 group mt-2">
+                        <div class="absolute -top-4 -left-4 w-10 h-10 bg-crOrange rounded flex items-center justify-center font-black text-white transform -rotate-6 group-hover:rotate-0 transition-transform shadow-md">4</div>
+                        <i class="ph-fill ph-television-simple text-3xl text-crSubtext mb-3 group-hover:text-white transition-colors"></i>
+                        <h4 class="font-bold text-white mb-2 uppercase tracking-wide">Engagement</h4>
+                        <p class="text-xs text-crSubtext leading-relaxed">Enters Home Page, sees trending anime suggestions, walks through new features, and browses content.</p>
+                    </div>
+
+                </div>
+
+                <!-- Onboarding Recommendation Callout -->
+                <div class="mt-4 bg-crDark p-4 rounded-lg border border-crOrange border-dashed flex items-center gap-4 hover:bg-[#1f2024] transition-colors cursor-default">
+                    <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-crOrange">
+                        <!-- Make sure to have anya.webp in your assets folder -->
+                        <img src="assets/anya.webp" alt="Anya Onboarding" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="text-sm italic text-crSubtext font-medium">"Let's Onboard!"</p>
+                        <p class="text-xs text-crOrange font-bold mt-1">UX Suggestion: Interactive Onboarding Guide</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. UX TEARDOWN & PM INSIGHTS -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Key Learnings -->
+            <div class="bg-crElevated rounded-xl p-8 border-t-4 border-crOrange relative overflow-hidden group">
+                <!-- Subtle Manga Background Accent -->
+                <div class="absolute -right-12 -top-12 opacity-5 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none">
+                    <i class="ph-fill ph-book-open-text text-[16rem] text-crOrange"></i>
+                </div>
+
+                <h2 class="text-2xl font-bold mb-8 flex items-center gap-3 text-white relative z-10">
+                    <i class="ph-fill ph-star text-crOrange"></i> Key UX Learnings
+                </h2>
+                
+                <div class="space-y-6 relative z-10">
+                    <!-- Panel 1 -->
+                    <div class="bg-crDark p-5 rounded-lg border border-crElevated hover:border-crOrange/50 transition-colors shadow-sm">
+                        <h4 class="text-white font-bold mb-3 flex items-center gap-2 uppercase tracking-wider text-sm">
+                            <i class="ph-fill ph-storefront text-crOrange"></i> App Store Highlights
+                        </h4>
+                        <ul class="text-sm text-crSubtext space-y-2">
+                            <li class="flex items-start gap-2">
+                                <i class="ph-bold ph-caret-right text-crOrange mt-0.5"></i>
+                                <span>Prominently features trending anime to grab visitor attention.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="ph-bold ph-caret-right text-crOrange mt-0.5"></i>
+                                <span>Highlights the core value proposition: access to a vast library.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Panel 2 -->
+                    <div class="bg-crDark p-5 rounded-lg border border-crElevated hover:border-crOrange/50 transition-colors shadow-sm">
+                        <h4 class="text-white font-bold mb-3 flex items-center gap-2 uppercase tracking-wider text-sm">
+                            <i class="ph-fill ph-shield-check text-crOrange"></i> Trust & Onboarding
+                        </h4>
+                        <ul class="text-sm text-crSubtext space-y-2">
+                            <li class="flex items-start gap-2">
+                                <i class="ph-bold ph-caret-right text-crOrange mt-0.5"></i>
+                                <span>Login page utilizes social proof by displaying popular anime banners to foster trust.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="ph-bold ph-caret-right text-crOrange mt-0.5"></i>
+                                <span>Subscription tiers use playful names (Fan, Mega Fan) paired with animated characters for connection.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="ph-bold ph-caret-right text-crOrange mt-0.5"></i>
+                                <span>Minimalist login/signup design aligns with the app's overall theme.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Panel 3 -->
+                    <div class="bg-crDark p-5 rounded-lg border border-crElevated hover:border-crOrange/50 transition-colors shadow-sm">
+                        <h4 class="text-white font-bold mb-3 flex items-center gap-2 uppercase tracking-wider text-sm">
+                            <i class="ph-fill ph-compass text-crOrange"></i> Content Discovery
+                        </h4>
+                        <ul class="text-sm text-crSubtext space-y-2">
+                            <li class="flex items-start gap-2">
+                                <i class="ph-bold ph-caret-right text-crOrange mt-0.5"></i>
+                                <span>Newly added features are introduced directly on the home page to prevent navigation frustration.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="ph-bold ph-caret-right text-crOrange mt-0.5"></i>
+                                <span>Well-timed pop-up banners for recent additions feature direct "Watch Now" buttons.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Recommendations -->
+            <div class="bg-crElevated rounded-xl p-8 border-t-4 border-crOrange">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-white">
+                    <i class="ph-fill ph-rocket-launch text-crOrange"></i> Strategic Recommendations
+                </h2>
+                <div class="space-y-6">
+                    <div class="bg-crDark p-4 rounded-lg border border-crElevated">
+                        <h4 class="text-white font-bold mb-1 flex items-center gap-2"><i class="ph-bold ph-sign-in text-crOrange"></i> Reduce Onboarding Friction</h4>
+                        <p class="text-sm text-crSubtext">Implement social login options like Google or Facebook to allow effortless joining with existing credentials, minimizing onboarding steps.</p>
+                    </div>
+                    <div class="bg-crDark p-4 rounded-lg border border-crElevated">
+                        <h4 class="text-white font-bold mb-1 flex items-center gap-2"><i class="ph-bold ph-robot text-crOrange"></i> Interactive Onboarding Guide</h4>
+                        <p class="text-sm text-crSubtext">Add an animated character assistant to provide targeted guidance based on user actions, making the journey more entertaining and engaging.</p>
+                    </div>
+                    <div class="bg-crDark p-4 rounded-lg border border-crElevated">
+                        <h4 class="text-white font-bold mb-1 flex items-center gap-2"><i class="ph-bold ph-medal text-crOrange"></i> Gamification</h4>
+                        <p class="text-sm text-crSubtext">Introduce "Tier Badges" based on total watch time to add challenge, foster a sense of accomplishment, and encourage users to explore the library.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. METRICS FUNNEL -->
+        <section class="pb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center">Metrics & KPIs</h2>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                
+                <!-- L2 -->
+                <div class="bg-crElevated p-4 rounded-t-xl border-x border-t border-crElevated text-center mx-12">
+                    <span class="text-xs font-bold text-crSubtext uppercase tracking-widest block mb-1">L2 Metric</span>
+                    <h4 class="text-lg font-bold text-white"># of App Visitors & Downloads</h4>
+                </div>
+
+                <!-- L1 -->
+                <div class="bg-[#1f2024] p-5 border-x border-crElevated text-center mx-6">
+                    <span class="text-xs font-bold text-crSubtext uppercase tracking-widest block mb-1">L1 Metric</span>
+                    <h4 class="text-xl font-bold text-white"># of New Users Onboarded</h4>
+                </div>
+
+                <!-- North Star -->
+                <div class="bg-gradient-to-r from-crOrange/20 via-crOrange/10 to-crOrange/20 p-6 rounded-b-xl border border-crOrange text-center shadow-[0_10px_30px_rgba(244,117,33,0.15)]">
+                    <span class="text-sm font-black text-crOrange uppercase tracking-widest block mb-2 flex items-center justify-center gap-2">
+                        <i class="ph-fill ph-star"></i> North Star Metric <i class="ph-fill ph-star"></i>
+                    </span>
+                    <h4 class="text-3xl font-black text-white"># of new users completed at least one episode</h4>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
