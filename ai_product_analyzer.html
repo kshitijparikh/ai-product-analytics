@@ -7,8 +7,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root { --bg: #f8fafc; --surface: #ffffff; --primary: #2563eb; --text: #0f172a; --border: #e2e8f0; --error: #dc2626; --success: #10b981; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 2rem; }
-        .container { max-width: 1000px; margin: 0 auto; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding-bottom: 2rem; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
         .card { background: var(--surface); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); margin-bottom: 2rem; border: 1px solid var(--border); }
         h1, h2 { margin-top: 0; }
         label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
@@ -42,9 +42,42 @@
         .video-container { margin-top: 1rem; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); background: #000; }
         .download-btn { display: inline-block; background: var(--success); color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: 600; margin-top: 1.5rem; transition: opacity 0.2s; }
         .download-btn:hover { opacity: 0.9; }
+
+        /* Navigation Bar Styles */
+        .navbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 1rem 0; margin-bottom: 2rem; position: sticky; top: 0; z-index: 100;}
+        .navbar-content { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+        .back-link { display: flex; align-items: center; gap: 0.5rem; color: #64748b; text-decoration: none; font-weight: 600; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary); }
+        .nav-title { font-weight: 700; color: var(--primary); }
+
+        /* Full Screen Overlay Loader for Demo */
+        .overlay-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.95); z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+        .spinner { width: 60px; height: 60px; border: 5px solid #e2e8f0; border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 1.5rem; }
+        .overlay-loader h2 { color: var(--text); margin-bottom: 0.5rem; }
+        .overlay-loader p { color: #64748b; font-size: 1.1rem; }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
+
+<!-- FULL SCREEN DEMO LOADER -->
+<div class="overlay-loader" id="demoLoader">
+    <div class="spinner"></div>
+    <h2>Setting up Demo Environment</h2>
+    <p id="demoLoaderText">Fetching demo dataset...</p>
+</div>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
+    <div class="navbar-content">
+        <!-- The "/" path defaults back to the root of your Github Pages domain -->
+        <a href="/" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Home
+        </a>
+        <div class="nav-title">Portfolio Project</div>
+    </div>
+</nav>
 
 <div class="container">
     <h1>🚀 AI Product Analytics Assistant</h1>
@@ -134,10 +167,16 @@
     
     // --- LOAD DEMO DATA MAGIC ---
     async function loadDemoData() {
+        // Trigger Full Screen Overlay
+        const loader = document.getElementById('demoLoader');
+        const loaderText = document.getElementById('demoLoaderText');
+        loader.style.display = 'flex';
+        loaderText.innerText = "Fetching demo dataset...";
+
         // 1. Fill Table Name
         document.getElementById('tableName').value = "User Acquisition Campaign Evaluation";
         
-        // 2. Fill Column Descriptions (Using template literals for clean multiline string)
+        // 2. Fill Column Descriptions
         document.getElementById('columnDescriptions').value = `{
   "campaign_id": "Unique ID assigned to each campaign",
   "channel": "Marketing channel used (e.g., Paid Social, Email, SEO)",
@@ -161,13 +200,9 @@
 
         // 4. Pre-fill the question query
         document.getElementById('chatQuery').value = "What is the CAC ?";
-        
-        document.getElementById('uploadStatus').style.display = 'block';
-        document.getElementById('uploadStatus').innerText = 'Fetching hosted CSV...';
 
         try {
             // 5. Fetch the CSV file hosted in your assets folder
-            // ⚠️ Ensure your CSV is named correctly and placed inside the 'assets' folder
             const response = await fetch('./assets/User Acquisition Campaign Evaluation.csv'); 
             
             if (!response.ok) {
@@ -182,13 +217,15 @@
             dataTransfer.items.add(file);
             document.getElementById('fileInput').files = dataTransfer.files;
             
-            // 7. Automatically trigger the upload
-            document.getElementById('uploadStatus').innerText = 'Processing...';
-            uploadData();
+            // 7. Trigger the upload via the backend
+            loaderText.innerText = "Ingesting data & preparing AI context...";
+            
+            // Await the uploadData function and pass 'true' so it knows we are in Demo mode
+            await uploadData(true);
             
         } catch (error) {
             alert(error.message);
-            document.getElementById('uploadStatus').style.display = 'none';
+            loader.style.display = 'none';
         }
     }
 
@@ -316,7 +353,8 @@
         return await res.json();
     }
 
-    async function uploadData() {
+    // Added an optional 'isDemo' parameter to control the full-screen loader
+    async function uploadData(isDemo = false) {
         const fileInput = document.getElementById('fileInput').files[0];
         const tableName = document.getElementById('tableName').value;
         const formulasRaw = document.getElementById('formulas').value;
@@ -335,7 +373,11 @@
         }
 
         document.getElementById('uploadBtn').disabled = true;
-        document.getElementById('uploadStatus').style.display = 'block';
+        
+        // Only show the tiny loader if we ARE NOT in the full-screen demo mode
+        if (!isDemo) {
+            document.getElementById('uploadStatus').style.display = 'block';
+        }
 
         try {
             const formData = new FormData();
@@ -368,6 +410,11 @@
         } finally {
             document.getElementById('uploadBtn').disabled = false;
             document.getElementById('uploadStatus').style.display = 'none';
+            
+            // Clean up the full-screen demo loader when finished
+            if (isDemo) {
+                document.getElementById('demoLoader').style.display = 'none';
+            }
         }
     }
 
