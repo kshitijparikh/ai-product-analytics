@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Analyst Portfolio</title>
+    <title>Kshitij Parikh | Product Analyst Portfolio</title>
     
-    <!-- Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts: Inter for clean, modern readability -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS (CDN for easy setup) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Tailwind Config for Custom Colors/Fonts -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -22,592 +20,449 @@
                         dark: '#0a0a0a',
                         surface: '#141414',
                         surfaceBorder: '#262626',
-                        accent: '#3b82f6', // subtle blue
+                        accent: '#3b82f6', // Premium SaaS blue
+                        accentGlow: 'rgba(59, 130, 246, 0.15)',
                     }
                 }
             }
         }
     </script>
     
-    <!-- Icons (Phosphor Icons for a clean SaaS look) -->
+    <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
-    <!-- Chart.js for realistic dashboard placeholders -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom scrollbar and animations */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+        
+        .glass-panel {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg, #ffffff, #888888);
+        }
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+        .story-text p {
+            margin-bottom: 1.25rem;
+        }
+    </style>
 </head>
 <body class="bg-dark text-gray-300 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
 
     <!-- Ambient Background Gradients -->
     <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-900/20 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-900/10 rounded-full blur-[120px]"></div>
+        <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-blue-900/10 rounded-full blur-[150px]"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-indigo-900/10 rounded-full blur-[150px]"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 border-b border-surfaceBorder bg-dark/80 backdrop-blur-md">
+    <nav class="fixed w-full z-50 top-0 glass-panel border-b border-surfaceBorder">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-medium">
-            <a href="#" class="text-white font-bold tracking-tight">Portfolio.</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
-                <a href="#work" class="hover:text-white transition-colors">Case Studies</a>
-                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
-                <a href="extracurriculars.html" class="hover:text-white transition-colors">Extracurriculars</a>
+            <a href="#" class="text-white font-bold tracking-tight text-lg">Kshitij.</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-gray-400 hover:text-white transition-colors">Story</a>
+                <a href="#skills" class="text-gray-400 hover:text-white transition-colors">Expertise</a>
+                <a href="#work" class="text-gray-400 hover:text-white transition-colors">Teardowns</a>
+                <a href="#experience" class="text-gray-400 hover:text-white transition-colors">Experience</a>
             </div>
-            <a href="#contact" class="bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200 transition-colors">Contact</a>
+            <a href="#contact" class="bg-white text-black px-5 py-2 rounded-lg hover:bg-gray-200 transition-colors font-semibold shadow-md">Get in Touch</a>
         </div>
     </nav>
 
     <main class="max-w-6xl mx-auto px-6 pt-32 pb-24 space-y-32">
 
         <!-- HERO SECTION -->
-        <section class="min-h-[70vh] flex flex-col justify-center items-center text-center reveal">
-            <div class="inline-block px-3 py-1 mb-6 border border-surfaceBorder rounded-full bg-surface text-xs font-semibold tracking-wide uppercase text-accent">
-                Software Engineer → Product Analyst
+        <section class="min-h-[70vh] flex flex-col justify-center items-center text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 border border-accent/30 rounded-full bg-accent/5 text-xs font-bold tracking-widest uppercase text-accent shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+                <i class="ph-fill ph-rocket-launch"></i> Software Engineer → Product Analyst
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 max-w-4xl leading-tight">
-                Product Analyst & <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">Software Engineer</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter mb-6 max-w-4xl leading-[1.1]">
+                Decoding User Behavior. <br> <span class="text-gradient">Driving Product Growth.</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed">
-                Building data-driven products through analytics, experimentation, and user behavior insights. Bridging the gap between engineering execution and product strategy.
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-12 leading-relaxed font-light">
+                Bridging the gap between engineering execution and product strategy. I transform raw data into actionable insights, seamless onboarding flows, and high-converting retention loops.
             </p>
             
-            <!-- Main Action Buttons -->
-            <div class="flex flex-wrap justify-center gap-4 mb-10">
-                <a href="#" class="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-all shadow-lg hover:-translate-y-0.5">
-                    <i class="ph ph-download-simple text-lg"></i> Download Resume
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+                <a href="#work" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-black px-8 py-3.5 rounded-lg font-bold hover:bg-gray-200 transition-all shadow-lg">
+                    <i class="ph-bold ph-strategy text-lg"></i> Read My Teardowns
                 </a>
-                <a href="https://www.linkedin.com/in/kaspar1999" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 border border-surfaceBorder bg-surface px-6 py-3 rounded-lg font-medium hover:bg-surfaceBorder transition-all hover:-translate-y-0.5 shadow-lg">
-                    <i class="ph-fill ph-linkedin-logo text-lg text-accent"></i> LinkedIn
+                <a href="https://www.linkedin.com/in/kaspar1999" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center gap-2 border border-surfaceBorder bg-surface px-8 py-3.5 rounded-lg font-medium text-white hover:border-gray-500 transition-all shadow-lg">
+                    <i class="ph-fill ph-linkedin-logo text-lg text-accent"></i> Connect on LinkedIn
                 </a>
-            </div>
-
-            <!-- Quick Contact Mini-Card -->
-            <div class="inline-flex flex-col md:flex-row items-stretch gap-2 bg-[#111] border border-surfaceBorder rounded-2xl p-2 shadow-2xl transition-all hover:border-gray-600">
-                
-                <!-- Direct Gmail Button (Routes to primary, displays both) -->
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parikhkshitij1999@gmail.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-dark border border-surfaceBorder rounded-xl px-4 py-2.5 hover:border-gray-500 transition-all group w-full md:w-auto text-left">
-                    <div class="bg-surface p-2 rounded-md border border-surfaceBorder group-hover:border-accent transition-colors flex-shrink-0">
-                        <i class="ph-fill ph-envelope-simple text-accent text-sm"></i>
-                    </div>
-                    <div class="flex flex-col space-y-0.5">
-                        <span class="text-[13px] font-medium text-gray-300 group-hover:text-white transition-colors tracking-wide">parikhkshitij1999@gmail.com</span>
-                        <span class="text-[13px] font-medium text-gray-500 group-hover:text-gray-300 transition-colors tracking-wide">kshitijparikh1999@gmail.com</span>
-                    </div>
-                </a>
-                
-                <!-- Phone Number -->
-                <div class="flex items-center gap-3 bg-dark border border-surfaceBorder rounded-xl px-4 py-2.5 w-full md:w-auto justify-start cursor-default">
-                    <div class="bg-surface p-2 rounded-md border border-surfaceBorder flex-shrink-0">
-                        <i class="ph-fill ph-phone-call text-gray-500 text-sm"></i>
-                    </div>
-                    <div class="flex flex-col space-y-0.5">
-                        <span class="text-[13px] font-medium text-gray-300 select-all tracking-wide">+91 6351839275</span>
-                        <span class="text-[11px] font-semibold text-gray-600 uppercase tracking-widest">India (IST)</span>
-                    </div>
-                </div>
-                
             </div>
         </section>
 
-        <!-- ABOUT ME SECTION -->
-        <section id="about" class="grid md:grid-cols-2 gap-12 items-center reveal">
-            <div class="space-y-6 max-w-3xl">
-                <!-- Header with fading line -->
-                <div class="flex items-center gap-4">
-                    <h2 class="text-3xl font-bold text-white tracking-tight">About Me</h2>
-                    <div class="h-[1px] flex-grow bg-gradient-to-r from-surfaceBorder to-transparent mt-2"></div>
+        <!-- THE "ABOUT ME" STORY SECTION (Editorial Layout) -->
+        <section id="about" class="grid lg:grid-cols-12 gap-12 items-start relative">
+            
+            <!-- Left Column: Image & Contact Info -->
+            <div class="lg:col-span-5 space-y-6 sticky top-24">
+                <div class="rounded-2xl border border-surfaceBorder bg-surface p-2 overflow-hidden shadow-2xl relative group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60 z-10"></div>
+                    <img src="assets/kshitij.jpg" alt="Kshitij Parikh" class="w-full h-auto aspect-[4/5] rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                    <div class="absolute bottom-6 left-6 z-20">
+                        <h3 class="text-white font-bold text-2xl">Kshitij Parikh</h3>
+                        <p class="text-accent font-medium text-sm tracking-wide">Product Analyst</p>
+                    </div>
                 </div>
-                
-                <!-- Editorial style text block -->
-                <div class="relative pl-6 border-l-2 border-surfaceBorder space-y-5 text-gray-400 leading-relaxed md:text-lg">
-                    <!-- Blue accent line overlay on the border -->
-                    <div class="absolute -left-[2px] top-0 h-8 w-[2px] bg-accent rounded-full"></div>
-                    
-                    <p class="text-gray-200 text-xl font-medium leading-snug">
-                        "Aspiring Product Analyst with 3+ years of experience in data-driven product development and experimentation."
-                    </p>
-                    
-                    <p>
-                        Leveraging a strong engineering background at <span class="text-white font-medium">Optimoz</span> and <span class="text-white font-medium">Sigma Solve</span> to transform raw user data into actionable insights and scalable product solutions.
-                    </p>
-                    
-                    <p>
-                        Expert in using <span class="text-accent font-medium">Python, SQL, and A/B testing</span> to track KPIs, analyze user behavior, and optimize onboarding funnels. Proven ability to bridge the gap between technical execution and business strategy to drive measurable user engagement.
-                    </p>
 
-                    <!-- Link to Extracurriculars -->
-                    <div class="pt-2">
-                        <a href="extracurriculars.html" class="inline-flex items-center gap-2 text-sm font-medium text-white bg-surface border border-surfaceBorder px-5 py-2.5 rounded-lg hover:border-gray-500 hover:bg-surfaceBorder transition-all group shadow-sm w-fit">
-                            Explore life outside work 
-                            <i class="ph-bold ph-arrow-right text-accent group-hover:translate-x-1 transition-transform"></i>
-                        </a>
+                <!-- Quick Contact Card -->
+                <div class="bg-surface border border-surfaceBorder rounded-xl p-5 space-y-4">
+                    <a href="mailto:parikhkshitij1999@gmail.com" class="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
+                        <div class="p-2 bg-dark rounded border border-surfaceBorder group-hover:border-accent transition-colors">
+                            <i class="ph-fill ph-envelope-simple text-accent"></i>
+                        </div>
+                        <span class="text-sm font-medium tracking-wide">parikhkshitij1999@gmail.com</span>
+                    </a>
+                    <div class="flex items-center gap-4 text-gray-300">
+                        <div class="p-2 bg-dark rounded border border-surfaceBorder">
+                            <i class="ph-fill ph-phone-call text-gray-500"></i>
+                        </div>
+                        <span class="text-sm font-medium tracking-wide">+91 6351839275</span>
                     </div>
                 </div>
             </div>
 
-            <div class="relative rounded-2xl border border-surfaceBorder bg-surface p-8 h-full flex flex-col justify-center items-center overflow-hidden">
-                <!-- Personal Photo -->
-                <img 
-                    src="assets/kshitij.jpg" 
-                    alt="Kshitij" 
-                    class="w-full max-w-sm rounded-xl object-cover shadow-2xl border border-surfaceBorder transition-transform duration-500 hover:scale-[1.02]"
-                >
+            <!-- Right Column: The Narrative -->
+            <div class="lg:col-span-7 bg-surface/50 border border-surfaceBorder rounded-3xl p-8 md:p-12 shadow-xl">
+                <div class="flex items-center gap-3 mb-8">
+                    <i class="ph-fill ph-quotes text-4xl text-surfaceBorder"></i>
+                    <h2 class="text-3xl font-black text-white tracking-tight">The Origin Story</h2>
+                </div>
+
+                <div class="story-text text-gray-300 leading-relaxed md:text-lg font-light">
+                    <p class="text-white font-medium text-xl leading-snug mb-6">
+                        Hi, I'm Kshitij. I'm a software engineer who became obsessed with a simple question: <br>
+                        <span class="text-accent font-bold mt-2 inline-block">"Why do some products become daily habits while others disappear?"</span>
+                    </p>
+                    
+                    <p>
+                        As an API developer, I spent years watching data move between systems. Eventually, I became much more interested in what happened <em>after</em> the data arrived—why users clicked, stayed, purchased, abandoned, binge-watched, or came back.
+                    </p>
+                    <p>
+                        That curiosity turned me into a product analyst.
+                    </p>
+                    <p>
+                        I have spent 3+ years working across engineering, experimentation, and product development at companies like <strong>Optimoz</strong> and <strong>Sigma Solve</strong>. I use Python, SQL, A/B testing, and analytics to transform raw user behavior into concrete product decisions.
+                    </p>
+                    
+                    <div class="my-8 p-6 bg-[#0f0f0f] rounded-xl border border-[#222] border-l-4 border-l-accent">
+                        <h4 class="text-white font-bold mb-3 flex items-center gap-2">
+                            <i class="ph-fill ph-magnifying-glass text-accent"></i> A Strange Hobby
+                        </h4>
+                        <p class="text-sm text-gray-400 mb-0">
+                            Outside of work, I reverse-engineer products that help people survive modern life. Not to review them, but to understand the psychology, metrics, incentives, onboarding flows, retention loops, and growth mechanisms that make millions of people return every day.
+                        </p>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-hamburger text-gray-500"></i> <strong>Food:</strong> Dissected Swiggy & Amazon.</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-film-slate text-gray-500"></i> <strong>Entertainment:</strong> Tore apart Netflix, Crunchyroll & Spotify.</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-car text-gray-500"></i> <strong>Transit:</strong> Analyzed Uber.</li>
+                        </ul>
+                    </div>
+
+                    <p>
+                        My father always taught me that the best answers are usually hidden in the root cause. That philosophy shapes how I approach products: <strong>keep digging until the numbers tell a story.</strong>
+                    </p>
+                    <p>
+                        Whether it's improving onboarding, increasing retention, designing experiments, identifying growth opportunities, or building analytics systems, I enjoy finding the "why" behind user behavior and turning it into measurable business impact.
+                    </p>
+                    <p class="text-white font-medium italic mt-8 border-t border-surfaceBorder pt-8">
+                        If you're looking for someone who can think like an engineer, analyze like a product analyst, and occasionally obsess over a funnel drop-off rate more than is socially acceptable—you're in the right place.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- SKILLS SECTION -->
-        <section id="skills" class="reveal space-y-10">
-            <div class="flex items-center justify-between flex-wrap gap-4">
+        <!-- SKILLS & TECHNICAL ARSENAL -->
+        <section id="skills" class="space-y-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-black text-white tracking-tight mb-4">The Technical Arsenal</h2>
+                <p class="text-gray-400">Blending deep data analytics with modern software engineering infrastructure to build, track, and scale user-focused products.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Analytics & Product -->
+                <div class="bg-surface border border-surfaceBorder rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center gap-3 mb-8 pb-4 border-b border-surfaceBorder/50">
+                        <div class="p-2.5 bg-accent/10 rounded-lg text-accent"><i class="ph-fill ph-chart-polar text-xl"></i></div>
+                        <h3 class="text-lg font-bold text-white">Product Analytics & Strategy</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Pirate Metrics (AARRR)</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">A/B Testing</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Funnel Analysis</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Cohort Analysis</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Retention Modeling</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">KPI Tracking</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Data Storytelling</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Mixpanel</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Tableau</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Jira / Agile</span>
+                    </div>
+                </div>
+
+                <!-- Engineering & Infrastructure -->
+                <div class="bg-surface border border-surfaceBorder rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center gap-3 mb-8 pb-4 border-b border-surfaceBorder/50">
+                        <div class="p-2.5 bg-accent/10 rounded-lg text-accent"><i class="ph-fill ph-code-block text-xl"></i></div>
+                        <h3 class="text-lg font-bold text-white">Engineering & Machine Learning</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Python</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">SQL & PostgreSQL</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Pandas & NumPy</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Django</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">React Native (JSX)</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">Docker & Redis</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300">LLMs & LangChain</span>
+                        <span class="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-md text-sm text-gray-300 text-accent font-medium border-accent/30">Semantic Match (SBERT)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT TEARDOWNS & CASE STUDIES -->
+        <section id="work" class="space-y-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-surfaceBorder pb-6">
                 <div>
-                    <h2 class="text-3xl font-bold text-white tracking-tight">
-                        Skills & Expertise
-                    </h2>
-                    <p class="text-gray-400 mt-2 max-w-2xl">
-                        Blending software engineering, analytics, and product thinking to build scalable,
-                        user-focused digital experiences.
-                    </p>
+                    <h2 class="text-3xl font-black text-white tracking-tight mb-2">Featured Work & Teardowns</h2>
+                    <p class="text-gray-400 max-w-2xl">Deep dives into growth loops, system architecture, and product psychology.</p>
                 </div>
             </div>
 
-            <!-- Core Competencies -->
-            <div class="space-y-4 w-full">
-    <!-- Section Header with Icon and Gradient Line -->
-    <div class="flex items-center pl-1">
-        <i class="ph-fill ph-chart-line-up text-gray-500 text-lg mr-2"></i>
-        <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-500 whitespace-nowrap">
-            Product & Analytics
-        </h3>
-        <div class="flex-grow h-[1px] bg-gradient-to-r from-surfaceBorder to-transparent ml-4"></div>
-    </div>
-
-    <!-- Contained Skill Tags -->
-    <div class="bg-[#111] border border-surfaceBorder rounded-xl p-6 shadow-sm">
-        <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-6">
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>Product Analytics</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>Product Strategy</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>Dashboarding</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>A/B Testing</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>User Behavior Analysis</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>Funnel Analysis</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>Cohort Analysis</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>KPI Tracking</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>Metrics Design</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>User Retention Analytics</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>User Acquisition Analytics</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>Pirate Metrics</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>North Star Metrics</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>Data Visualization</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>Data Storytelling</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors">
-                <div class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                <span>Agile Methodologies</span>
-            </li>
-        </ul>
-    </div>
-</div>
-
-            <!-- Engineering & Tools -->
-            <div class="space-y-4">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-[1px] bg-gray-700"></div>
-                    <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500">
-                        Engineering & Tools
-                    </h3>
-                </div>
-
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                    <div class="skill-card">
-                        <i class="ph ph-code text-lg"></i>
-                        <span>Python</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="ph ph-database text-lg"></i>
-                        <span>SQL & MySql</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="ph ph-brackets-curly text-lg"></i>
-                        <span>JavaScript</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="ph ph-atom text-lg"></i>
-                        <span>React.js</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="ph ph-cube text-lg"></i>
-                        <span>Django</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="ph ph-brain text-lg"></i>
-                        <span>AI & ML</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="ph ph-chart-pie-slice text-lg"></i>
-                        <span>Mixpanel</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="ph ph-file-csv text-lg"></i>
-                        <span>Pandas & NumPy</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="ph ph-chart-bar text-lg"></i>
-                        <span>Tableau</span>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="ph ph-kanban text-lg"></i>
-                        <span>Jira</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEATURED CASE STUDIES -->
-        <section id="work" class="reveal space-y-8">
-            <h2 class="text-3xl font-bold text-white tracking-tight">Featured Case Studies</h2>
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="grid md:grid-cols-2 gap-8">
                 
-                <!-- Case Study 1 -->
-                <div class="case-card group">
-                    <div class="h-48 bg-dark rounded-t-xl border-b border-surfaceBorder flex items-center justify-center overflow-hidden relative">
-                        <img 
-                            src="assets/product_teardowns.jpg" 
-                            alt="Product Teardown Preview" 
-                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
-                        >
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Product Teardowns</h3>
-                        <p class="text-sm text-gray-400 mb-4">Here are the product teardowns of my favourite applications.</p>
-                        <ul class="text-sm text-gray-400 space-y-1 mb-6 list-disc list-inside">
-                            <li>Netflix</li>
-                            <li>Amazon</li>
-                            <li>Blinkit</li>
-                            <li>Spotify</li>
-                            <li>Crunchyroll</li>
-                            <li>Uber</li>
-                        </ul>
-                        <a href="netflix-teardown.html" class="inline-block text-sm font-medium text-white bg-surfaceBorder px-4 py-2 rounded-lg hover:bg-gray-700 transition text-center">View Case Study</a>
-                    </div>
-                </div>
-
-                <!-- Case Study 2 -->
-                <div class="case-card group">
-                    <div class="h-63 bg-dark rounded-t-xl border-b border-surfaceBorder flex items-center justify-center overflow-hidden relative">
-                        <img 
-                            src="assets/recommendation.png" 
-                            alt="Product Teardown Preview" 
-                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
-                        >
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Universal Recommendation System</h3>
-                        <p class="text-sm text-gray-400 mb-4">Steps to build a state of the art recommendation system</p>
-                        <ul class="text-sm text-gray-400 space-y-1 mb-6 list-disc list-inside">
-                            <li>Things</li>
-                            <li>Media</li>
-                            <li>Services</li>
-                        </ul>
-                        <a href="recommendation.html" class="inline-block text-sm font-medium text-white bg-surfaceBorder px-4 py-2 rounded-lg hover:bg-gray-700 transition text-center">View Case Study</a>
-                    </div>
-                </div>
-
-                <!-- Case Study 3 -->
-                <div class="case-card group">
-                    <div class="h-48 bg-dark rounded-t-xl border-b border-surfaceBorder flex items-center justify-center overflow-hidden relative">
-                        <i class="ph ph-gauge text-4xl text-gray-600 group-hover:scale-110 transition-transform"></i>
+                <!-- Project 1: AARRR Playbook -->
+                <a href="pirate.html" class="group block bg-surface border border-surfaceBorder rounded-2xl overflow-hidden shadow-lg hover:border-gray-500 transition-all hover:-translate-y-1">
+                    <div class="h-56 bg-dark border-b border-surfaceBorder relative overflow-hidden flex items-center justify-center p-4">
+                        <img src="assets/pirate_metrics.jpg" alt="AARRR Framework" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105 rounded">
                         <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-                        <span class="absolute bottom-2 text-xs text-gray-500">[ Insert Tableau/Power BI Image ]</span>
+                        <div class="absolute bottom-4 left-6 flex gap-2">
+                            <span class="px-2.5 py-1 bg-black/80 backdrop-blur border border-white/10 rounded text-[10px] font-bold tracking-widest uppercase text-white">UX Psychology</span>
+                            <span class="px-2.5 py-1 bg-accent/20 backdrop-blur border border-accent/30 rounded text-[10px] font-bold tracking-widest uppercase text-accent">AARRR Funnel</span>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">AI Product Analyzer</h3>
-                        <p class="text-sm text-gray-400 mb-4">Built an automated, interactive dashboard tracking core product health and revenue metrics.</p>
-                        <ul class="text-sm text-gray-400 space-y-1 mb-6 list-disc list-inside">
-                            <li>DAU/MAU metrics</li>
-                            <li>Conversion metrics</li>
-                            <li>Revenue & engagement tracking</li>
-                        </ul>
-                        <a href="ai_product_analyzer.html" class="inline-block text-sm font-medium text-white bg-surfaceBorder px-4 py-2 rounded-lg hover:bg-gray-700 transition text-center">Run my Project</a>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">The AARRR Growth Playbook: Deconstructing Tech Titans</h3>
+                        <p class="text-sm text-gray-400 mb-6 leading-relaxed line-clamp-3">
+                            A 5-part thesis exploring how Uber engineered addictive Acquisition, how Blinkit drives Activation, Netflix's Retention UI, Amazon's Revenue social proof, and Spotify's organic Referral loops.
+                        </p>
+                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-white">Read the Thesis <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i></span>
+                    </div>
+                </a>
+
+                <!-- Project 2: Individual Teardowns Hub -->
+                <div class="group bg-surface border border-surfaceBorder rounded-2xl overflow-hidden shadow-lg">
+                    <div class="p-8 h-full flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">Platform Teardown Library</h3>
+                        <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+                            Individual deep dives dissecting the mechanics behind the world's most successful applications.
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 mb-8 flex-grow">
+                            <a href="netflix-teardown.html" class="flex items-center gap-3 p-3 rounded-lg border border-surfaceBorder bg-dark hover:border-red-500/50 hover:bg-red-500/5 transition-colors">
+                                <i class="ph-fill ph-play-circle text-red-500 text-xl"></i> <span class="text-sm font-medium text-gray-300">Netflix</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg border border-surfaceBorder bg-dark hover:border-yellow-500/50 hover:bg-yellow-500/5 transition-colors">
+                                <i class="ph-fill ph-lightning text-yellow-500 text-xl"></i> <span class="text-sm font-medium text-gray-300">Blinkit</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg border border-surfaceBorder bg-dark hover:border-orange-500/50 hover:bg-orange-500/5 transition-colors">
+                                <i class="ph-fill ph-currency-dollar text-orange-500 text-xl"></i> <span class="text-sm font-medium text-gray-300">Amazon</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg border border-surfaceBorder bg-dark hover:border-green-500/50 hover:bg-green-500/5 transition-colors">
+                                <i class="ph-fill ph-spotify-logo text-green-500 text-xl"></i> <span class="text-sm font-medium text-gray-300">Spotify</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Case Study 4 -->
-                <div class="case-card group">
-                    <div class="h-48 bg-dark rounded-t-xl border-b border-surfaceBorder flex items-center justify-center overflow-hidden relative">
-                        <i class="ph ph-users-three text-4xl text-gray-600 group-hover:scale-110 transition-transform"></i>
-                        <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-                        <span class="absolute bottom-2 text-xs text-gray-500">[ Insert Algorithm/Data Screenshot ]</span>
+                <!-- Project 3: Recommendation Engine -->
+                <a href="recommendation.html" class="group block bg-surface border border-surfaceBorder rounded-2xl overflow-hidden shadow-lg hover:border-gray-500 transition-all hover:-translate-y-1">
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-dark border border-surfaceBorder rounded-xl flex items-center justify-center mb-6 text-accent">
+                            <i class="ph-fill ph-graph text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">Universal Recommendation System</h3>
+                        <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+                            Architectural breakdown and implementation steps to build a state-of-the-art ML recommendation engine capable of semantic matching across media, services, and physical goods.
+                        </p>
+                        <div class="flex gap-2 mb-6">
+                            <span class="px-2 py-1 bg-dark border border-surfaceBorder rounded text-[10px] uppercase text-gray-400 font-bold">Machine Learning</span>
+                            <span class="px-2 py-1 bg-dark border border-surfaceBorder rounded text-[10px] uppercase text-gray-400 font-bold">SBERT / NLP</span>
+                        </div>
+                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-white">View Architecture <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i></span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">The AARRR Growth Playbook: Deconstructing Tech Titans</h3>
-                        <p class="text-sm text-gray-400 mb-4">Most product teardowns look at a single app in isolation. To truly understand what drives hyper-growth, I reverse-engineered the success of five industry titans through the lens of the Pirate Metrics (AARRR) framework.
+                </a>
 
-In this 5-part thesis, I explore how Uber engineered a psychologically addictive Acquisition engine, how Blinkit eliminates decision fatigue to drive Activation, how Netflix leverages personalized UI for Retention, how Amazon uses social proof to maximize Revenue, and how Spotify built an organic Referral loop. This project bridges the gap between behavioral psychology, UX design, and deep-funnel product analytics.</p>
-                        <a href="pirate.html" class="inline-block text-sm font-medium text-white bg-surfaceBorder px-4 py-2 rounded-lg hover:bg-gray-700 transition text-center">View Case Study</a>
+                <!-- Project 4: AI Product Analyzer -->
+                <a href="ai_product_analyzer.html" class="group block bg-surface border border-surfaceBorder rounded-2xl overflow-hidden shadow-lg hover:border-gray-500 transition-all hover:-translate-y-1">
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-dark border border-surfaceBorder rounded-xl flex items-center justify-center mb-6 text-accent">
+                            <i class="ph-fill ph-robot text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">AI Product Health Dashboard</h3>
+                        <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+                            An automated, interactive dashboard tracking core product health metrics including DAU/MAU ratios, multi-stage conversion metrics, and revenue tracking utilizing LLM integrations.
+                        </p>
+                        <div class="flex gap-2 mb-6">
+                            <span class="px-2 py-1 bg-dark border border-surfaceBorder rounded text-[10px] uppercase text-gray-400 font-bold">Python / Pandas</span>
+                            <span class="px-2 py-1 bg-dark border border-surfaceBorder rounded text-[10px] uppercase text-gray-400 font-bold">Data Viz</span>
+                        </div>
+                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-white">Run Application <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i></span>
                     </div>
-                </div>
+                </a>
 
             </div>
         </section>
-
-        
 
         <!-- EXPERIENCE TIMELINE -->
-        <section id="experience" class="reveal space-y-8">
-            <h2 class="text-3xl font-bold text-white tracking-tight">Experience & Journey</h2>
-            <div class="relative border-l border-surfaceBorder ml-3 space-y-10 pb-4">
+        <section id="experience" class="space-y-10">
+            <h2 class="text-3xl font-black text-white tracking-tight mb-8">Professional Experience</h2>
+            
+            <div class="relative border-l-2 border-surfaceBorder ml-4 space-y-12 pb-4">
                 
-                <div class="relative pl-8">
-                    <div class="absolute w-3 h-3 bg-accent rounded-full -left-[6.5px] top-1.5 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
-                    <span class="text-xs font-semibold text-accent tracking-widest uppercase">Present</span>
-                    <h3 class="text-xl font-bold text-white mt-1">Transitioning to Product Analytics</h3>
-                    <p class="text-gray-400 mt-2 text-sm leading-relaxed">Focusing on personal projects, advanced SQL, Tableau, and product strategy. Actively pursuing roles where data dictates product direction.</p>
+                <!-- Optimoz Experience -->
+                <div class="relative pl-10 group">
+                    <div class="absolute w-4 h-4 bg-dark border-2 border-accent rounded-full -left-[9px] top-2 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                    
+                    <div class="bg-surface border border-surfaceBorder rounded-2xl p-8 shadow-md group-hover:border-gray-600 transition-colors">
+                        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-xl bg-white flex items-center justify-center p-2 shadow-inner">
+                                    <img src="assets/optimoz.jpg" alt="Optimoz Logo" class="w-full h-full object-contain">
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Software Engineer</h3>
+                                    <p class="text-sm font-medium text-accent tracking-wide mt-1">OPTIMOZ</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:items-end gap-2 text-left md:text-right">
+                                <span class="text-xs font-bold text-gray-400 tracking-widest uppercase bg-dark px-3 py-1.5 rounded-md border border-surfaceBorder">
+                                    Mar 2024 - Apr 2026
+                                </span>
+                                <a href="assets/optimoz.pdf" download="Kshitij_Optimoz_Experience.pdf" class="text-xs text-gray-400 hover:text-accent flex items-center md:justify-end gap-1 mt-1 transition-colors">
+                                    <i class="ph-bold ph-download-simple"></i> Download Cert
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 text-sm text-gray-300 leading-relaxed mb-6">
+                            <p>Engineered FHIR-compliant healthcare software with a focus on optimizing user journeys. Developed automated mailing systems, restructured onboarding A/B testing flows, and built practitioner interfaces using Django and React.js.</p>
+                            <p>Supported a large-scale U.S. government EHR platform by enhancing frontend architecture and ensuring highly performant data-driven healthcare workflows.</p>
+                        </div>
+                        
+                        <!-- Analytical Impact Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-surfaceBorder/50">
+                            <div class="flex gap-3">
+                                <div class="text-accent mt-0.5"><i class="ph-fill ph-trend-up"></i></div>
+                                <div>
+                                    <span class="block text-white font-bold mb-0.5">10% Conversion Lift</span>
+                                    <span class="text-xs text-gray-400">Achieved via onboarding funnel optimization</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="text-accent mt-0.5"><i class="ph-fill ph-lightning"></i></div>
+                                <div>
+                                    <span class="block text-white font-bold mb-0.5">11% Latency Reduction</span>
+                                    <span class="text-xs text-gray-400">Frontend and API query restructuring</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="text-accent mt-0.5"><i class="ph-fill ph-robot"></i></div>
+                                <div>
+                                    <span class="block text-white font-bold mb-0.5">100% Automation</span>
+                                    <span class="text-xs text-gray-400">Replaced manual email workflows entirely</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="text-accent mt-0.5"><i class="ph-fill ph-users"></i></div>
+                                <div>
+                                    <span class="block text-white font-bold mb-0.5">Retention Growth</span>
+                                    <span class="text-xs text-gray-400">Driven by improved accessibility features</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-
-                <div class="relative pl-8 md:pl-10 group">
-            <!-- Timeline Dot (Highlights blue on hover) -->
-            <div class="absolute w-3 h-3 bg-surfaceBorder group-hover:bg-accent transition-colors duration-300 rounded-full -left-[6.5px] top-2 border-2 border-dark"></div>
-            
-           <!-- Header Section: Logo, Role, Company, and Date -->
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-        <div class="flex items-center gap-4">
-            <!-- Company Logo -->
-            <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center border border-surfaceBorder overflow-hidden shadow-lg">
-                <img src="assets/optimoz.jpg" alt="Optimoz Logo" class="w-full h-full object-contain p-1">
-            </div>
-            <div>
-                <h3 class="text-xl font-bold text-white">Software Engineer</h3>
-                <span class="text-sm font-medium text-accent uppercase tracking-wider">Optimoz</span>
-            </div>
-        </div>
-        
-        <!-- Badges & Buttons Container -->
-        <div class="flex flex-wrap items-center gap-3">
-            <!-- Date Badge -->
-            <span class="text-xs font-semibold text-gray-400 tracking-widest uppercase bg-surface px-3 py-1.5 rounded-full border border-surfaceBorder w-fit">
-                Mar 2024 - Apr 2026
-            </span>
-            
-            <!-- Direct Download Button -->
-            <a href="assets/optimoz.pdf" download="Kshitij_Optimoz_Experience_Letter.pdf" class="flex items-center gap-1.5 text-xs font-medium text-accent hover:text-white bg-surface px-3 py-1.5 rounded-full border border-surfaceBorder hover:border-accent transition-colors shadow-sm">
-                <i class="ph-bold ph-download-simple"></i> Experience Letter
-            </a>
-        </div>
-    </div>
-
-    <!-- Description -->
-    <div class="space-y-3 text-sm text-gray-400 leading-relaxed">
-        <p>Advanced FHIR-compliant healthcare software by developing automated mailing systems, onboarding A/B testing flows, and practitioner/admin features using Django, React.js, and Next.js, improving accessibility and user experience.</p>
-        <p>Contributed to a large-scale U.S. government EHR platform by enhancing scalable frontend architecture, optimizing application performance, and supporting data-driven healthcare workflows across patient and inventory management systems.</p>
-    </div>
-
-    <!-- Metrics / Impact (SaaS Style Grid) -->
-    <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3 p-4 bg-[#111] border border-surfaceBorder rounded-xl">
-        <div class="flex items-start gap-2">
-            <i class="ph-fill ph-check-circle text-accent mt-0.5"></i>
-            <span class="text-sm text-gray-300">Improved onboarding conversion by <strong class="text-white">10%</strong></span>
-        </div>
-        <div class="flex items-start gap-2">
-            <i class="ph-fill ph-check-circle text-accent mt-0.5"></i>
-            <span class="text-sm text-gray-300">Reduced load times by <strong class="text-white">11%</strong></span>
-        </div>
-        <div class="flex items-start gap-2">
-            <i class="ph-fill ph-check-circle text-accent mt-0.5"></i>
-            <span class="text-sm text-gray-300">Automated <strong class="text-white">100%</strong> of manual email workflow</span>
-        </div>
-        <div class="flex items-start gap-2">
-            <i class="ph-fill ph-check-circle text-accent mt-0.5"></i>
-            <span class="text-sm text-gray-300">Improved overall engagement & retention</span>
-        </div>
-    </div>
-</div>
-
-<div class="relative pl-8 md:pl-10 group mt-12">
-    <!-- Timeline Dot -->
-    <div class="absolute w-3 h-3 bg-surfaceBorder group-hover:bg-accent transition-colors duration-300 rounded-full -left-[6.5px] top-2 border-2 border-dark"></div>
-    
-    <!-- Header Section -->
-    <!-- Header Section: Logo, Role, Company, and Date -->
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-        <div class="flex items-center gap-4">
-            <!-- Company Logo -->
-            <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center border border-surfaceBorder overflow-hidden shadow-lg">
-                <img src="assets/sigmasolve.jpg" alt="Sigma Solve Logo" class="w-full h-full object-contain p-1">
-            </div>
-            <div>
-                <h3 class="text-xl font-bold text-white">Python Developer</h3>
-                <span class="text-sm font-medium text-accent uppercase tracking-wider">Sigma Solve</span>
-            </div>
-        </div>
-        
-        <!-- Badges & Buttons Container -->
-        <div class="flex flex-wrap items-center gap-3">
-            <!-- Date Badge -->
-            <span class="text-xs font-semibold text-gray-400 tracking-widest uppercase bg-surface px-3 py-1.5 rounded-full border border-surfaceBorder w-fit">
-                Jul 2023 - Mar 2024
-            </span>
-            
-            <!-- Direct Download Button -->
-            <a href="assets/sigmasolve.pdf" download="Kshitij_SigmaSolve_Experience_Letter.pdf" class="flex items-center gap-1.5 text-xs font-medium text-accent hover:text-white bg-surface px-3 py-1.5 rounded-full border border-surfaceBorder hover:border-accent transition-colors shadow-sm">
-                <i class="ph-bold ph-download-simple"></i> Experience Letter
-            </a>
-        </div>
-    </div>
-    
-    <!-- Description -->
-    <div class="space-y-3 text-sm text-gray-400 leading-relaxed">
-        <p>Built an AI-powered automated website builder using Python, SQL, and AWS S3, enabling dynamic generation of static websites based on LLM-driven suggestions.</p>
-        <p>Developed backend services with Django and LangChain, and automated Excel sheet processing and analysis using Pandas.</p>
-        <p>Created interactive dashboards and product insight visualizations using Matplotlib to help users analyze website and product performance.</p>
-    </div>
-</div>
+                <!-- Sigma Solve Experience -->
+                <div class="relative pl-10 group">
+                    <div class="absolute w-4 h-4 bg-dark border-2 border-surfaceBorder group-hover:border-gray-400 transition-colors rounded-full -left-[9px] top-2"></div>
+                    
+                    <div class="bg-surface border border-surfaceBorder rounded-2xl p-8 shadow-md group-hover:border-gray-600 transition-colors">
+                        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-xl bg-white flex items-center justify-center p-2 shadow-inner">
+                                    <img src="assets/sigmasolve.jpg" alt="Sigma Solve Logo" class="w-full h-full object-contain">
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Python Developer</h3>
+                                    <p class="text-sm font-medium text-gray-400 tracking-wide mt-1">SIGMA SOLVE</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:items-end gap-2 text-left md:text-right">
+                                <span class="text-xs font-bold text-gray-400 tracking-widest uppercase bg-dark px-3 py-1.5 rounded-md border border-surfaceBorder">
+                                    Jul 2023 - Mar 2024
+                                </span>
+                                <a href="assets/sigmasolve.pdf" download="Kshitij_SigmaSolve_Experience.pdf" class="text-xs text-gray-400 hover:text-white flex items-center md:justify-end gap-1 mt-1 transition-colors">
+                                    <i class="ph-bold ph-download-simple"></i> Download Cert
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 text-sm text-gray-300 leading-relaxed">
+                            <p>Built an AI-powered automated website builder utilizing LLM-driven suggestions to dynamically generate code architectures. Integrated backend services deeply with Django, LangChain, and AWS S3.</p>
+                            <p>Automated massive Excel sheet processing workflows using Pandas, and built interactive data visualization dashboards via Matplotlib to help stakeholders analyze product health and website traffic performance.</p>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </section>
 
-        <!-- PHILOSOPHY / TESTIMONIAL -->
-        <section class="reveal bg-surface border border-surfaceBorder rounded-2xl p-10 md:p-16 text-center">
-            <i class="ph-fill ph-quotes text-4xl text-surfaceBorder mb-6 inline-block"></i>
-            <h2 class="text-2xl md:text-4xl font-medium text-white italic leading-tight max-w-3xl mx-auto">
-                "Good products are built by understanding users deeply and making decisions through data."
-            </h2>
-        </section>
-
-        <!-- CONTACT SECTION (Smart Routing & High-Visibility Info) -->
-<section id="contact" class="reveal max-w-2xl mx-auto text-center space-y-8">
-    <h2 class="text-3xl font-bold text-white tracking-tight">Let's Connect</h2>
-    <p class="text-gray-400">Currently open to Product Analyst and Data-driven Product Management roles. My inbox is always open.</p>
-    
-    <div class="bg-[#111] border border-surfaceBorder rounded-2xl p-8 md:p-12 shadow-sm text-center space-y-8 relative overflow-hidden">
-        
-        <!-- Subtle background glow -->
-        <div class="absolute -top-10 -right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <!-- Header Icon & Text -->
-        <div class="space-y-4 relative z-10">
-            <div class="w-16 h-16 bg-surface border border-surfaceBorder rounded-full flex items-center justify-center mx-auto shadow-inner">
-                <i class="ph-fill ph-paper-plane-tilt text-3xl text-accent"></i>
-            </div>
-            <h3 class="text-xl font-medium text-white">Get in Touch</h3>
-            <p class="text-sm text-gray-400 max-w-md mx-auto">
-                Whether you have a question, an opportunity, or just want to say hi, I'll try my best to get back to you!
-            </p>
-        </div>
-
-        <!-- HIGH VISIBILITY CONTACT CARDS -->
-        <div class="flex flex-col md:flex-row items-stretch justify-center gap-4 py-2 relative z-10">
+        <!-- CONTACT / CTA SECTION -->
+        <section id="contact" class="max-w-3xl mx-auto text-center space-y-8 pt-12 border-t border-surfaceBorder">
+            <h2 class="text-4xl font-black text-white tracking-tight">Ready to talk metrics?</h2>
+            <p class="text-gray-400 text-lg">Currently seeking Product Analyst and Data-Driven Product Management opportunities where analytical rigor dictates product direction.</p>
             
-            <!-- Email Card -->
-            <div class="flex items-center gap-4 bg-surface border border-surfaceBorder rounded-xl px-5 py-4 shadow-md hover:border-gray-500 hover:-translate-y-1 transition-all duration-300 w-full md:w-auto text-left">
-                <div class="p-2.5 bg-dark rounded-lg border border-surfaceBorder flex-shrink-0">
-                    <i class="ph-fill ph-envelope-simple text-accent text-lg"></i>
-                </div>
-                <div class="flex flex-col space-y-1">
-                    <span class="text-gray-300 hover:text-white transition-colors font-medium text-sm tracking-wide select-all">parikhkshitij1999@gmail.com</span>
-                    <span class="text-gray-300 hover:text-white transition-colors font-medium text-sm tracking-wide select-all">kshitijparikh1999@gmail.com</span>
-                </div>
-            </div>
-            
-            <!-- Phone Card -->
-            <div class="flex items-center gap-4 bg-surface border border-surfaceBorder rounded-xl px-5 py-4 shadow-md hover:border-gray-500 hover:-translate-y-1 transition-all duration-300 w-full md:w-auto text-left">
-                <div class="p-2.5 bg-dark rounded-lg border border-surfaceBorder flex-shrink-0">
-                    <i class="ph-fill ph-phone-call text-accent text-lg"></i>
-                </div>
-                <div class="flex flex-col justify-center">
-                    <span class="text-gray-300 hover:text-white transition-colors font-medium text-sm tracking-wide select-all">+91 6351839275</span>
-                    <span class="text-xs text-gray-500 font-medium tracking-wider uppercase mt-0.5">India (IST)</span>
-                </div>
-            </div>
-
-        </div>
-        
-        <!-- Action Buttons -->
-        <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4 border-t border-surfaceBorder/40 relative z-10">
-            <!-- Smart Email Button (JavaScript) -->
-               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parikhkshitij1999@gmail.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-white text-black font-semibold rounded-lg px-8 py-3 hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg">
-                    Say Hello
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
+                <a href="mailto:parikhkshitij1999@gmail.com" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-black px-8 py-4 rounded-lg font-bold hover:bg-gray-200 transition-all shadow-lg text-lg">
+                    <i class="ph-fill ph-paper-plane-tilt"></i> Send an Email
                 </a>
+                <a href="https://www.linkedin.com/in/kaspar1999" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center gap-2 border border-surfaceBorder bg-surface px-8 py-4 rounded-lg font-bold text-white hover:border-gray-500 transition-all text-lg">
+                    <i class="ph-fill ph-linkedin-logo text-accent"></i> Connect
+                </a>
+            </div>
             
-            <!-- LinkedIn Link -->
-            <a href="https://www.linkedin.com/in/kaspar1999" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto border border-surfaceBorder bg-surface text-white font-medium rounded-lg px-8 py-3 hover:bg-surfaceBorder transition-colors flex items-center justify-center gap-2">
-                <i class="ph-fill ph-linkedin-logo text-lg text-accent"></i> LinkedIn
-            </a>
-        </div>
-        
-    </div>
-</section>
+            <div class="mt-8 flex items-center justify-center gap-6 text-sm text-gray-500 font-medium">
+                <span class="flex items-center gap-2"><i class="ph-fill ph-envelope"></i> kshitijparikh1999@gmail.com</span>
+                <span class="hidden md:inline">•</span>
+                <span class="flex items-center gap-2"><i class="ph-fill ph-phone"></i> +91 6351839275</span>
+            </div>
+        </section>
 
     </main>
 
     <!-- FOOTER -->
-    <footer class="border-t border-surfaceBorder bg-dark py-8 mt-12">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-            <p>&copy; Kshitij Parikh. Product Analyst Portfolio.</p>
-            <div class="flex gap-4 mt-4 md:mt-0">
-                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-white transition-colors">Resume</a>
+    <footer class="border-t border-surfaceBorder bg-dark py-10 mt-12">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p class="font-medium tracking-wide">&copy; 2026 Kshitij Parikh. Product Analyst Portfolio.</p>
+            <div class="flex gap-6 mt-4 md:mt-0 font-medium">
+                <a href="https://www.linkedin.com/in/kaspar1999" target="_blank" class="hover:text-accent transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-accent transition-colors">Resume PDF</a>
             </div>
         </div>
     </footer>
-    
-    <!-- Scripts -->
-    <script src="script.js"></script>
+
 </body>
 </html>
